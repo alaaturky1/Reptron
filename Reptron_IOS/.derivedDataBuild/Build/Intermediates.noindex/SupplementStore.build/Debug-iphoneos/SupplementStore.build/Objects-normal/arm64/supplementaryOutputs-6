@@ -1,0 +1,58 @@
+{
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Layout/MainTabView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/MainTabView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/MainTabView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/MainTabView.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/MainTabView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/MainTabView.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Extensions/View+Extensions.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/View+Extensions.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/View+Extensions.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/View+Extensions.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/View+Extensions.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/View+Extensions.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Extensions/View+Navigation.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/View+Navigation.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/View+Navigation.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/View+Navigation.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/View+Navigation.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/View+Navigation.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/API/APIService.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/APIService.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/APIService.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/APIService.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/APIService.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/APIService.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/API/NetworkError.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NetworkError.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NetworkError.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NetworkError.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NetworkError.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NetworkError.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Auth/AuthService.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AuthService.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AuthService.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AuthService.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AuthService.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AuthService.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Auth/AuthSessionManager.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AuthSessionManager.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AuthSessionManager.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AuthSessionManager.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AuthSessionManager.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AuthSessionManager.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Utilities/NavigationCoordinator.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator.swiftdeps"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "source": "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/ProductCard.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "$%@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 49
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "View Details",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 74
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,16 @@
+{
+  "source": "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/AboutUs/AboutUsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "About Us",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 30
+        }
+      }
+    ]
+  },
+  "version": 1
+}

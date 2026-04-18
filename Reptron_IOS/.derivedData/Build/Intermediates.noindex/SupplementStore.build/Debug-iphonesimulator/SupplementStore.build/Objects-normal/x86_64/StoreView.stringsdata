@@ -1,0 +1,48 @@
+{
+  "source": "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Store/StoreView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Store section",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 86
+        }
+      },
+      {
+        "comment": "",
+        "key": "Store",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 73
+        }
+      },
+      {
+        "comment": "",
+        "key": "Supplements and gym equipment",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 77
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Products Available",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 125
+        }
+      },
+      {
+        "comment": "",
+        "key": "We're currently updating our inventory. Please check back soon!",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 135
+        }
+      }
+    ]
+  },
+  "version": 1
+}

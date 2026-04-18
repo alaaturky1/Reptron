@@ -1,0 +1,24 @@
+{
+  "source": "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Layout/FooterView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "© 2026 Supplement Store",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 120
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 144
+        }
+      }
+    ]
+  },
+  "version": 1
+}

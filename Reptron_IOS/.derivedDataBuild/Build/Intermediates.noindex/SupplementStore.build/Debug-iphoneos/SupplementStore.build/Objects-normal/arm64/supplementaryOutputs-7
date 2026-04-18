@@ -1,0 +1,58 @@
+{
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Models/Fitness/WorkoutFitnessModels.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/API/Backend/APIEndpoints.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/APIEndpoints.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/APIEndpoints.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/APIEndpoints.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/APIEndpoints.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/APIEndpoints.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Fitness/AIFitnessAPIService.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Fitness/SampleBufferJPEGExporter.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Fitness/WorkoutAnalysisMode.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Utilities/NavigationPath.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationPath.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationPath.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationPath.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationPath.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationPath.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Utilities/NavigationRouter.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationRouter.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationRouter.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationRouter.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationRouter.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/NavigationRouter.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Utilities/ProtectedRoute.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/ProtectedRoute.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/ProtectedRoute.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/ProtectedRoute.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/ProtectedRoute.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedDataBuild/Build/Intermediates.noindex/SupplementStore.build/Debug-iphoneos/SupplementStore.build/Objects-normal/arm64/ProtectedRoute.swiftdeps"
+  }
+}

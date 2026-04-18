@@ -1,0 +1,679 @@
+{
+  "" : {
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStore-primary.dia",
+    "emit-module-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStore-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStore-primary-emit-module.dia",
+    "pch" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStore-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStore-primary.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/App/ContentView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/App/ProfileView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProfileView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProfileView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProfileView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProfileView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProfileView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProfileView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProfileView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProfileView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/App/SupplementStoreApp.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStoreApp.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStoreApp.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStoreApp.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStoreApp.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStoreApp.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStoreApp.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStoreApp.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SupplementStoreApp~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/App/User.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/User.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/User.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/User.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/User.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/User.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/User.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/User.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/User~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/BlogCard.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BlogCard.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BlogCard.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BlogCard.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BlogCard.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BlogCard.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BlogCard.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BlogCard.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BlogCard~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/CategoryButton.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CategoryButton.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CategoryButton.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CategoryButton.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CategoryButton.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CategoryButton.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CategoryButton.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CategoryButton.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CategoryButton~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/FeatureCard.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FeatureCard.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FeatureCard.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FeatureCard.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FeatureCard.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FeatureCard.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FeatureCard.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FeatureCard.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FeatureCard~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/ProductCard.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductCard.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductCard.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductCard.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductCard.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductCard.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductCard.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductCard.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductCard~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/ScrollToTopButton.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ScrollToTopButton.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ScrollToTopButton.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ScrollToTopButton.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ScrollToTopButton.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ScrollToTopButton.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ScrollToTopButton.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ScrollToTopButton.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ScrollToTopButton~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/SearchBar.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SearchBar.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SearchBar.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SearchBar.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SearchBar.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SearchBar.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SearchBar.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SearchBar.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SearchBar~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/TestimonialCard.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/TestimonialCard.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/TestimonialCard.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/TestimonialCard.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/TestimonialCard.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/TestimonialCard.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/TestimonialCard.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/TestimonialCard.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/TestimonialCard~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/WorkoutCard.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutCard.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutCard.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutCard.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutCard.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutCard.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutCard.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutCard.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutCard~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Layout/FooterView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FooterView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FooterView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FooterView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FooterView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FooterView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FooterView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FooterView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/FooterView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Layout/LayoutView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LayoutView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LayoutView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LayoutView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LayoutView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LayoutView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LayoutView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LayoutView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LayoutView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Layout/MainTabView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MainTabView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MainTabView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MainTabView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MainTabView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MainTabView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MainTabView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MainTabView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MainTabView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Extensions/View+Extensions.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Extensions.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Extensions.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Extensions.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Extensions.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Extensions.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Extensions.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Extensions.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Extensions~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Extensions/View+Navigation.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Navigation.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Navigation.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Navigation.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Navigation.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Navigation.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Navigation.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Navigation.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/View+Navigation~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Models/BillingInfo.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BillingInfo.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BillingInfo.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BillingInfo.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BillingInfo.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BillingInfo.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BillingInfo.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BillingInfo.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/BillingInfo~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Models/CartItem.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartItem.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartItem.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartItem.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartItem.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartItem.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartItem.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartItem.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartItem~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Models/Coach.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Coach.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Coach.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Coach.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Coach.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Coach.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Coach.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Coach.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Coach~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Models/Equipment.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Equipment.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Equipment.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Equipment.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Equipment.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Equipment.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Equipment.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Equipment.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Equipment~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Models/Fitness/WorkoutFitnessModels.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFitnessModels~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Models/HomeProduct.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeProduct.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeProduct.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeProduct.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeProduct.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeProduct.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeProduct.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeProduct.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeProduct~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Models/Product.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Product.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Product.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Product.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Product.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Product.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Product.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Product.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Product~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Models/Purchase.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Purchase.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Purchase.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Purchase.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Purchase.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Purchase.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Purchase.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Purchase.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/Purchase~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/API/APIService.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIService.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIService.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIService.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIService.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIService.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIService.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIService.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIService~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/API/Backend/APIEndpoints.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIEndpoints.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIEndpoints.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIEndpoints.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIEndpoints.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIEndpoints.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIEndpoints.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIEndpoints.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/APIEndpoints~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/API/NetworkError.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NetworkError.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NetworkError.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NetworkError.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NetworkError.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NetworkError.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NetworkError.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NetworkError.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NetworkError~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Auth/AuthService.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AuthService.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AuthService.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AuthService.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AuthService.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AuthService.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AuthService.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AuthService.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AuthService~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Fitness/AIFitnessAPIService.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessAPIService~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Fitness/SampleBufferJPEGExporter.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/SampleBufferJPEGExporter~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Fitness/WorkoutAnalysisMode.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisMode~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Fitness/WorkoutAnalysisSampleBufferSink.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisSampleBufferSink.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisSampleBufferSink.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisSampleBufferSink.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisSampleBufferSink.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisSampleBufferSink.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisSampleBufferSink.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisSampleBufferSink.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisSampleBufferSink~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Fitness/WorkoutHistoryStore.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryStore.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryStore.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryStore.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryStore.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryStore.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryStore.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryStore.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryStore~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Utilities/NavigationCoordinator.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationCoordinator~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Utilities/NavigationPath.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationPath.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationPath.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationPath.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationPath.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationPath.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationPath.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationPath.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationPath~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Utilities/NavigationRouter.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationRouter.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationRouter.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationRouter.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationRouter.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationRouter.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationRouter.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationRouter.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NavigationRouter~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Utilities/ProtectedRoute.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProtectedRoute.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProtectedRoute.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProtectedRoute.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProtectedRoute.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProtectedRoute.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProtectedRoute.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProtectedRoute.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProtectedRoute~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/ViewModels/CartViewModel.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartViewModel.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartViewModel.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartViewModel.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartViewModel.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartViewModel.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartViewModel.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartViewModel.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartViewModel~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/ViewModels/CoachesViewModel.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesViewModel.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesViewModel.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesViewModel.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesViewModel.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesViewModel.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesViewModel.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesViewModel.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesViewModel~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/ViewModels/EquipmentsViewModel.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsViewModel.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsViewModel.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsViewModel.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsViewModel.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsViewModel.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsViewModel.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsViewModel.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsViewModel~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/ViewModels/PurchaseViewModel.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/PurchaseViewModel.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/PurchaseViewModel.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/PurchaseViewModel.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/PurchaseViewModel.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/PurchaseViewModel.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/PurchaseViewModel.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/PurchaseViewModel.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/PurchaseViewModel~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/ViewModels/StoreViewModel.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreViewModel.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreViewModel.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreViewModel.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreViewModel.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreViewModel.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreViewModel.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreViewModel.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreViewModel~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/ViewModels/UserViewModel.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/UserViewModel.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/UserViewModel.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/UserViewModel.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/UserViewModel.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/UserViewModel.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/UserViewModel.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/UserViewModel.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/UserViewModel~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/ViewModels/WorkoutAnalysisHub.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisHub.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisHub.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisHub.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisHub.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisHub.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisHub.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisHub.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutAnalysisHub~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/ViewModels/WorkoutFlowViewModel.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFlowViewModel.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFlowViewModel.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFlowViewModel.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFlowViewModel.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFlowViewModel.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFlowViewModel.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFlowViewModel.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutFlowViewModel~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/AboutUs/AboutUsView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AboutUsView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AboutUsView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AboutUsView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AboutUsView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AboutUsView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AboutUsView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AboutUsView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AboutUsView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Auth/LoginView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LoginView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LoginView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LoginView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LoginView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LoginView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LoginView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LoginView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/LoginView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Auth/RegisterView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RegisterView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RegisterView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RegisterView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RegisterView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RegisterView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RegisterView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RegisterView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RegisterView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Cart/CartView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CartView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Checkout/CheckoutView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CheckoutView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CheckoutView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CheckoutView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CheckoutView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CheckoutView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CheckoutView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CheckoutView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CheckoutView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Coaches/CoachDetailsView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachDetailsView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachDetailsView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachDetailsView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachDetailsView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachDetailsView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachDetailsView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachDetailsView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachDetailsView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Coaches/CoachesProfilesView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesProfilesView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesProfilesView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesProfilesView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesProfilesView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesProfilesView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesProfilesView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesProfilesView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesProfilesView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Coaches/CoachesView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/CoachesView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Equipments/EquipmentsDetailsView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsDetailsView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsDetailsView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsDetailsView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsDetailsView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsDetailsView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsDetailsView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsDetailsView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsDetailsView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Equipments/EquipmentsView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/EquipmentsView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Fitness/AIFitnessCoachRootView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessCoachRootView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessCoachRootView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessCoachRootView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessCoachRootView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessCoachRootView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessCoachRootView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessCoachRootView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/AIFitnessCoachRootView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Fitness/WorkoutHistoryListView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryListView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryListView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryListView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryListView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryListView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryListView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryListView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutHistoryListView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Fitness/WorkoutResultView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutResultView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutResultView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutResultView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutResultView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutResultView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutResultView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutResultView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutResultView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Home/HomeView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/HomeView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Home/WorkoutProgramDetailsView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutProgramDetailsView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutProgramDetailsView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutProgramDetailsView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutProgramDetailsView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutProgramDetailsView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutProgramDetailsView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutProgramDetailsView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/WorkoutProgramDetailsView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/MyPurchases/MyPurchasesView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MyPurchasesView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MyPurchasesView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MyPurchasesView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MyPurchasesView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MyPurchasesView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MyPurchasesView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MyPurchasesView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/MyPurchasesView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/NotFound/NotFoundView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NotFoundView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NotFoundView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NotFoundView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NotFoundView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NotFoundView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NotFoundView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NotFoundView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/NotFoundView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Store/ProductDetailsView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductDetailsView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductDetailsView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductDetailsView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductDetailsView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductDetailsView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductDetailsView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductDetailsView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/ProductDetailsView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Store/RootView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RootView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RootView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RootView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RootView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RootView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RootView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RootView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/RootView~partial.swiftmodule"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Store/StoreView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreView.dia",
+    "index-unit-output-path" : "/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreView.o",
+    "llvm-bc" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreView.bc",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreView.swiftdeps",
+    "swiftmodule" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/arm64/StoreView~partial.swiftmodule"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "source": "/Users/alaaturk/Documents/ios-app/SupplementStore/App/ProfileView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Manage your account, orders, and payments in one place.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 76
+        }
+      },
+      {
+        "comment": "",
+        "key": "Profile",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 65
+        }
+      },
+      {
+        "comment": "",
+        "key": "ACTIVE",
+        "location": {
+          "startingColumn": 49,
+          "startingLine": 68
+        }
+      },
+      {
+        "comment": "",
+        "key": "GUEST",
+        "location": {
+          "startingColumn": 60,
+          "startingLine": 68
+        }
+      },
+      {
+        "comment": "",
+        "key": "Logged In",
+        "location": {
+          "startingColumn": 53,
+          "startingLine": 96
+        }
+      },
+      {
+        "comment": "",
+        "key": "Guest",
+        "location": {
+          "startingColumn": 67,
+          "startingLine": 96
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done Editing",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 103
+        }
+      },
+      {
+        "comment": "",
+        "key": "Edit Profile",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 103
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%.2f",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 158
+        }
+      },
+      {
+        "comment": "",
+        "key": "Order #%lld",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 171
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%.2f",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 199
+        }
+      },
+      {
+        "comment": "",
+        "key": "View Full Purchase History",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 229
+        }
+      },
+      {
+        "comment": "",
+        "key": "Logout",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 237
+        }
+      },
+      {
+        "comment": "",
+        "key": "Go to Login",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 242
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enter %@",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 292
+        }
+      }
+    ]
+  },
+  "version": 1
+}

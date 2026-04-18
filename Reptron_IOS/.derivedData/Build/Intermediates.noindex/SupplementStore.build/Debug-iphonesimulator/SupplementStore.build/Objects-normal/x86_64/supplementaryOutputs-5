@@ -1,0 +1,58 @@
+{
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/FeatureCard.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/FeatureCard.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/FeatureCard.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/FeatureCard.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/FeatureCard.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/FeatureCard.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/ProductCard.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/ProductCard.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/ProductCard.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/ProductCard.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/ProductCard.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/ProductCard.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/ScrollToTopButton.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/ScrollToTopButton.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/ScrollToTopButton.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/ScrollToTopButton.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/ScrollToTopButton.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/ScrollToTopButton.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/SearchBar.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/SearchBar.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/SearchBar.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/SearchBar.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/SearchBar.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/SearchBar.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/TestimonialCard.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/TestimonialCard.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/TestimonialCard.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/TestimonialCard.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/TestimonialCard.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/TestimonialCard.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Common/WorkoutCard.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutCard.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutCard.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutCard.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutCard.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutCard.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Layout/FooterView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/FooterView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/FooterView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/FooterView.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/FooterView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/FooterView.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Layout/LayoutView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/LayoutView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/LayoutView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/LayoutView.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/LayoutView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/LayoutView.swiftdeps"
+  }
+}

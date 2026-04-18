@@ -1,0 +1,48 @@
+{
+  "source": "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Fitness/WorkoutHistoryListView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "History",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 49
+        }
+      },
+      {
+        "comment": "",
+        "key": "No sessions yet",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 18
+        }
+      },
+      {
+        "comment": "",
+        "key": "Finish a workout to build your history.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 21
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld reps",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "Score %lld",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 38
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,16 @@
+{
+  "source": "/Users/alaaturk/Documents/ios-app/SupplementStore/Components/Layout/LayoutView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Content",
+        "location": {
+          "startingColumn": 1,
+          "startingLine": 75
+        }
+      }
+    ]
+  },
+  "version": 1
+}

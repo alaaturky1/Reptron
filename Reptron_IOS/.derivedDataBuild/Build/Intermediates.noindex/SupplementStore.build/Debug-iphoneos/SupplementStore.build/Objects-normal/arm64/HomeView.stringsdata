@@ -1,0 +1,72 @@
+{
+  "source": "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Home/HomeView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "LEVEL UP YOUR ",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 155
+        }
+      },
+      {
+        "comment": "",
+        "key": "FITNESS",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 164
+        }
+      },
+      {
+        "comment": "",
+        "key": "Premium supplements, elite equipment, and expert workout programs.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 174
+        }
+      },
+      {
+        "comment": "",
+        "key": "Best Sellers",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 264
+        }
+      },
+      {
+        "comment": "",
+        "key": "🏋️",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 291
+        }
+      },
+      {
+        "comment": "",
+        "key": "Elite Workout Programs",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 293
+        }
+      },
+      {
+        "comment": "",
+        "key": "📝",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 331
+        }
+      },
+      {
+        "comment": "",
+        "key": "Latest Articles",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 333
+        }
+      }
+    ]
+  },
+  "version": 1
+}

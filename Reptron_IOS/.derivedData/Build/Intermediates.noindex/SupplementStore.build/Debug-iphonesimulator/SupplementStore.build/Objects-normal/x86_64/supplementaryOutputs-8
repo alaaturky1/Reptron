@@ -1,0 +1,58 @@
+{
+  "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/GeneratedAssetSymbols.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/GeneratedAssetSymbols.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Fitness/WorkoutAnalysisSampleBufferSink.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutAnalysisSampleBufferSink.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutAnalysisSampleBufferSink.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutAnalysisSampleBufferSink.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutAnalysisSampleBufferSink.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutAnalysisSampleBufferSink.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Services/Fitness/WorkoutHistoryStore.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutHistoryStore.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutHistoryStore.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutHistoryStore.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutHistoryStore.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutHistoryStore.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/ViewModels/WorkoutAnalysisHub.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutAnalysisHub.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutAnalysisHub.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutAnalysisHub.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutAnalysisHub.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutAnalysisHub.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/ViewModels/WorkoutFlowViewModel.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutFlowViewModel.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutFlowViewModel.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutFlowViewModel.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutFlowViewModel.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutFlowViewModel.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Fitness/AIFitnessCoachRootView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/AIFitnessCoachRootView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/AIFitnessCoachRootView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/AIFitnessCoachRootView.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/AIFitnessCoachRootView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/AIFitnessCoachRootView.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Fitness/WorkoutHistoryListView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutHistoryListView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutHistoryListView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutHistoryListView.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutHistoryListView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutHistoryListView.swiftdeps"
+  },
+  "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Fitness/WorkoutResultView.swift" : {
+    "const-values" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutResultView.swiftconstvalues",
+    "dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutResultView.d",
+    "diagnostics" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutResultView.dia",
+    "object" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutResultView.o",
+    "swift-dependencies" : "/Users/alaaturk/Documents/ios-app/.derivedData/Build/Intermediates.noindex/SupplementStore.build/Debug-iphonesimulator/SupplementStore.build/Objects-normal/x86_64/WorkoutResultView.swiftdeps"
+  }
+}

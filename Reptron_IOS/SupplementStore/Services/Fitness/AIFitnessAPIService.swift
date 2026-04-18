@@ -1,0 +1,129 @@
+//
+//  AIFitnessAPIService.swift
+//  SupplementStore
+//
+
+import Foundation
+
+enum AIFitnessAPIError: LocalizedError {
+    case invalidURL
+    case emptyResponse
+    case serverError(Int, String?)
+    case decoding(Error)
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidURL: return "Invalid fitness API URL."
+        case .emptyResponse: return "Empty response from fitness API."
+        case .serverError(let code, let msg): return msg ?? "Server error (\(code))."
+        case .decoding(let e): return e.localizedDescription
+        }
+    }
+}
+
+/// Typed facade over the FitnessCoach backend (`APIEndpoints.AI`).
+final class AIFitnessAPIService {
+    static let shared = AIFitnessAPIService()
+
+    private let session: URLSession
+    private let decoder: JSONDecoder
+    private let encoder: JSONEncoder
+    private let isoFormatter: ISO8601DateFormatter
+
+    private init() {
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = 45
+        config.timeoutIntervalForResource = 120
+        session = URLSession(configuration: config)
+        decoder = JSONDecoder()
+        encoder = JSONEncoder()
+        isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+    }
+
+    private func baseString() -> String {
+        APIEndpoints.baseURL.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+    }
+
+    private func makeRequest(path: String, method: String, body: Data?) throws -> URLRequest {
+        let trimmed = path.hasPrefix("/") ? path : "/" + path
+        guard let url = URL(string: baseString() + trimmed) else { throw AIFitnessAPIError.invalidURL }
+        var req = URLRequest(url: url)
+        req.httpMethod = method
+        req.setValue("application/json", forHTTPHeaderField: "Accept")
+        if method != "GET" {
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        if let token = UserDefaults.standard.string(forKey: "userToken"), !token.isEmpty {
+            req.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        req.httpBody = body
+        return req
+    }
+
+    // MARK: - FitnessCoach session API
+
+    func startCoachSession() async throws -> String {
+        let body = Data("{}".utf8)
+        let req = try makeRequest(path: APIEndpoints.AI.startSession, method: "POST", body: body)
+        let (respData, response) = try await session.data(for: req)
+        try throwIfNeeded(response, data: respData)
+        guard !respData.isEmpty else { throw AIFitnessAPIError.emptyResponse }
+        let parsed = try decoder.decode(FitnessCoachStartSessionResponse.self, from: respData)
+        guard let sid = parsed.resolvedSessionId else { throw AIFitnessAPIError.decoding(
+            NSError(domain: "FitnessCoach", code: -1, userInfo: [NSLocalizedDescriptionKey: "Missing session id in response"])
+        ) }
+        return sid
+    }
+
+    func analyzeFrame(sessionId: String, frameBase64: String, mimeType: String = "image/jpeg") async throws -> WorkoutAnalyzeResponse {
+        let payload = FitnessCoachAnalyzeFrameRequest(
+            sessionId: sessionId,
+            frameBase64: frameBase64,
+            mimeType: mimeType,
+            timestamp: Date().timeIntervalSince1970
+        )
+        let data = try encoder.encode(payload)
+        let req = try makeRequest(path: APIEndpoints.AI.analyzeFrame, method: "POST", body: data)
+        let (respData, response) = try await session.data(for: req)
+        try throwIfNeeded(response, data: respData)
+        guard !respData.isEmpty else { throw AIFitnessAPIError.emptyResponse }
+        do {
+            return try decoder.decode(WorkoutAnalyzeResponse.self, from: respData)
+        } catch {
+            throw AIFitnessAPIError.decoding(error)
+        }
+    }
+
+    /// Ends the coach session on the server. Returns optional coaching text when the API includes it.
+    func endCoachSession(sessionId: String, reps: Int, score: Int, mistakes: [String]) async throws -> String? {
+        let payload = FitnessCoachEndSessionRequest(sessionId: sessionId, reps: reps, score: score, mistakes: mistakes)
+        let data = try encoder.encode(payload)
+        let req = try makeRequest(path: APIEndpoints.AI.endSession, method: "POST", body: data)
+        let (respData, response) = try await session.data(for: req)
+        try throwIfNeeded(response, data: respData)
+        guard !respData.isEmpty else { return nil }
+        if let parsed = try? decoder.decode(FitnessCoachEndSessionResponse.self, from: respData) {
+            return parsed.resolvedFeedback
+        }
+        return nil
+    }
+
+    func fetchSessionSummary(sessionId: String) async throws -> FitnessCoachSessionSummaryDTO {
+        let req = try makeRequest(path: APIEndpoints.AI.sessionSummary(sessionId), method: "GET", body: nil)
+        let (respData, response) = try await session.data(for: req)
+        try throwIfNeeded(response, data: respData)
+        guard !respData.isEmpty else { throw AIFitnessAPIError.emptyResponse }
+        return try decoder.decode(FitnessCoachSessionSummaryDTO.self, from: respData)
+    }
+
+    // MARK: - Helpers
+
+    private func throwIfNeeded(_ response: URLResponse, data: Data) throws {
+        guard let http = response as? HTTPURLResponse else { return }
+        guard (200 ... 299).contains(http.statusCode) else {
+            let msg = String(data: data, encoding: .utf8)
+            throw AIFitnessAPIError.serverError(http.statusCode, msg)
+        }
+    }
+}

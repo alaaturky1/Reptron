@@ -1,0 +1,40 @@
+{
+  "source": "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/NotFound/NotFoundView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "404",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Page Not Found",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "The page you're looking for doesn't exist.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "Go Home",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 60
+        }
+      }
+    ]
+  },
+  "version": 1
+}

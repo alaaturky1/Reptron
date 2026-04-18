@@ -1,0 +1,24 @@
+{
+  "source": "/Users/alaaturk/Documents/ios-app/SupplementStore/Views/Coaches/CoachDetailsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Contact Information",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 69
+        }
+      },
+      {
+        "comment": "",
+        "key": "View Full Profile",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 87
+        }
+      }
+    ]
+  },
+  "version": 1
+}
