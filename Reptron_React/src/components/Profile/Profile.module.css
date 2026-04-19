@@ -1,0 +1,602 @@
+.profilePage {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem 0;
+}
+
+.profilePage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 50%),radial-gradient(circle at 40% 40%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
+}
+
+.glowEffect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.3) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+.subtitle {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.profileCard {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.profileImageWrapper {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 229, 255, 0.4);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.7);
+    flex-shrink: 0;
+}
+
+.profileImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profileImagePlaceholder {
+    color: #00e5ff;
+    font-size: 2rem;
+}
+
+.profileInfo {
+    flex: 1;
+}
+
+.profileName {
+    color: #f8fafc;
+    margin: 0;
+}
+
+.profileEmail {
+    color: #cbd5e1;
+    margin-top: 0.35rem;
+    margin-bottom: 0.7rem;
+}
+
+.editProfileButton,
+.profileActionButton {
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    background: rgba(0, 229, 255, 0.1);
+    color: #00e5ff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.profileActions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.profileInput {
+    width: 100%;
+    max-width: 360px;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    border-radius: 10px;
+    background: rgba(15, 23, 42, 0.8);
+    color: #f8fafc;
+    margin-bottom: 0.6rem;
+}
+
+.passwordSection {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.25);
+    width: 100%;
+    max-width: 420px;
+}
+
+.passwordToggleButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    background: rgba(0, 229, 255, 0.1);
+    color: #00e5ff;
+    padding: 0.5rem 0.95rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.passwordToggleButton .fa-chevron-down,
+.passwordToggleButton .fa-chevron-up {
+    margin-left: 0.25rem;
+    font-size: 0.75rem;
+    opacity: 0.85;
+}
+
+.passwordForm {
+    margin-top: 1rem;
+    padding-top: 0.25rem;
+}
+
+.passwordFormActions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.passwordCancel {
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    background: rgba(15, 23, 42, 0.6);
+    color: #cbd5e1;
+    padding: 0.45rem 0.9rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.passwordSectionTitle {
+    color: #00e5ff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.passwordHint {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    margin-bottom: 0.65rem;
+    line-height: 1.4;
+}
+
+.passwordDisabledNote {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+
+.passwordField {
+    margin-bottom: 0.55rem;
+}
+
+.passwordLabel {
+    display: block;
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.passwordInput {
+    width: 100%;
+    max-width: 360px;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    border-radius: 10px;
+    background: rgba(15, 23, 42, 0.8);
+    color: #f8fafc;
+    font-size: 0.95rem;
+}
+
+.passwordInput:focus {
+    outline: none;
+    border-color: rgba(0, 229, 255, 0.5);
+}
+
+.passwordError {
+    color: #f87171;
+    font-size: 0.75rem;
+    margin-top: 0.2rem;
+}
+
+.passwordSubmit {
+    margin-top: 0;
+    border: 1px solid rgba(0, 229, 255, 0.5);
+    background: rgba(0, 229, 255, 0.15);
+    color: #00e5ff;
+    padding: 0.45rem 0.9rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.passwordSubmit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.orderCard {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),0 0 100px rgba(0, 229, 255, 0.1),inset 0 0 20px rgba(0, 229, 255, 0.05);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.orderCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4, #0097a7);
+}
+
+.orderCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),0 0 120px rgba(0, 229, 255, 0.15);
+}
+
+.orderHeader {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+    background: rgba(15, 23, 42, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.orderInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.orderDate {
+    color: #cbd5e1;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.orderDate i {
+    color: #00e5ff;
+}
+
+.orderTotal {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: #0de40d;
+}
+
+.orderId {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 0.25rem;
+}
+
+.orderBody {
+    padding: 1.5rem;
+}
+
+.orderItems {
+    margin-top: 1rem;
+}
+
+.orderItem {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    transition: all 0.3s ease;
+}
+
+.orderItem:hover {
+    background: rgba(15, 23, 42, 0.7);
+    border-color: rgba(0, 229, 255, 0.2);
+}
+
+.itemImage {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 229, 255, 0.3);
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.itemDetails {
+    flex: 1;
+}
+
+.itemName {
+    font-weight: 600;
+    color: #f8fafc;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.itemPrice {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.itemQuantity {
+    color: #00e5ff;
+    font-weight: 600;
+    background: rgba(0, 229, 255, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.itemTotal {
+    text-align: right;
+    min-width: 120px;
+}
+
+.itemTotalAmount {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0de40d;
+}
+
+.itemTotalLabel {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.shippingInfo {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.shippingTitle {
+    color: #00e5ff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.shippingDetails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.shippingField {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+.shippingField strong {
+    color: #00e5ff;
+    margin-right: 0.5rem;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),0 0 100px rgba(0, 229, 255, 0.1),inset 0 0 20px rgba(0, 229, 255, 0.05);
+    position: relative;
+    z-index: 1;
+}
+
+.emptyState::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4, #0097a7);
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+}
+
+.emptyTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.emptyText {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shopButton {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    border: none;
+    border-radius: 12px;
+    color: #0f172a;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+.shopButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.4);
+    color: #0f172a;
+    text-decoration: none;
+}
+
+.shopButton:active {
+    transform: translateY(0);
+}
+
+.shopButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.shopButton:hover::before {
+    left: 100%;
+}
+
+.shopButton i {
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .profileCard {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profileInfo {
+        width: 100%;
+    }
+
+    .profileActions {
+        justify-content: center;
+    }
+
+    .passwordSection {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .orderHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .orderTotal {
+        align-self: flex-end;
+    }
+    
+    .orderItem {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .itemImage {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .itemTotal {
+        text-align: center;
+        margin-top: 1rem;
+    }
+    
+    .shippingDetails {
+        grid-template-columns: 1fr;
+    }
+    
+    .title {
+        font-size: 2.2rem;
+    }
+}

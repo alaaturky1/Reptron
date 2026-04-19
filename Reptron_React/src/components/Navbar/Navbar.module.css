@@ -1,0 +1,588 @@
+.navbarCustom {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 0.65rem 0;
+    border-bottom: 3px solid #00e5ff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Full-width bar with asymmetric padding: logo closer to left edge, actions closer to right */
+.navContainer {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(0.35rem, 1.2vw, 0.75rem);
+    padding-right: clamp(0.75rem, 2vw, 1.75rem);
+}
+
+@media (min-width: 992px) {
+    .navbarCollapse {
+        flex-grow: 1;
+        min-width: 0;
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .navCenterList {
+        flex: 1 1 auto;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        min-width: 0;
+        margin-bottom: 0 !important;
+    }
+
+    .navCenterList .nav-item {
+        flex-shrink: 0;
+    }
+
+    .authSectionEnd {
+        flex-shrink: 0;
+        margin-left: 0.25rem !important;
+        padding-right: clamp(0.35rem, 1.2vw, 1.1rem);
+    }
+}
+
+.brand {
+    color: #ffffff !important;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+@media (min-width: 992px) {
+    .brand {
+        margin-left: -0.35rem;
+        margin-right: 0.35rem;
+        padding-right: 0.25rem;
+        font-size: 1.65rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .brand {
+        font-size: 1.75rem;
+    }
+}
+
+.brand:hover {
+    color: #00e5ff !important;
+    transform: translateY(-2px);
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+}
+
+.brand i {
+    color: #00e5ff;
+}
+
+.navbarToggler {
+    border: 2px solid #00e5ff;
+    padding: 0.5rem 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.togglerIcon {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background-color: #00e5ff;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.togglerIcon::before,
+.togglerIcon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #00e5ff;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.togglerIcon::before {
+    transform: translateY(-8px);
+}
+
+.togglerIcon::after {
+    transform: translateY(8px);
+}
+
+.navLink {
+    color: #ffffff !important;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem !important;
+    margin: 0 0.25rem;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@media (min-width: 992px) {
+    .navLink {
+        padding: 0.55rem 0.7rem !important;
+        margin: 0 0.08rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navLink {
+        padding: 0.55rem 0.95rem !important;
+        margin: 0 0.12rem;
+    }
+}
+
+.navLink::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.navLink:hover::before {
+    left: 100%;
+}
+
+.navLink:hover {
+    background-color: rgba(0, 229, 255, 0.1);
+    color: #00e5ff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+}
+
+.navLink:focus {
+    outline: 2px solid #00e5ff;
+    outline-offset: 2px;
+    background-color: rgba(0, 229, 255, 0.15);
+}
+
+.navLink.active {
+    background: linear-gradient(135deg, #00e5ff 0%, #00b8d4 100%);
+    color: #1a1a2e !important;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+}
+
+.navLink.active:hover {
+    background: linear-gradient(135deg, #00b8d4 0%, #0091a8 100%);
+    color: #1a1a2e !important;
+}
+
+.authLink {
+    color: #00e5ff !important;
+    padding: 0.75rem 1.5rem !important;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.authLink:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 215, 0, 0.1);
+    border-color: #00e5ff;
+    transform: translateY(-2px);
+}
+
+.authLink:focus {
+    outline: 2px solid #00e5ff;
+    outline-offset: 2px;
+}
+
+.activeAuth {
+    background-color: rgba(0, 251, 255, 0.288);
+    border-color: #00e5ff;
+    color: #ffffff !important;
+}
+
+.loginCreative {
+    background: linear-gradient(135deg, #00e5ff 0%, #66eefd 100%);
+    color: #1a1a2e !important;
+    padding: 0.75rem 2rem !important;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+}
+
+.loginInner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.loginCreative::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.loginCreative:hover::before {
+    left: 100%;
+}
+
+.loginCreative:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px #01e6ff7e;
+    color: #1a1a2e !important;
+}
+
+.registerCreative {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff3838 100%);
+    color: white !important;
+    padding: 0.75rem 2rem !important;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+}
+
+.registerInner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.registerCreative::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.registerCreative:hover::before {
+    left: 100%;
+}
+
+.registerCreative:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+    color: white !important;
+}
+
+.iconContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.purchaseIcon {
+    background: linear-gradient(135deg, #00e5ff 0%, #00b8d4 100%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a2e !important;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.purchaseIcon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.purchaseIcon:hover::before {
+    left: 100%;
+}
+
+.purchaseIcon:hover {
+    transform: translateY(-3px) rotate(10deg);
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.4);
+    color: #1a1a2e !important;
+}
+
+.cartIcon {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white !important;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cartIcon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.cartIcon:hover::before {
+    left: 100%;
+}
+
+.cartIcon:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+    color: white !important;
+}
+
+.logoutCreative {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white !important;
+    padding: 0.75rem 2rem !important;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.logoutInner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.logoutCreative::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.logoutCreative:hover::before {
+    left: 100%;
+}
+
+.logoutCreative:hover {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+    color: white !important;
+}
+
+.purchaseBadge,
+.cartBadge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f1f1 100%);
+    color: #1a1a2e;
+    font-size: 0.7rem;
+    font-weight: bold;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #00e5ff;
+    animation: pulse 2s infinite;
+}
+
+.cartBadge {
+    border: 2px solid #ff6b6b;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.authSection {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .authSection .navbar-nav {
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbarCustom {
+        padding: 0.75rem 0;
+    }
+    .navbar-nav.mx-auto {
+        width: 100%;
+        text-align: center;
+    }
+    .navLink {
+        display: inline-block;
+        margin: 0.5rem;
+        padding: 0.75rem 1.25rem !important;
+    }
+    .d-none.d-lg-inline {
+        display: none !important;
+    }
+    .authSection {
+        width: 100%;
+        justify-content: center;
+    }
+    .navbar-nav.flex-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .loginCreative,
+    .registerCreative,
+    .logoutCreative {
+        padding: 0.6rem 1.5rem !important;
+        margin: 0.25rem;
+        font-size: 0.95rem;
+    }
+    .purchaseIcon,
+    .cartIcon {
+        width: 45px;
+        height: 45px;
+        margin: 0.25rem;
+    }
+    
+    .loginInner,
+    .registerInner,
+    .logoutInner {
+        gap: 0.5rem;
+    }
+}
+@media (max-width: 767.98px) {
+    .brand {
+        font-size: 1.5rem;
+    }
+    
+    .navLink {
+        padding: 0.6rem 1rem !important;
+        font-size: 0.95rem;
+        margin: 0.25rem;
+    }
+    
+    .loginCreative,
+    .registerCreative,
+    .logoutCreative {
+        padding: 0.5rem 1.25rem !important;
+        font-size: 0.9rem;
+        border-radius: 20px;
+    }
+    
+    .purchaseIcon,
+    .cartIcon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    .purchaseBadge,
+    .cartBadge {
+        font-size: 0.65rem;
+        min-width: 18px;
+        height: 18px;
+        top: -3px;
+        right: -3px;
+    }
+    
+    .ms-2.ms-lg-3 {
+        margin-left: 0.5rem !important;
+    }
+    
+    .mx-2.mx-lg-3 {
+        margin-left: 0.5rem !important;
+        margin-right: 0.5rem !important;
+    }
+}
+@media (max-width: 575.98px) {
+    .brand {
+        font-size: 1.3rem;
+    }
+    
+    .brand i {
+        margin-right: 0.5rem;
+    }
+    
+    .navLink {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.9rem;
+        margin: 0.2rem;
+    }
+    
+    .loginCreative,
+    .registerCreative,
+    .logoutCreative {
+        padding: 0.4rem 1rem !important;
+        font-size: 0.85rem;
+        border-radius: 18px;
+        margin: 0.15rem;
+    }
+    
+    .purchaseIcon,
+    .cartIcon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        margin: 0.15rem;
+    }
+    
+    .loginInner,
+    .registerInner,
+    .logoutInner {
+        gap: 0.4rem;
+    }
+    
+    .loginText,
+    .registerText,
+    .logoutText {
+        font-size: 0.85rem;
+    }
+    
+    .navContainer {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}

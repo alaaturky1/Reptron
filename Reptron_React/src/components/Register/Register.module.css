@@ -1,0 +1,271 @@
+.registerContainer {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.registerContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 50%),radial-gradient(circle at 40% 40%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
+}
+
+.glowEffect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.3) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+}
+
+.card {
+    position: relative;
+    z-index: 1;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),0 0 100px rgba(0, 229, 255, 0.1),inset 0 0 20px rgba(0, 229, 255, 0.05);
+    overflow: hidden;
+    max-width: 440px;
+    width: 100%;
+    padding: 2.5rem;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4, #0097a7);
+}
+
+.logoContainer {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logoIcon {
+    font-size: 3.5rem;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: #cbd5e1;
+    font-size: 1rem;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+.formGroup {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.inputContainer {
+    position: relative;
+}
+
+.inputField {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background: rgba(15, 23, 42, 0.7);
+    border: 2px solid rgba(148, 163, 184, 0.3);
+    border-radius: 12px;
+    color: #f8fafc;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.inputField:focus {
+    outline: none;
+    border-color: #00e5ff;
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.2);
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.inputField::placeholder {
+    color: #94a3b8;
+}
+
+.icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    transition: color 0.3s ease;
+    z-index: 2;
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.inputField:focus + .icon {
+    color: #00e5ff;
+}
+
+.inputField:focus + .icon + .inputLabel,
+.inputField:not(:placeholder-shown) + .icon + .inputLabel {
+    transform: translateY(-1.75rem) scale(0.85);
+    color: #00e5ff;
+    background: rgba(30, 41, 59, 0.9);
+}
+
+.togglePassword {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.togglePassword:hover {
+    color: #00e5ff;
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.errorIcon {
+    font-size: 0.875rem;
+}
+
+.submitButton {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    border: none;
+    border-radius: 12px;
+    color: #0f172a;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: inherit;
+}
+
+.submitButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.4);
+}
+
+.submitButton:active {
+    transform: translateY(0);
+}
+
+.submitButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.submitButton:hover::before {
+    left: 100%;
+}
+
+.buttonIcon {
+    margin-right: 0.5rem;
+}
+
+.loginLink {
+    text-align: center;
+    margin-top: 2rem;
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.loginLink a {
+    color: #00e5ff;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.loginLink a:hover {
+    text-decoration: underline;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading {
+    animation: spin 1s linear infinite;
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin: 1rem;
+        padding: 2rem !important;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .logoIcon {
+        font-size: 2.8rem;
+    }
+}

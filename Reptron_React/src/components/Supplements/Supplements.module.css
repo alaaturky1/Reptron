@@ -1,0 +1,301 @@
+.supplementsContainer {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem 0;
+}
+
+.supplementsContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 50%),radial-gradient(circle at 40% 40%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
+}
+
+.glowEffect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.3) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.title:hover {
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+}
+
+.subtitle {
+    color: #cbd5e1;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.productsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.productCard {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),0 0 100px rgba(0, 229, 255, 0.1),inset 0 0 20px rgba(0, 229, 255, 0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.productCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4, #0097a7);
+}
+
+.productCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),0 0 120px rgba(0, 229, 255, 0.15);
+}
+
+.productImageContainer {
+    padding: 1.5rem;
+    background: rgba(15, 23, 42, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+}
+
+.productImage {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid rgba(0, 229, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.productCard:hover .productImage {
+    transform: scale(1.05);
+    border-color: rgba(0, 229, 255, 0.6);
+}
+
+.productInfo {
+    padding: 1.5rem;
+}
+
+.productName {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 1rem;
+    text-align: center;
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.priceContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.currentPrice {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: #0de40d;
+}
+
+.oldPrice {
+    font-size: 1.2rem;
+    color: #eb0f0f;
+    text-decoration: line-through;
+}
+
+.discountBadge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    color: #0f172a;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 2;
+}
+
+.detailsButton {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    border: none;
+    border-radius: 12px;
+    color: #0f172a;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.detailsButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.4);
+    color: #0f172a;
+}
+
+.detailsButton:active {
+    transform: translateY(0);
+}
+
+.detailsButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.detailsButton:hover::before {
+    left: 100%;
+}
+
+.detailsButton i {
+    font-size: 1.2rem;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),0 0 100px rgba(0, 229, 255, 0.1),inset 0 0 20px rgba(0, 229, 255, 0.05);
+    position: relative;
+    z-index: 1;
+    grid-column: 1 / -1;
+}
+
+.emptyState::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4, #0097a7);
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+}
+
+.emptyTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.emptyText {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .productsGrid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .title {
+        font-size: 2.2rem;
+    }
+    
+    .productImageContainer {
+        min-height: 200px;
+    }
+    
+    .productImage {
+        height: 160px;
+    }
+}
+
+@media (max-width: 576px) {
+    .productsGrid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,318 @@
+.aboutContainer {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem 0;
+}
+
+.aboutContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 50%),radial-gradient(circle at 40% 40%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
+}
+
+.glowEffect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.3) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    color: #cbd5e1;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),0 0 100px rgba(0, 229, 255, 0.1),inset 0 0 20px rgba(0, 229, 255, 0.05);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4, #0097a7);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),0 0 120px rgba(0, 229, 255, 0.15);
+}
+
+.cardBody {
+    padding: 2rem;
+}
+
+.cardTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.cardTitle i {
+    font-size: 1.5rem;
+}
+
+.cardText {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(0, 229, 255, 0.1);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 12px;
+    color: #00e5ff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.backButton:hover {
+    background: rgba(0, 229, 255, 0.2);
+    transform: translateY(-2px);
+    color: #00e5ff;
+    text-decoration: none;
+}
+
+.backButton i {
+    font-size: 1rem;
+}
+
+.featureList {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+}
+
+.featureItem {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.featureItem:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #00e5ff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.valuesList {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+}
+
+.valueItem {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.valueItem:before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #00e5ff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.valueStrong {
+    color: #00e5ff;
+    font-weight: 600;
+}
+
+.teamGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.teamMember {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.teamMember:hover {
+    background: rgba(15, 23, 42, 0.7);
+    transform: translateY(-5px);
+    border-color: rgba(0, 229, 255, 0.4);
+}
+
+.memberImage {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(0, 229, 255, 0.3);
+    margin: 0 auto 1.5rem;
+    display: block;
+}
+
+.memberName {
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.memberRole {
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.contactInfo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contactItem {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.contactTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.contactText {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .fullWidth {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.2rem;
+    }
+    
+    .cardBody {
+        padding: 1.5rem;
+    }
+    
+    .cardTitle {
+        font-size: 1.5rem;
+    }
+    
+    .teamGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contactInfo {
+        grid-template-columns: 1fr;
+    }
+}

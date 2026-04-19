@@ -1,0 +1,442 @@
+.coachDetailsContainer {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem 0;
+}
+
+.coachDetailsContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 50%),radial-gradient(circle at 40% 40%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
+}
+
+.glowEffect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.3) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(0, 229, 255, 0.1);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 12px;
+    color: #00e5ff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.backButton:hover {
+    background: rgba(0, 229, 255, 0.2);
+    transform: translateY(-2px);
+    color: #00e5ff;
+    text-decoration: none;
+}
+
+.backButton i {
+    font-size: 1rem;
+}
+
+.coachGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 992px) {
+    .coachGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.profileCard {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),0 0 100px rgba(0, 229, 255, 0.1),inset 0 0 20px rgba(0, 229, 255, 0.05);
+    overflow: hidden;
+    position: relative;
+}
+
+.profileCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4, #0097a7);
+}
+
+.profileContent {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.coachHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.coachImageContainer {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid rgba(0, 229, 255, 0.3);
+    overflow: hidden;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.coachImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.coachInfo {
+    flex: 1;
+}
+
+.specialtyBadge {
+    display: inline-block;
+    background: linear-gradient(90deg, #e5ff00, #d4d400);
+    color: #0f172a;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.coachName {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.25rem;
+}
+
+.coachTitle {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.coachBio {
+    color: #cbd5e1;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.contactInfo {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: #cbd5e1;
+}
+
+.contactItem i {
+    color: #00e5ff;
+    font-size: 1.1rem;
+    width: 24px;
+}
+
+.bookingCard {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),0 0 100px rgba(0, 229, 255, 0.1),inset 0 0 20px rgba(0, 229, 255, 0.05);
+    overflow: hidden;
+    position: relative;
+}
+
+.bookingCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4, #0097a7);
+}
+
+.bookingContent {
+    padding: 2rem;
+}
+
+.bookingTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+}
+
+.formGroup {
+    margin-bottom: 1.5rem;
+}
+
+.formLabel {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #cbd5e1;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.formInput, .formSelect {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid rgba(148, 163, 184, 0.3);
+    border-radius: 12px;
+    color: #f8fafc;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.formInput:focus, .formSelect:focus {
+    outline: none;
+    border-color: #00e5ff;
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.2);
+    background: rgba(15, 23, 42, 0.95);
+}
+
+.formInput::placeholder, .formSelect::placeholder {
+    color: #64748b;
+}
+
+.availabilitySection {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.availabilityTitle {
+    color: #00e5ff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.availabilityList {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.availabilityItem {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.availabilityItem:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #00e5ff;
+    font-weight: bold;
+}
+
+.submitButton {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    border: none;
+    border-radius: 14px;
+    color: #0f172a;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    font-family: inherit;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.submitButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.4);
+}
+
+.submitButton:active {
+    transform: translateY(0);
+}
+
+.submitButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.submitButton:hover::before {
+    left: 100%;
+}
+
+.submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.notFound {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),0 0 100px rgba(0, 229, 255, 0.1),inset 0 0 20px rgba(0, 229, 255, 0.05);
+    position: relative;
+    z-index: 1;
+    margin: 2rem 0;
+}
+
+.notFound::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4, #0097a7);
+}
+
+.notFoundIcon {
+    font-size: 4rem;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+}
+
+.notFoundTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.notFoundText {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.notFoundButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    border: none;
+    border-radius: 12px;
+    color: #0f172a;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.notFoundButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.4);
+    color: #0f172a;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .coachGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .coachHeader {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .coachImageContainer {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+    }
+    
+    .statsSection {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .bookingTitle {
+        font-size: 1.5rem;
+    }
+}

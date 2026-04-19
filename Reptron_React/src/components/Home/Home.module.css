@@ -1,0 +1,521 @@
+.storeContainer {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem;
+}
+
+.storeContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
+}
+
+.glowEffect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.3) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.heroSection {
+    text-align: center;
+    padding: 4rem 1rem;
+    margin-bottom: 3rem;
+    background: rgba(15, 23, 42, 0.3);
+    border-radius: 24px;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.heroSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4, #0097a7);
+}
+
+.heroTitle {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ffffff, #cbd5e1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.heroHighlight {
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.heroSubtitle {
+    color: #cbd5e1;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    opacity: 0.9;
+}
+
+.searchContainer {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.searchInputGroup {
+    display: flex;
+    align-items: center;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 12px;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.searchInputGroup:focus-within {
+    border-color: #00e5ff;
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.2);
+}
+
+.searchIcon {
+    padding: 0 1rem;
+    color: #00e5ff;
+    font-size: 1.2rem;
+}
+
+.searchInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #f8fafc;
+    font-size: 1rem;
+    padding: 1rem 0;
+    outline: none;
+}
+
+.searchInput::placeholder {
+    color: #64748b;
+}
+
+.categoryButtons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.categoryButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(0, 229, 255, 0.1);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 12px;
+    color: #00e5ff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.categoryButton:hover {
+    background: rgba(0, 229, 255, 0.2);
+    transform: translateY(-2px);
+    border-color: rgba(0, 229, 255, 0.5);
+}
+
+.categoryButtonActive {
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    color: #0f172a;
+    border-color: transparent;
+}
+
+.categoryIcon {
+    font-size: 1rem;
+}
+
+.featuresSection {
+    margin-bottom: 4rem;
+}
+
+.featureCard {
+    padding: 2rem;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.featureCard:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 229, 255, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.featureIcon {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+.featureTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 0.5rem;
+}
+
+.featureDesc {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+.sectionTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.productsSection,
+.workoutSection,
+.blogSection {
+    margin-bottom: 4rem;
+}
+
+.productCard,
+.workoutCard,
+.blogCard {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+}
+
+.productCard::before,
+.workoutCard::before,
+.blogCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4, #0097a7);
+}
+
+.productCard:hover,
+.workoutCard:hover,
+.blogCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 229, 255, 0.4);
+}
+
+.productImageContainer,
+.workoutImageContainer,
+.blogImageContainer {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.productImage,
+.workoutImage,
+.blogImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.productCard:hover .productImage,
+.workoutCard:hover .workoutImage,
+.blogCard:hover .blogImage {
+    transform: scale(1.05);
+}
+
+.saleBadge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(90deg, #d22008, #bb0202);
+    color: #ffffff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    z-index: 1;
+}
+
+.productBody,
+.workoutBody,
+.blogBody {
+    padding: 1.5rem;
+}
+
+.productName,
+.workoutTitle,
+.blogTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.productDescription,
+.workoutDesc {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.blogDate {
+    color: #64748b;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.productRating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.stars {
+    color: #ffd700;
+    font-size: 1rem;
+}
+
+.halfStar {
+    color: #64748b;
+}
+
+.ratingNumber {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.productPrice {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.currentPrice {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: #0de40d;
+}
+
+.originalPrice {
+    font-size: 1rem;
+    color: #eb0f0f;
+    text-decoration: line-through;
+}
+
+.addToCartButton {
+    width: 100%;
+    padding: 0.875rem;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    border: none;
+    border-radius: 10px;
+    color: #0f172a;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+}
+
+.productCard:hover .addToCartButton {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.addToCartButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
+}
+
+.testimonialSection {
+    margin-bottom: 4rem;
+}
+
+.testimonialCard {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonialCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4, #0097a7);
+}
+
+.testimonialContent {
+    text-align: center;
+}
+
+.testimonialImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid rgba(0, 229, 255, 0.3);
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+}
+
+.testimonialQuote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonialName {
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00e5ff, #00bcd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.testimonialRole {
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 2.5rem;
+    }
+    
+    .sectionTitle {
+        font-size: 1.8rem;
+    }
+    
+    .categoryButtons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .categoryButton {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .searchContainer {
+        width: 100%;
+    }
+    
+    .productCard,
+    .workoutCard,
+    .blogCard {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .heroTitle {
+        font-size: 2rem;
+    }
+    
+    .heroSection {
+        padding: 2rem 1rem;
+    }
+    
+    .sectionTitle {
+        font-size: 1.5rem;
+    }
+    
+    .testimonialCard {
+        padding: 2rem 1rem;
+    }
+    
+    .featureCard {
+        padding: 1.5rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .content {
+        padding: 0 2rem;
+    }
+}
