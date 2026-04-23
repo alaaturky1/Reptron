@@ -4,7 +4,6 @@
 //
 //  Created on [Date]
 //
-//  Main app entry point matching React App.jsx structure
 //
 
 import SwiftUI
@@ -38,7 +37,6 @@ struct SupplementStoreApp: App {
 //  SupplementStore
 //
 //  Main app view that handles navigation and layout
-//  Matches React Router structure with Layout wrapper
 //
 
 struct MainAppView: View {

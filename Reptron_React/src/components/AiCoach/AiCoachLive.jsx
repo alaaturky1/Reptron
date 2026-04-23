@@ -17,20 +17,24 @@ export default function AiCoachLive() {
   const inFlightRef = useRef(false);
   const lastSentRef = useRef(0);
   const pollTimerRef = useRef(null);
+  const poseAnalyzerRef = useRef(null);
   const leftVoluntarilyRef = useRef(false);
   const sessionIdRef = useRef(null);
   const maxRepsRef = useRef(0);
   const mistakesRef = useRef([]);
 
   const [cameraError, setCameraError] = useState(null);
+  const [poseError, setPoseError] = useState(null);
   const [cameraRetryKey, setCameraRetryKey] = useState(0);
   const [tabHidden, setTabHidden] = useState(typeof document !== "undefined" && document.hidden);
 
   const {
     sessionId,
+    selectedExercise,
     maxReps,
     movementState,
     latestErrors,
+    mistakes,
     analysisError,
     setAnalysisError,
     applyAnalyzeResponse,
@@ -126,11 +130,15 @@ export default function AiCoachLive() {
       lastSentRef.current = now;
 
       try {
+        const frame = poseAnalyzerRef.current
+          ? await poseAnalyzerRef.current.buildFrame(video, now, selectedExercise)
+          : null;
         const res = await fitnessApi.analyzeFrame({
           sessionId,
           frameBase64: base64,
-          mimeType: "image/jpeg",
           timestamp: now,
+          frame,
+          exercise: selectedExercise,
         });
         applyAnalyzeResponse(res.reps, res.state, res.errors);
       } catch (e) {
@@ -149,6 +157,40 @@ export default function AiCoachLive() {
       }
     };
   }, [sessionId, cameraError, tabHidden, applyAnalyzeResponse, setAnalysisError]);
+
+  useEffect(() => {
+    if (!sessionId) return;
+    let cancelled = false;
+
+    async function initPoseAnalyzer() {
+      setPoseError(null);
+      try {
+        const poseModule = await import("../../features/aiCoach/posePayload.js");
+        if (cancelled) return;
+        const createPoseAnalyzer = poseModule?.createPoseAnalyzer;
+        if (typeof createPoseAnalyzer !== "function") {
+          throw new Error("pose_analyzer_missing");
+        }
+        const analyzer = await createPoseAnalyzer();
+        if (cancelled) {
+          analyzer.dispose();
+          return;
+        }
+        poseAnalyzerRef.current = analyzer;
+      } catch {
+        setPoseError("Pose estimation unavailable. Falling back to image-only analysis.");
+      }
+    }
+
+    initPoseAnalyzer();
+    return () => {
+      cancelled = true;
+      if (poseAnalyzerRef.current) {
+        poseAnalyzerRef.current.dispose();
+        poseAnalyzerRef.current = null;
+      }
+    };
+  }, [sessionId]);
 
   useEffect(() => {
     function fireKeepalive() {
@@ -195,7 +237,7 @@ export default function AiCoachLive() {
           </button>
           <div className={t.hudPanel} style={{ flex: 1, maxWidth: "72%" }}>
             <div className={t.hudReps}>{maxReps}</div>
-            <div className={t.hudState}>Reps · max</div>
+            <div className={t.hudState}>Reps · max · {selectedExercise}</div>
             <div className={t.hudState} style={{ marginTop: "0.35rem", color: "#e2e8f0" }}>
               State: {normalizedState}
             </div>
@@ -238,6 +280,7 @@ export default function AiCoachLive() {
           ) : null}
 
           {analysisError ? <div className={t.networkWarn}>{analysisError}</div> : null}
+          {poseError ? <div className={t.networkWarn}>{poseError}</div> : null}
           {tabHidden ? (
             <div className={t.networkWarn} style={{ marginTop: "0.5rem" }}>
               Tab in background — analysis paused.

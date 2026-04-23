@@ -49,7 +49,12 @@ final class WorkoutAnalysisSampleBufferSink: NSObject, AVCaptureVideoDataOutputS
                     self.stateLock.unlock()
                     return
                 }
-                let res = try await AIFitnessAPIService.shared.analyzeFrame(sessionId: sessionId, frameBase64: b64)
+                let exercise = await MainActor.run { WorkoutAnalysisHub.shared.selectedExercise }
+                let res = try await AIFitnessAPIService.shared.analyzeFrame(
+                    sessionId: sessionId,
+                    frameBase64: b64,
+                    exercise: exercise
+                )
                 await MainActor.run {
                     WorkoutAnalysisHub.shared.applyAnalyzeResponse(res)
                 }

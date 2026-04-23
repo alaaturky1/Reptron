@@ -15,6 +15,7 @@ final class WorkoutAnalysisHub: ObservableObject {
     @Published private(set) var detectedErrors: [String] = []
     @Published private(set) var lastAnalyzeError: String?
     @Published private(set) var isAnalyzing: Bool = false
+    @Published var selectedExercise: String = "squat"
     /// Set after `POST /api/FitnessCoach/start-session`; required for `analyze-frame`.
     @Published private(set) var activeCoachSessionId: String?
 

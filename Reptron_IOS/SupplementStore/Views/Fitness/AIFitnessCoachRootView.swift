@@ -86,6 +86,8 @@ private struct AIFitnessCoachHomeView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var authSession: AuthSessionManager
     @EnvironmentObject var workoutHistory: WorkoutHistoryStore
+    @ObservedObject private var hub = WorkoutAnalysisHub.shared
+    private let exercises = ["squat", "pushup", "plank"]
 
     var body: some View {
         ScrollView {
@@ -110,6 +112,8 @@ private struct AIFitnessCoachHomeView: View {
                 .buttonStyle(.bordered)
                 .tint(AppTheme.cyan.opacity(0.9))
 
+                exercisePickerSection
+
                 lastWorkoutSection
             }
             .padding(.horizontal, 20)
@@ -118,6 +122,29 @@ private struct AIFitnessCoachHomeView: View {
         }
         .task {
             await workoutHistory.mergeFromServer()
+        }
+    }
+
+    private var exercisePickerSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Choose exercise")
+                .font(.headline)
+                .foregroundStyle(.white)
+            HStack(spacing: 10) {
+                ForEach(exercises, id: \.self) { ex in
+                    let active = hub.selectedExercise == ex
+                    Button {
+                        hub.selectedExercise = ex
+                    } label: {
+                        Text(ex.capitalized)
+                            .font(.subheadline.weight(.semibold))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 10)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(active ? AppTheme.cyan : Color.white.opacity(0.2))
+                }
+            }
         }
     }
 
@@ -161,6 +188,9 @@ private struct AIFitnessCoachHomeView: View {
                     }
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.white.opacity(0.9))
+                    Text(last.exercise.capitalized)
+                        .font(.caption)
+                        .foregroundStyle(.cyan.opacity(0.9))
 
                     Text(last.date.formatted(date: .abbreviated, time: .shortened))
                         .font(.caption)
@@ -229,6 +259,7 @@ struct WorkoutActiveSessionView: View {
             HStack(spacing: 10) {
                 repChip
                 stateChip
+                exerciseChip
                 Spacer(minLength: 0)
             }
             if !hub.detectedErrors.isEmpty {
@@ -265,6 +296,21 @@ struct WorkoutActiveSessionView: View {
                 .font(.caption2.weight(.semibold))
                 .foregroundStyle(.white.opacity(0.85))
             Text(hub.movementState)
+                .font(.caption.bold())
+                .foregroundStyle(.white)
+                .lineLimit(1)
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 6)
+        .background(.black.opacity(0.5), in: Capsule())
+    }
+
+    private var exerciseChip: some View {
+        HStack(spacing: 6) {
+            Text("Exercise")
+                .font(.caption2.weight(.semibold))
+                .foregroundStyle(.white.opacity(0.85))
+            Text(hub.selectedExercise.capitalized)
                 .font(.caption.bold())
                 .foregroundStyle(.white)
                 .lineLimit(1)

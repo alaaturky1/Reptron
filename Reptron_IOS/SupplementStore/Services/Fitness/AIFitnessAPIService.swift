@@ -24,6 +24,7 @@ enum AIFitnessAPIError: LocalizedError {
 /// Typed facade over the FitnessCoach backend (`APIEndpoints.AI`).
 final class AIFitnessAPIService {
     static let shared = AIFitnessAPIService()
+    private static let apiKey: String? = nil
 
     private let session: URLSession
     private let decoder: JSONDecoder
@@ -57,14 +58,18 @@ final class AIFitnessAPIService {
         if let token = UserDefaults.standard.string(forKey: "userToken"), !token.isEmpty {
             req.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
+        if let apiKey = Self.apiKey, !apiKey.isEmpty {
+            req.setValue(apiKey, forHTTPHeaderField: "X-API-Key")
+        }
         req.httpBody = body
         return req
     }
 
     // MARK: - FitnessCoach session API
 
-    func startCoachSession() async throws -> String {
-        let body = Data("{}".utf8)
+    func startCoachSession(language: String = "en", level: String = "beginner") async throws -> String {
+        let payload = ["language": language, "level": level]
+        let body = try JSONSerialization.data(withJSONObject: payload)
         let req = try makeRequest(path: APIEndpoints.AI.startSession, method: "POST", body: body)
         let (respData, response) = try await session.data(for: req)
         try throwIfNeeded(response, data: respData)
@@ -76,12 +81,14 @@ final class AIFitnessAPIService {
         return sid
     }
 
-    func analyzeFrame(sessionId: String, frameBase64: String, mimeType: String = "image/jpeg") async throws -> WorkoutAnalyzeResponse {
+    func analyzeFrame(sessionId: String, frameBase64: String, exercise: String = "squat") async throws -> WorkoutAnalyzeResponse {
         let payload = FitnessCoachAnalyzeFrameRequest(
-            sessionId: sessionId,
-            frameBase64: frameBase64,
-            mimeType: mimeType,
-            timestamp: Date().timeIntervalSince1970
+            session_id: sessionId,
+            frame: FitnessCoachFramePayload(
+                exercise: exercise,
+                timestamp: Date().timeIntervalSince1970,
+                image_b64: frameBase64
+            )
         )
         let data = try encoder.encode(payload)
         let req = try makeRequest(path: APIEndpoints.AI.analyzeFrame, method: "POST", body: data)
@@ -97,7 +104,7 @@ final class AIFitnessAPIService {
 
     /// Ends the coach session on the server. Returns optional coaching text when the API includes it.
     func endCoachSession(sessionId: String, reps: Int, score: Int, mistakes: [String]) async throws -> String? {
-        let payload = FitnessCoachEndSessionRequest(sessionId: sessionId, reps: reps, score: score, mistakes: mistakes)
+        let payload = FitnessCoachEndSessionRequest(session_id: sessionId)
         let data = try encoder.encode(payload)
         let req = try makeRequest(path: APIEndpoints.AI.endSession, method: "POST", body: data)
         let (respData, response) = try await session.data(for: req)

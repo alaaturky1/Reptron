@@ -314,6 +314,43 @@
   color: var(--ai-cyan);
 }
 
+.exerciseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.exerciseCard {
+  border: 1px solid var(--ai-border);
+  background: rgba(15, 23, 42, 0.75);
+  color: var(--ai-text);
+  border-radius: 0.85rem;
+  min-height: 4.25rem;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.exerciseCard:hover {
+  transform: translateY(-1px);
+  background: rgba(30, 41, 59, 0.9);
+}
+
+.exerciseCardActive {
+  background: var(--ai-cyan-dim);
+  border-color: rgba(34, 211, 238, 0.6);
+  color: var(--ai-cyan);
+}
+
+.exerciseCard i {
+  font-size: 1rem;
+}
+
 .emptyIllustration {
   font-size: 3rem;
   opacity: 0.35;

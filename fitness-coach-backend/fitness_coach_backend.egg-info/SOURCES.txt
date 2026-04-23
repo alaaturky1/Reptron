@@ -5,6 +5,8 @@ app/main.py
 app/analysis/__init__.py
 app/analysis/engine.py
 app/analysis/pose.py
+app/analysis/smoothing.py
+app/analysis/visibility.py
 app/analysis/exercises/__init__.py
 app/analysis/exercises/base.py
 app/analysis/exercises/plank.py
@@ -13,10 +15,14 @@ app/analysis/exercises/squat.py
 app/api/__init__.py
 app/api/rest.py
 app/api/ws.py
+app/core/auth.py
+app/core/config.py
 app/core/geometry.py
+app/core/logging.py
 app/core/models.py
 app/feedback/__init__.py
 app/feedback/generator.py
+app/feedback/policy.py
 app/storage/__init__.py
 app/storage/inmemory.py
 fitness_coach_backend.egg-info/PKG-INFO
@@ -24,6 +30,10 @@ fitness_coach_backend.egg-info/SOURCES.txt
 fitness_coach_backend.egg-info/dependency_links.txt
 fitness_coach_backend.egg-info/requires.txt
 fitness_coach_backend.egg-info/top_level.txt
+tests/test_edge_cases_and_false_positives.py
+tests/test_form_detection_with_joints.py
 tests/test_geometry.py
 tests/test_pushup_rep_counting.py
+tests/test_rep_scoring_and_issues.py
+tests/test_robustness_controls.py
 tests/test_squat_rep_counting.py

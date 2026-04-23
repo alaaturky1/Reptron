@@ -36,6 +36,8 @@ fun AiCoachCameraScreen(
     viewModel: AiCoachViewModel,
     exerciseName: String
 ) {
+    var selectedExercise by remember { mutableStateOf(exerciseName.lowercase()) }
+
     val context = LocalContext.current
 
     // حالة للتحقق من صلاحية الكاميرا
@@ -65,7 +67,7 @@ fun AiCoachCameraScreen(
 
     // لو معانا الصلاحية، نفتح الكاميرا
     if (hasCameraPermission) {
-        CameraPreviewContent(viewModel, exerciseName)
+        CameraPreviewContent(viewModel, selectedExercise) { selectedExercise = it }
     } else {
         // لو مفيش صلاحية نعرض رسالة لليوزر
         Box(
@@ -91,7 +93,8 @@ fun AiCoachCameraScreen(
 @Composable
 fun CameraPreviewContent(
     viewModel: AiCoachViewModel,
-    exerciseName: String
+    exerciseName: String,
+    onExerciseChange: (String) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val context = LocalContext.current
@@ -157,6 +160,14 @@ fun CameraPreviewContent(
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                listOf("squat", "pushup", "plank").forEach { ex ->
+                    Button(onClick = { onExerciseChange(ex) }) {
+                        Text(ex.uppercase())
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(10.dp))
             Text(
                 text = "Exercise: ${exerciseName.uppercase()}",
                 color = Color.Cyan,
@@ -165,15 +176,15 @@ fun CameraPreviewContent(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "Reps: ${uiState?.reps_count ?: 0}",
+                text = "Reps: ${uiState?.normalizedReps ?: 0}",
                 color = Color.White,
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = uiState?.feedback ?: "Positioning...",
-                color = if (uiState?.status == "success") Color.Green else Color.Yellow,
+                text = uiState?.normalizedFeedback ?: "Positioning...",
+                color = if (uiState?.normalizedStatus == "ok") Color.Green else Color.Yellow,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.SemiBold
             )

@@ -5,9 +5,15 @@ import { getDisplayName, useAiCoach } from "../../context/aiCoachContext.jsx";
 import { loadSessions } from "../../features/aiCoach/sessionStorage.js";
 import t from "./aiCoachTheme.module.css";
 
+const EXERCISE_OPTIONS = [
+  { id: "squat", label: "Squat", icon: "fa-person-skiing" },
+  { id: "pushup", label: "Push-up", icon: "fa-dumbbell" },
+  { id: "plank", label: "Plank", icon: "fa-stopwatch" },
+];
+
 export default function AiCoachHome() {
   const navigate = useNavigate();
-  const { startWorkout, isStarting, analysisError, setAnalysisError } = useAiCoach();
+  const { startWorkout, isStarting, analysisError, setAnalysisError, selectedExercise, setSelectedExercise } = useAiCoach();
 
   const greeting = useMemo(() => {
     const name = getDisplayName();
@@ -22,7 +28,7 @@ export default function AiCoachHome() {
   async function onStart() {
     setAnalysisError(null);
     try {
-      await startWorkout();
+      await startWorkout({ exercise: selectedExercise });
     } catch {
       toast.error("Could not start session.");
     }
@@ -64,6 +70,29 @@ export default function AiCoachHome() {
             No workouts yet — start your first session to see stats here.
           </p>
         )}
+      </div>
+
+      <div className={`${t.glass} p-3 mb-4`}>
+        <h2 className="h6 text-uppercase mb-3" style={{ color: "var(--ai-muted)", letterSpacing: "0.08em" }}>
+          Choose exercise
+        </h2>
+        <div className={t.exerciseGrid}>
+          {EXERCISE_OPTIONS.map((opt) => {
+            const active = selectedExercise === opt.id;
+            return (
+              <button
+                key={opt.id}
+                type="button"
+                className={`${t.exerciseCard} ${active ? t.exerciseCardActive : ""}`}
+                onClick={() => setSelectedExercise(opt.id)}
+                aria-pressed={active}
+              >
+                <i className={`fas ${opt.icon}`} />
+                <span>{opt.label}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       <div className={t.stack}>

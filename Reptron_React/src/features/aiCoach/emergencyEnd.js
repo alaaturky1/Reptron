@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "../../config/env.js";
+import { AI_API_BASE_URL, AI_API_KEY, AI_API_PREFIX } from "../../config/env.js";
 import { AUTH_TOKEN_KEY } from "../../api/httpClient.js";
 
 /**
@@ -9,17 +9,19 @@ export function endSessionKeepalive({ sessionId, reps, score, mistakes }) {
   if (!sessionId) return;
   try {
     const token = localStorage.getItem(AUTH_TOKEN_KEY);
-    fetch(`${API_BASE_URL}/api/FitnessCoach/end-session`, {
+    const prefix = AI_API_PREFIX || "";
+    fetch(`${AI_API_BASE_URL}${prefix}/end-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        ...(AI_API_KEY ? { "X-API-Key": AI_API_KEY } : {}),
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
       },
       body: JSON.stringify({
-        sessionId,
-        reps: Math.max(0, Number(reps) || 0),
-        score,
-        mistakes: Array.isArray(mistakes) ? mistakes : [],
+        session_id: String(sessionId),
+        reps: Math.max(0, Number(reps) || 0), // ignored by current backend, kept for forward compatibility
+        score, // ignored by current backend, kept for forward compatibility
+        mistakes: Array.isArray(mistakes) ? mistakes : [], // ignored by current backend
       }),
       keepalive: true,
     }).catch(() => {});

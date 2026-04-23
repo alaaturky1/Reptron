@@ -53,6 +53,7 @@ final class WorkoutFlowViewModel: ObservableObject {
         let mistakes = hub.detectedErrors
         let score = max(0, min(100, 100 - mistakes.count * 10))
         let serverSid = hub.activeCoachSessionId
+        let exercise = hub.selectedExercise
 
         let feedbackText: String
         if let sid = serverSid {
@@ -70,6 +71,7 @@ final class WorkoutFlowViewModel: ObservableObject {
         let record = WorkoutSessionRecord(
             id: UUID(),
             serverSessionId: serverSid,
+            exercise: exercise,
             date: Date(),
             reps: reps,
             score: score,

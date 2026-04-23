@@ -53,7 +53,7 @@ fun MainApp() {
     val aiCoachViewModel: AiCoachViewModel = viewModel(
         factory = object : ViewModelProvider.Factory {
             override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
-                return AiCoachViewModel(APIClient.api) as T
+                return AiCoachViewModel(APIClient.fitnessApi) as T
             }
         }
     )

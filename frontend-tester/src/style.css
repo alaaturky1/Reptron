@@ -1,0 +1,103 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height: 1.4;
+}
+
+body {
+  margin: 0;
+  background: #0f1115;
+  color: #e8e8e8;
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  margin: 0 0 12px;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: #171b22;
+  border: 1px solid #2a3040;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  color: #b9c0cf;
+  margin: 8px 0 4px;
+}
+
+input, select, textarea, button {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #354059;
+  background: #11151d;
+  color: #f6f7fb;
+  padding: 9px 10px;
+  font: inherit;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.row > * {
+  flex: 1;
+}
+
+button {
+  cursor: pointer;
+  background: #265dff;
+  border-color: #265dff;
+  font-weight: 600;
+}
+
+button.secondary {
+  background: #2a3040;
+  border-color: #2a3040;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #0f131a;
+  border: 1px solid #2a3040;
+  border-radius: 8px;
+  padding: 10px;
+  max-height: 260px;
+  overflow: auto;
+}
+
+.hint {
+  color: #a6afc4;
+  font-size: 12px;
+}

@@ -9,17 +9,19 @@ import Foundation
 
 /// POST `/api/FitnessCoach/analyze-frame`
 struct FitnessCoachAnalyzeFrameRequest: Encodable {
-    let sessionId: String
-    let frameBase64: String
-    let mimeType: String
-    let timestamp: TimeInterval
+    let session_id: String
+    let frame: FitnessCoachFramePayload
 
     enum CodingKeys: String, CodingKey {
-        case sessionId
-        case frameBase64
-        case mimeType
-        case timestamp
+        case session_id
+        case frame
     }
+}
+
+struct FitnessCoachFramePayload: Encodable {
+    let exercise: String
+    let timestamp: TimeInterval
+    let image_b64: String
 }
 
 /// POST `/api/FitnessCoach/start-session` — flexible decode for common backend shapes.
@@ -38,16 +40,10 @@ struct FitnessCoachStartSessionResponse: Decodable {
 
 /// POST `/api/FitnessCoach/end-session`
 struct FitnessCoachEndSessionRequest: Encodable {
-    let sessionId: String
-    let reps: Int
-    let score: Int
-    let mistakes: [String]
+    let session_id: String
 
     enum CodingKeys: String, CodingKey {
-        case sessionId
-        case reps
-        case score
-        case mistakes
+        case session_id
     }
 }
 
@@ -67,15 +63,12 @@ struct FitnessCoachEndSessionResponse: Decodable {
 
 /// GET `/api/FitnessCoach/session-summary/{sessionId}`
 struct FitnessCoachSessionSummaryDTO: Decodable {
-    let id: String?
-    let sessionId: String?
-    let date: String?
+    let session_id: String?
+    let exercise: String?
     let reps: Int?
-    let repCount: Int?
-    let score: Int?
-    let mistakes: [String]?
+    let avg_rep_score: Double?
+    let issues_tally: [String: Int]?
     let feedback: String?
-    let feedbackText: String?
 }
 
 /// Accepts common backend shapes (camelCase or snake_case, alternate keys).
@@ -89,6 +82,7 @@ struct WorkoutAnalyzeResponse: Decodable {
     let detectedErrors: [String]?
     let detected_errors: [String]?
     let errors: [String]?
+    let issues: [String]?
 
     var normalizedReps: Int {
         repCount ?? rep_count ?? reps ?? 0
@@ -100,6 +94,7 @@ struct WorkoutAnalyzeResponse: Decodable {
     }
 
     var normalizedErrors: [String] {
+        if let issues, !issues.isEmpty { return issues }
         if let detectedErrors, !detectedErrors.isEmpty { return detectedErrors }
         if let detected_errors, !detected_errors.isEmpty { return detected_errors }
         return errors ?? []
@@ -112,11 +107,48 @@ struct WorkoutSessionRecord: Codable, Identifiable, Hashable {
     var id: UUID
     /// Server-side FitnessCoach session id from `start-session`, when available.
     var serverSessionId: String? = nil
+    var exercise: String = "squat"
     var date: Date
     var reps: Int
     var score: Int
     var mistakes: [String]
     var feedback: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, serverSessionId, exercise, date, reps, score, mistakes, feedback
+    }
+
+    init(
+        id: UUID,
+        serverSessionId: String? = nil,
+        exercise: String = "squat",
+        date: Date,
+        reps: Int,
+        score: Int,
+        mistakes: [String],
+        feedback: String
+    ) {
+        self.id = id
+        self.serverSessionId = serverSessionId
+        self.exercise = exercise
+        self.date = date
+        self.reps = reps
+        self.score = score
+        self.mistakes = mistakes
+        self.feedback = feedback
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(UUID.self, forKey: .id)
+        serverSessionId = try c.decodeIfPresent(String.self, forKey: .serverSessionId)
+        exercise = try c.decodeIfPresent(String.self, forKey: .exercise) ?? "squat"
+        date = try c.decode(Date.self, forKey: .date)
+        reps = try c.decode(Int.self, forKey: .reps)
+        score = try c.decode(Int.self, forKey: .score)
+        mistakes = try c.decode([String].self, forKey: .mistakes)
+        feedback = try c.decode(String.self, forKey: .feedback)
+    }
 }
 
 struct FinishedWorkoutSummary: Hashable {

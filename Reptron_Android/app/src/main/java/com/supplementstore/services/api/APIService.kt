@@ -9,18 +9,19 @@ import com.supplementstore.models.CreateBookingRequest
 import com.supplementstore.models.CreateOrderRequest
 import com.supplementstore.models.CreateReviewRequest
 import com.supplementstore.models.Equipment
+import com.supplementstore.models.AnalyzeFrameRequest
 import com.supplementstore.models.ExerciseResponse
 import com.supplementstore.models.LoginRequest
 import com.supplementstore.models.Product
 import com.supplementstore.models.Purchase
 import com.supplementstore.models.RegisterRequest
 import com.supplementstore.models.Review
+import com.supplementstore.models.StartSessionRequest
+import com.supplementstore.models.StartSessionResponse
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
-import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
-import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -28,20 +29,24 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
-import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.PUT
-import retrofit2.http.Part
 import retrofit2.http.Path
 import retrofit2.http.Query
+import retrofit2.http.Header
 
 interface PowerFuelApi {
 
-    @Multipart
-    @POST("api/ai-coach/process-exercise")
+    @POST("start-session")
+    suspend fun startFitnessSession(
+        @Body request: StartSessionRequest,
+        @Header("X-API-Key") apiKey: String? = APIClient.AI_API_KEY
+    ): Response<StartSessionResponse>
+
+    @POST("analyze-frame")
     suspend fun analyzeExercise(
-        @Part("exercise") exercise: RequestBody,
-        @Part file: MultipartBody.Part
+        @Body request: AnalyzeFrameRequest,
+        @Header("X-API-Key") apiKey: String? = APIClient.AI_API_KEY
     ): Response<ExerciseResponse>
 
     // ================== Auth ==================
@@ -155,6 +160,8 @@ interface PowerFuelApi {
 
 object APIClient {
     private const val BASE_URL = "http://gym-management-0.runasp.net/"
+    private const val AI_BASE_URL = "http://gym-management-0.runasp.net/"
+    const val AI_API_KEY: String? = null
 
     private var tokenManager: TokenManager? = null
 
@@ -189,6 +196,15 @@ object APIClient {
     val api: PowerFuelApi by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
+            .client(httpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(PowerFuelApi::class.java)
+    }
+
+    val fitnessApi: PowerFuelApi by lazy {
+        Retrofit.Builder()
+            .baseUrl(AI_BASE_URL)
             .client(httpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
