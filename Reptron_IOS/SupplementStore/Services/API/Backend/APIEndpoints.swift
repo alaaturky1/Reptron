@@ -1,8 +1,8 @@
 import Foundation
 
-/// API base matches Swagger: `http://gym-management-0.runasp.net/swagger`
+/// API base matches Swagger: `http://power-fuelgym00.runasp.net/swagger`
 enum APIEndpoints {
-    static let baseURL = "http://gym-management-0.runasp.net"
+    static let baseURL = "http://power-fuelgym00.runasp.net"
 
     /// Builds an absolute URL from a path like `/api/Products` (single source of truth for the host).
     static func url(path: String) -> URL? {
