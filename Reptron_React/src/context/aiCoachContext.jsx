@@ -19,7 +19,6 @@ import { mergeMistakes, scoreFromMistakes } from "../features/aiCoach/scoreUtils
 const AiCoachContext = createContext(null);
 
 const USER_PROFILE_KEY = "userProfile";
-const DEFAULT_EXERCISE = "squat";
 
 export function getDisplayName() {
   try {
@@ -43,7 +42,6 @@ export function AiCoachProvider({ children }) {
   const endedNormallyRef = useRef(false);
 
   const [sessionId, setSessionId] = useState(null);
-  const [selectedExercise, setSelectedExercise] = useState(DEFAULT_EXERCISE);
   const [maxReps, setMaxReps] = useState(0);
   const [movementState, setMovementState] = useState("");
   const [latestErrors, setLatestErrors] = useState([]);
@@ -71,18 +69,16 @@ export function AiCoachProvider({ children }) {
     setAnalysisError(null);
   }, []);
 
-  const startWorkout = useCallback(async ({ exercise, language = "en", level = "beginner" } = {}) => {
+  const startWorkout = useCallback(async () => {
     setIsStarting(true);
     setAnalysisError(null);
     endedNormallyRef.current = false;
     try {
-      const normalizedExercise = typeof exercise === "string" && exercise.trim() ? exercise.trim().toLowerCase() : selectedExercise;
-      const { sessionId: sid } = await fitnessApi.startSession({ language, level });
+      const { sessionId: sid } = await fitnessApi.startSession();
       setMaxReps(0);
       setMovementState("");
       setLatestErrors([]);
       setMistakes([]);
-      setSelectedExercise(normalizedExercise);
       setSessionId(sid);
       navigate("/ai/live", { replace: true });
     } catch (e) {
@@ -92,13 +88,13 @@ export function AiCoachProvider({ children }) {
     } finally {
       setIsStarting(false);
     }
-  }, [navigate, selectedExercise]);
+  }, [navigate]);
 
   const tryAgainFromResult = useCallback(async () => {
     clearLastResultPayload();
     setLastResult(null);
-    await startWorkout({ exercise: selectedExercise });
-  }, [startWorkout, selectedExercise]);
+    await startWorkout();
+  }, [startWorkout]);
 
   const finalizeEndOnServer = useCallback(
     async (sid, reps, mistakeList) => {
@@ -129,7 +125,6 @@ export function AiCoachProvider({ children }) {
       const record = {
         id: `local-${Date.now()}`,
         date: new Date().toISOString(),
-        exercise: selectedExercise,
         reps,
         score,
         mistakes: mistakeList,
@@ -153,7 +148,7 @@ export function AiCoachProvider({ children }) {
     } finally {
       setIsEnding(false);
     }
-  }, [sessionId, maxReps, mistakes, finalizeEndOnServer, navigate, resetLiveFields, selectedExercise]);
+  }, [sessionId, maxReps, mistakes, finalizeEndOnServer, navigate, resetLiveFields]);
 
   const silentEndSession = useCallback(async () => {
     const sid = sessionId;
@@ -191,7 +186,6 @@ export function AiCoachProvider({ children }) {
   const value = useMemo(
     () => ({
       sessionId,
-      selectedExercise,
       maxReps,
       movementState,
       latestErrors,
@@ -203,7 +197,6 @@ export function AiCoachProvider({ children }) {
       setAnalysisError,
       applyAnalyzeResponse,
       startWorkout,
-      setSelectedExercise,
       endWorkout,
       silentEndSession,
       resetLiveFields,
@@ -215,7 +208,6 @@ export function AiCoachProvider({ children }) {
     }),
     [
       sessionId,
-      selectedExercise,
       maxReps,
       movementState,
       latestErrors,
@@ -227,7 +219,6 @@ export function AiCoachProvider({ children }) {
       setAnalysisError,
       applyAnalyzeResponse,
       startWorkout,
-      setSelectedExercise,
       endWorkout,
       silentEndSession,
       resetLiveFields,

@@ -1,4 +1,7 @@
+import { API_BASE_URL } from "../config/env.js";
+
 const defaultImage = "/images/fallback.svg";
+const normalizedApiBaseUrl = API_BASE_URL.replace(/\/+$/, "");
 
 const imageByName = {
   "whey sport": "/images/fallback.svg",
@@ -18,9 +21,16 @@ const imageByName = {
 export function mapImageByEntity(entity, prefix = "products") {
   if (!entity) return defaultImage;
 
-  const explicit = entity.imageUrl || entity.image || entity.img;
+  const explicit =
+    entity.imageUrl ||
+    entity.profilePictureUrl ||
+    entity.photoUrl ||
+    entity.image ||
+    entity.img;
   if (typeof explicit === "string" && explicit.trim()) {
-    if (/^https?:\/\//i.test(explicit) || explicit.startsWith("/")) return explicit;
+    if (/^https?:\/\//i.test(explicit)) return explicit;
+    if (explicit.startsWith("/")) return `${normalizedApiBaseUrl}${explicit}`;
+    return `${normalizedApiBaseUrl}/${explicit.replace(/^\/+/, "")}`;
   }
 
   if (entity.id) {

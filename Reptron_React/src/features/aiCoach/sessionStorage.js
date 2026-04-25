@@ -9,7 +9,7 @@ function safeParse(json, fallback) {
   }
 }
 
-/** @typedef {{ id: string, date: string, exercise?: string, reps: number, score: number, mistakes: string[], feedback?: string, serverSessionId?: string }} AiSessionRecord */
+/** @typedef {{ id: string, date: string, reps: number, score: number, mistakes: string[], feedback?: string, serverSessionId?: string }} AiSessionRecord */
 
 /**
  * @returns {AiSessionRecord[]}

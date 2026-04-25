@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styles from './Equipments.module.css';
 import { useEffect } from "react";
 import { getEquipments } from "../../services/storeService";
-import ChestPressMachine from '../../assets/eqipment/ChestPressMachine.jpg';
 
 export default function Equipments() {
   const [equipments, setEquipments] = useState([]);
@@ -58,7 +57,7 @@ export default function Equipments() {
             filteredEquipments.map((eq) => (
               <div key={eq.id} className={styles.equipmentCard}>
                 <div className={styles.imageContainer}>
-                  <img src = {eq.image} alt={eq.name}  className={styles.equipmentImage}/>
+                  <img src={eq.image} alt={eq.name} className={styles.equipmentImage} />
                   
                   <div className={styles.specialtyBadge}>
                     {eq.specialty}

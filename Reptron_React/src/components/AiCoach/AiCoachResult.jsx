@@ -20,7 +20,6 @@ export default function AiCoachResult() {
   }
 
   const mistakes = Array.isArray(data.mistakes) ? data.mistakes : [];
-  const exercise = typeof data.exercise === "string" && data.exercise.trim() ? data.exercise : "squat";
   const feedback =
     (typeof data.feedback === "string" && data.feedback.trim()) ||
     buildFallbackFeedback({ reps: data.reps, score: data.score, mistakes });
@@ -45,10 +44,6 @@ export default function AiCoachResult() {
 
       <div className={`${t.glassStrong} p-4 mb-3`}>
         <div className="d-flex justify-content-between mb-3">
-          <div>
-            <div style={{ color: "var(--ai-muted)", fontSize: "0.8rem" }}>Exercise</div>
-            <div style={{ fontSize: "1rem", fontWeight: 700, textTransform: "capitalize" }}>{exercise}</div>
-          </div>
           <div>
             <div style={{ color: "var(--ai-muted)", fontSize: "0.8rem" }}>Reps</div>
             <div style={{ fontSize: "2rem", fontWeight: 800, color: "var(--ai-cyan)" }}>{data.reps}</div>

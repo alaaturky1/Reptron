@@ -25,7 +25,6 @@ export default function AiCoachHistory() {
         if (data && typeof data === "object") {
           next[i] = {
             ...next[i],
-            exercise: data.exercise ?? next[i].exercise,
             reps: data.reps ?? data.repCount ?? next[i].reps,
             score: data.score ?? next[i].score,
             mistakes: Array.isArray(data.mistakes) ? data.mistakes : next[i].mistakes,
@@ -99,9 +98,7 @@ export default function AiCoachHistory() {
           <div key={s.id} className={`${t.glass} ${t.historyRow}`}>
             <div>
               <div className={t.historyDate}>{new Date(s.date).toLocaleString()}</div>
-              <div style={{ fontWeight: 600, marginTop: "0.25rem", textTransform: "capitalize" }}>
-                {s.exercise || "Session"}
-              </div>
+              <div style={{ fontWeight: 600, marginTop: "0.25rem" }}>Session</div>
             </div>
             <div className="text-end">
               <div className={t.historyMeta}>{s.reps} reps</div>
