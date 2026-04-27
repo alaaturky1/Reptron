@@ -96,19 +96,11 @@ export function AiCoachProvider({ children }) {
     await startWorkout();
   }, [startWorkout]);
 
-  const finalizeEndOnServer = useCallback(
-    async (sid, reps, mistakeList) => {
-      const score = scoreFromMistakes(mistakeList);
-      const data = await fitnessApi.endSession({
-        sessionId: sid,
-        reps,
-        score,
-        mistakes: mistakeList,
-      });
-      return { score, feedback: data?.feedback ?? data?.coachFeedback ?? data?.message ?? null };
-    },
-    []
-  );
+  const finalizeEndOnServer = useCallback(async (sid, mistakeList) => {
+    const score = scoreFromMistakes(mistakeList);
+    const data = await fitnessApi.endSession({ sessionId: sid });
+    return { score, feedback: data?.feedback ?? data?.coachFeedback ?? data?.message ?? null };
+  }, []);
 
   const endWorkout = useCallback(async () => {
     if (!sessionId) return;
@@ -117,7 +109,7 @@ export function AiCoachProvider({ children }) {
     try {
       const reps = maxReps;
       const mistakeList = [...mistakes];
-      const { score, feedback } = await finalizeEndOnServer(sessionId, reps, mistakeList);
+      const { score, feedback } = await finalizeEndOnServer(sessionId, mistakeList);
       const fb =
         (typeof feedback === "string" && feedback.trim()) ||
         buildFallbackFeedback({ reps, score, mistakes: mistakeList });
@@ -153,21 +145,13 @@ export function AiCoachProvider({ children }) {
   const silentEndSession = useCallback(async () => {
     const sid = sessionId;
     if (!sid) return;
-    const reps = maxReps;
-    const mistakeList = [...mistakes];
-    const score = scoreFromMistakes(mistakeList);
     try {
-      await fitnessApi.endSession({
-        sessionId: sid,
-        reps,
-        score,
-        mistakes: mistakeList,
-      });
+      await fitnessApi.endSession({ sessionId: sid });
     } catch {
       /* fail-safe: still clear local session */
     }
     resetLiveFields();
-  }, [sessionId, maxReps, mistakes, resetLiveFields]);
+  }, [sessionId, resetLiveFields]);
 
   const markEndedNormally = useCallback(() => {
     endedNormallyRef.current = true;

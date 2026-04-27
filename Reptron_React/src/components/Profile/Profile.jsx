@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import styles from "./Profile.module.css";
-import { getOrders } from "../../services/storeService";
-import { mapImageByEntity } from "../../services/imageMap";
+import { getOrders, getProductById, getEquipmentById } from "../../services/storeService";
+import { mapImageByEntity, FALLBACK_IMAGE } from "../../services/imageMap";
 import { LOCAL_AUTH_PASSWORD_KEY } from "../../services/apiClient";
+import { ITEM_TYPE_EQUIPMENT } from "../../api/cartApi.js";
 
 const USER_PROFILE_KEY = "userProfile";
 
@@ -30,6 +31,173 @@ function parseShippingBlob(str) {
         postalCode: "",
         country: "",
     };
+}
+
+function isEquipmentLine(item) {
+    const t = String(item?.itemType ?? item?.type ?? "").toLowerCase();
+    return t === "equipment" || t === String(ITEM_TYPE_EQUIPMENT).toLowerCase();
+}
+
+/** Map API / cart snapshot line → profile row (name, unit price, qty, image). */
+function normalizeOrderLineItem(item) {
+    if (!item || typeof item !== "object") return null;
+    const nested = item.product ?? item.equipment ?? {};
+    const id = item.productId ?? item.itemId ?? nested.id ?? item.id;
+    const quantity = Math.max(1, Number(item.quantity ?? 1) || 1);
+    const name =
+        item.productName ??
+        item.itemName ??
+        item.name ??
+        nested.name ??
+        item.title ??
+        nested.title ??
+        nested.productName ??
+        (typeof item.description === "string" && item.description.length < 80 ? item.description : null) ??
+        (typeof nested.shortDescription === "string" ? nested.shortDescription : null) ??
+        "Item";
+
+    const lineTotal = Number(item.lineTotal ?? item.subTotal ?? item.total ?? 0);
+    const unitFromFields = Number(item.unitPrice ?? item.price ?? nested.price ?? nested.currentPrice ?? 0);
+    const unit =
+        Number.isFinite(unitFromFields) && unitFromFields > 0
+            ? unitFromFields
+            : Number.isFinite(lineTotal) && lineTotal > 0 && quantity > 0
+              ? lineTotal / quantity
+              : 0;
+
+    const prefix = isEquipmentLine(item) ? "equipments" : "products";
+    const img = mapImageByEntity(
+        {
+            ...nested,
+            ...item,
+            id: id ?? nested.id,
+            name,
+            imageUrl:
+                item.imageUrl ??
+                nested.imageUrl ??
+                item.productImageUrl ??
+                item.thumbnailUrl ??
+                nested.thumbnailUrl ??
+                (typeof item.img === "string" ? item.img : undefined) ??
+                (typeof item.image === "string" ? item.image : undefined),
+        },
+        prefix
+    );
+
+    const kind = isEquipmentLine(item) ? "equipment" : "product";
+    return { id, name, price: unit, quantity, img, kind };
+}
+
+function pickOrderItems(order) {
+    const raw =
+        order.items ??
+        order.orderItems ??
+        order.OrderItems ??
+        order.lines ??
+        order.orderLines ??
+        order.orderLineItems ??
+        order.details ??
+        order.orderDetails ??
+        order.cartItems ??
+        [];
+    return Array.isArray(raw) ? raw : [];
+}
+
+function needsNameEnrichment(line) {
+    const n = String(line?.name ?? "").trim();
+    return !n || n === "Item";
+}
+
+function needsImageEnrichment(line) {
+    const u = String(line?.img ?? "").trim();
+    if (!u) return true;
+    if (u.includes("fallback.svg")) return true;
+    return /^\/images\/(products|equipments)\/\d+\.jpe?g$/i.test(u);
+}
+
+/**
+ * Fill missing names/images from catalog when order lines only have ids (common from Orders API).
+ */
+async function enrichOrderItemsWithCatalog(items) {
+    if (!items.length) return items;
+
+    const productIds = new Set();
+    const equipmentIds = new Set();
+    for (const line of items) {
+        if (line.id == null || line.id === "") continue;
+        if (!needsNameEnrichment(line) && !needsImageEnrichment(line)) continue;
+        const key = String(line.id);
+        if (line.kind === "equipment") equipmentIds.add(key);
+        else productIds.add(key);
+    }
+
+    const productById = new Map();
+    const equipmentById = new Map();
+
+    await Promise.all(
+        [...productIds].map(async (pid) => {
+            try {
+                const p = await getProductById(pid);
+                if (p) productById.set(pid, p);
+            } catch {
+                /* ignore */
+            }
+        })
+    );
+    await Promise.all(
+        [...equipmentIds].map(async (eid) => {
+            try {
+                const e = await getEquipmentById(eid);
+                if (e) equipmentById.set(eid, e);
+            } catch {
+                /* ignore */
+            }
+        })
+    );
+
+    return items.map((line) => {
+        if (line.id == null || line.id === "") return line;
+        const key = String(line.id);
+        if (!needsNameEnrichment(line) && !needsImageEnrichment(line)) return line;
+
+        if (line.kind === "equipment") {
+            const e = equipmentById.get(key);
+            if (!e) return line;
+            return {
+                ...line,
+                name: needsNameEnrichment(line) ? e.name : line.name,
+                img: needsImageEnrichment(line) ? (e.img || e.image || line.img) : line.img,
+                price: line.price > 0 ? line.price : Number(e.price) || 0,
+            };
+        }
+
+        const p = productById.get(key);
+        if (!p) return line;
+        return {
+            ...line,
+            name: needsNameEnrichment(line) ? p.name : line.name,
+            img: needsImageEnrichment(line) ? (p.img || p.image || line.img) : line.img,
+            price: line.price > 0 ? line.price : Number(p.price) || 0,
+        };
+    });
+}
+
+async function enrichOrdersOrders(orders) {
+    return Promise.all(
+        orders.map(async (order) => {
+            const items = await enrichOrderItemsWithCatalog(order.items);
+            const total = computeOrderTotal({ ...order, total: 0 }, items);
+            return { ...order, items, total };
+        })
+    );
+}
+
+function computeOrderTotal(order, items) {
+    let total = Number(order.total ?? order.grandTotal ?? order.amount ?? order.totalAmount ?? 0);
+    if (!Number.isFinite(total) || total <= 0) {
+        total = items.reduce((sum, it) => sum + (Number(it.price) || 0) * (Number(it.quantity) || 0), 0);
+    }
+    return Number.isFinite(total) ? total : 0;
 }
 
 export default function Profile() {
@@ -70,29 +238,24 @@ export default function Profile() {
         setHasLocalPassword(!!localStorage.getItem(LOCAL_AUTH_PASSWORD_KEY));
 
         getOrders()
-            .then((data) => {
+            .then(async (data) => {
                 const parsed = Array.isArray(data) ? data : unwrapOrders(data);
-                const normalized = parsed.map((order) => ({
-                    id: order.id ?? order.orderId ?? order.Id ?? Date.now(),
-                    date: order.date ?? order.createdAt ?? order.orderDate ?? new Date().toISOString(),
-                    total: (() => {
-                        const t = Number(order.total ?? order.grandTotal ?? order.amount ?? 0);
-                        return Number.isFinite(t) ? t : 0;
-                    })(),
-                    items: (order.items ?? order.orderItems ?? order.lines ?? []).map((item) => ({
-                        id: item.id ?? item.productId ?? item.itemId,
-                        img: mapImageByEntity(item, "products"),
-                        name: item.name ?? item.productName ?? "Item",
-                        price: Number(item.price ?? item.unitPrice ?? 0),
-                        quantity: Number(item.quantity ?? 1),
-                    })),
-                    shippingAddress: typeof order.shippingAddress === "string"
-                        ? parseShippingBlob(order.shippingAddress)
-                        : order.shippingAddress,
-                }));
-                setOrders(normalized.reverse());
+                const normalized = parsed.map((order) => {
+                    const items = pickOrderItems(order).map(normalizeOrderLineItem).filter(Boolean);
+                    return {
+                        id: order.id ?? order.orderId ?? order.Id ?? Date.now(),
+                        date: order.date ?? order.createdAt ?? order.orderDate ?? new Date().toISOString(),
+                        total: computeOrderTotal(order, items),
+                        items,
+                        shippingAddress: typeof order.shippingAddress === "string"
+                            ? parseShippingBlob(order.shippingAddress)
+                            : order.shippingAddress,
+                    };
+                });
+                const withCatalog = await enrichOrdersOrders(normalized);
+                setOrders(withCatalog.reverse());
             })
-            .catch(() => {
+            .catch(async () => {
                 let savedOrders = [];
                 try {
                     const raw = localStorage.getItem("purchases");
@@ -103,22 +266,18 @@ export default function Profile() {
                 } catch {
                     savedOrders = [];
                 }
-                const normalized = savedOrders.map((order) => ({
-                    id: order.id ?? order.orderId ?? order.Id ?? Date.now(),
-                    date: order.date ?? order.createdAt ?? order.orderDate ?? new Date().toISOString(),
-                    total: Number(order.total ?? order.grandTotal ?? order.amount ?? 0) || 0,
-                    items: Array.isArray(order.items)
-                        ? order.items.map((item, idx) => ({
-                            id: item.id ?? item.productId ?? item.itemId ?? idx,
-                            img: item.img ?? item.image ?? "",
-                            name: item.name ?? item.productName ?? "Item",
-                            price: Number(item.price ?? item.unitPrice ?? 0) || 0,
-                            quantity: Number(item.quantity ?? 1) || 1,
-                        }))
-                        : [],
-                    shippingAddress: order.shippingAddress,
-                }));
-                setOrders(normalized.reverse());
+                const normalized = savedOrders.map((order) => {
+                    const items = pickOrderItems(order).map(normalizeOrderLineItem).filter(Boolean);
+                    return {
+                        id: order.id ?? order.orderId ?? order.Id ?? Date.now(),
+                        date: order.date ?? order.createdAt ?? order.orderDate ?? new Date().toISOString(),
+                        total: computeOrderTotal(order, items),
+                        items,
+                        shippingAddress: order.shippingAddress,
+                    };
+                });
+                const withCatalog = await enrichOrdersOrders(normalized);
+                setOrders(withCatalog.reverse());
             });
     }, []);
 
@@ -347,17 +506,25 @@ export default function Profile() {
                             <div className={styles.orderBody}>
                                 <h4 className={styles.shippingTitle}>
                                     <i className="fas fa-box"></i>
-                                    Order Items
+                                    Items you ordered
                                 </h4>
 
                                 <div className={styles.orderItems}>
                                     {order.items.map((item, itemIdx) => (
                                         <div key={item.id ?? itemIdx} className={styles.orderItem}>
-                                            <img src={item.img} alt={item.name} className={styles.itemImage} />
+                                            <img
+                                                src={item.img || FALLBACK_IMAGE}
+                                                alt={item.name || "Product"}
+                                                className={styles.itemImage}
+                                                onError={(e) => {
+                                                    e.currentTarget.onerror = null;
+                                                    e.currentTarget.src = FALLBACK_IMAGE;
+                                                }}
+                                            />
                                             <div className={styles.itemDetails}>
-                                                <div className={styles.itemName}>{item.name}</div>
+                                                <div className={styles.itemName}>{item.name || "Item"}</div>
                                                 <div className={styles.itemPrice}>
-                                                    Price: ${item.price.toFixed(2)} each
+                                                    Price: ${(Number.isFinite(item.price) ? item.price : 0).toFixed(2)} each
                                                 </div>
                                                 <div className={styles.itemQuantity}>
                                                     Quantity: {item.quantity}
@@ -365,7 +532,7 @@ export default function Profile() {
                                             </div>
                                             <div className={styles.itemTotal}>
                                                 <div className={styles.itemTotalAmount}>
-                                                    ${(item.price * item.quantity).toFixed(2)}
+                                                    ${((Number.isFinite(item.price) ? item.price : 0) * item.quantity).toFixed(2)}
                                                 </div>
                                                 <div className={styles.itemTotalLabel}>
                                                     Item Total

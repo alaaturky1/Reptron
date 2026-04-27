@@ -5,11 +5,11 @@ import { AUTH_TOKEN_KEY } from "../../api/httpClient.js";
  * Best-effort end-session when tab closes (Authorization + JSON body).
  * Does not await; safe for beforeunload/pagehide.
  */
-export function endSessionKeepalive({ sessionId, reps, score, mistakes }) {
+export function endSessionKeepalive({ sessionId }) {
   if (!sessionId) return;
   try {
     const token = localStorage.getItem(AUTH_TOKEN_KEY);
-    fetch(`${API_BASE_URL}/api/FitnessCoach/end-session`, {
+    fetch(`${API_BASE_URL}/api/fitness-coach/end-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -17,9 +17,6 @@ export function endSessionKeepalive({ sessionId, reps, score, mistakes }) {
       },
       body: JSON.stringify({
         sessionId,
-        reps: Math.max(0, Number(reps) || 0),
-        score,
-        mistakes: Array.isArray(mistakes) ? mistakes : [],
       }),
       keepalive: true,
     }).catch(() => {});

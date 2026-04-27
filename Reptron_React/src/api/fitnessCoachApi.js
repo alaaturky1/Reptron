@@ -1,11 +1,14 @@
 import httpClient from "./httpClient.js";
 
+/** Swagger routes use kebab-case: `/api/fitness-coach/...` (PascalCase returns 404 on host). */
+const BASE = "/api/FitnessCoach";
+
 /**
- * POST /api/FitnessCoach/start-session
+ * POST /api/fitness-coach/start-session
  * @returns {{ sessionId: string, raw: object }}
  */
 export async function startSession() {
-  const { data } = await httpClient.post("/api/FitnessCoach/start-session", {});
+  const { data } = await httpClient.post(`${BASE}/start-session`, {});
   const id = data?.sessionId ?? data?.session_id ?? data?.id;
   if (id == null || id === "") {
     throw new Error("Start session failed: no session id in response.");
@@ -14,14 +17,17 @@ export async function startSession() {
 }
 
 /**
- * POST /api/FitnessCoach/analyze-frame
+ * POST /api/fitness-coach/analyze-frame
+ * Body matches Swagger: { sessionId, frame: { imageB64, timestamp, ... } }.
  */
 export async function analyzeFrame({ sessionId, frameBase64, mimeType = "image/jpeg", timestamp }) {
-  const { data } = await httpClient.post("/api/FitnessCoach/analyze-frame", {
+  void mimeType;
+  const { data } = await httpClient.post(`${BASE}/analyze-frame`, {
     sessionId,
-    frameBase64,
-    mimeType,
-    timestamp,
+    frame: {
+      imageB64: frameBase64,
+      timestamp: typeof timestamp === "number" ? timestamp : Date.now(),
+    },
   });
 
   const repsRaw = data?.repCount ?? data?.rep_count ?? data?.reps ?? 0;
@@ -44,22 +50,20 @@ export async function analyzeFrame({ sessionId, frameBase64, mimeType = "image/j
 }
 
 /**
- * POST /api/FitnessCoach/end-session
+ * POST /api/fitness-coach/end-session
+ * Swagger EndSessionRequestDto: only sessionId (additionalProperties: false).
  */
-export async function endSession({ sessionId, reps, score, mistakes }) {
-  const { data } = await httpClient.post("/api/FitnessCoach/end-session", {
+export async function endSession({ sessionId }) {
+  const { data } = await httpClient.post(`${BASE}/end-session`, {
     sessionId,
-    reps,
-    score,
-    mistakes,
   });
   return data ?? {};
 }
 
 /**
- * GET /api/FitnessCoach/session-summary/{sessionId}
+ * GET /api/fitness-coach/session-summary/{sessionId}
  */
 export async function getSessionSummary(sessionId) {
-  const { data } = await httpClient.get(`/api/FitnessCoach/session-summary/${encodeURIComponent(sessionId)}`);
+  const { data } = await httpClient.get(`${BASE}/session-summary/${encodeURIComponent(sessionId)}`);
   return data;
 }

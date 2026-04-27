@@ -4,7 +4,6 @@ import * as fitnessApi from "../../api/fitnessCoachApi.js";
 import { useAiCoach } from "../../context/aiCoachContext.jsx";
 import { captureFrameAsJpegBase64 } from "../../features/aiCoach/framePipeline.js";
 import { endSessionKeepalive } from "../../features/aiCoach/emergencyEnd.js";
-import { scoreFromMistakes } from "../../features/aiCoach/scoreUtils.js";
 import t from "./aiCoachTheme.module.css";
 
 const FRAME_INTERVAL_MS = 1150;
@@ -20,7 +19,6 @@ export default function AiCoachLive() {
   const leftVoluntarilyRef = useRef(false);
   const sessionIdRef = useRef(null);
   const maxRepsRef = useRef(0);
-  const mistakesRef = useRef([]);
 
   const [cameraError, setCameraError] = useState(null);
   const [cameraRetryKey, setCameraRetryKey] = useState(0);
@@ -42,7 +40,6 @@ export default function AiCoachLive() {
 
   sessionIdRef.current = sessionId;
   maxRepsRef.current = maxReps;
-  mistakesRef.current = mistakes;
   const silentEndRef = useRef(silentEndSession);
   silentEndRef.current = silentEndSession;
 
@@ -155,12 +152,7 @@ export default function AiCoachLive() {
       if (endedNormallyRef.current || leftVoluntarilyRef.current) return;
       const sid = sessionIdRef.current;
       if (!sid) return;
-      endSessionKeepalive({
-        sessionId: sid,
-        reps: maxRepsRef.current,
-        score: scoreFromMistakes(mistakesRef.current),
-        mistakes: mistakesRef.current,
-      });
+      endSessionKeepalive({ sessionId: sid });
     }
 
     function onPageHide() {
