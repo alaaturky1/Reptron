@@ -291,8 +291,8 @@ struct ProfileView: View {
         }
     }
 
-    private func paymentMethod(for order: PurchaseOrder) -> String {
-        order.id % 3 == 0 ? "Apple Pay" : "Card"
+    private func paymentMethod(for _: PurchaseOrder) -> String {
+        "Card"
     }
 }
 

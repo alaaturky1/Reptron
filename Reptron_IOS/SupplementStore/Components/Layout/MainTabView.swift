@@ -250,7 +250,10 @@ struct LiveCameraPreview: UIViewRepresentable {
         }
 
         var previewLayer: AVCaptureVideoPreviewLayer {
-            layer as! AVCaptureVideoPreviewLayer
+            guard let previewLayer = layer as? AVCaptureVideoPreviewLayer else {
+                fatalError("Expected AVCaptureVideoPreviewLayer")
+            }
+            return previewLayer
         }
     }
 

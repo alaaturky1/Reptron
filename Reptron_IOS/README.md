@@ -123,7 +123,7 @@ ios-app/
 
 ## API Integration
 
-- **Base URL**: `https://ecommerce.routemisr.com/api/v1`
+- **Base URL**: `http://power-fuelgym00.runasp.net`
 - **Authentication Endpoints**:
   - POST `/auth/signin` - User login
   - POST `/auth/signup` - User registration

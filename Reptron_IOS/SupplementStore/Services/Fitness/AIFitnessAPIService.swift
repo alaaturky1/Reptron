@@ -70,9 +70,11 @@ final class AIFitnessAPIService {
     func startCoachSession(language: String = "en", level: String = "beginner") async throws -> String {
         let payload = ["language": language, "level": level]
         let body = try JSONSerialization.data(withJSONObject: payload)
-        let req = try makeRequest(path: APIEndpoints.AI.startSession, method: "POST", body: body)
-        let (respData, response) = try await session.data(for: req)
-        try throwIfNeeded(response, data: respData)
+        let respData = try await executeWithFallback(
+            paths: [APIEndpoints.AI.startSession, APIEndpoints.AI.legacyStartSession],
+            method: "POST",
+            body: body
+        )
         guard !respData.isEmpty else { throw AIFitnessAPIError.emptyResponse }
         let parsed = try decoder.decode(FitnessCoachStartSessionResponse.self, from: respData)
         guard let sid = parsed.resolvedSessionId else { throw AIFitnessAPIError.decoding(
@@ -91,9 +93,11 @@ final class AIFitnessAPIService {
             )
         )
         let data = try encoder.encode(payload)
-        let req = try makeRequest(path: APIEndpoints.AI.analyzeFrame, method: "POST", body: data)
-        let (respData, response) = try await session.data(for: req)
-        try throwIfNeeded(response, data: respData)
+        let respData = try await executeWithFallback(
+            paths: [APIEndpoints.AI.analyzeFrame, APIEndpoints.AI.legacyAnalyzeFrame],
+            method: "POST",
+            body: data
+        )
         guard !respData.isEmpty else { throw AIFitnessAPIError.emptyResponse }
         do {
             return try decoder.decode(WorkoutAnalyzeResponse.self, from: respData)
@@ -106,9 +110,11 @@ final class AIFitnessAPIService {
     func endCoachSession(sessionId: String, reps: Int, score: Int, mistakes: [String]) async throws -> String? {
         let payload = FitnessCoachEndSessionRequest(session_id: sessionId)
         let data = try encoder.encode(payload)
-        let req = try makeRequest(path: APIEndpoints.AI.endSession, method: "POST", body: data)
-        let (respData, response) = try await session.data(for: req)
-        try throwIfNeeded(response, data: respData)
+        let respData = try await executeWithFallback(
+            paths: [APIEndpoints.AI.endSession, APIEndpoints.AI.legacyEndSession],
+            method: "POST",
+            body: data
+        )
         guard !respData.isEmpty else { return nil }
         if let parsed = try? decoder.decode(FitnessCoachEndSessionResponse.self, from: respData) {
             return parsed.resolvedFeedback
@@ -117,14 +123,31 @@ final class AIFitnessAPIService {
     }
 
     func fetchSessionSummary(sessionId: String) async throws -> FitnessCoachSessionSummaryDTO {
-        let req = try makeRequest(path: APIEndpoints.AI.sessionSummary(sessionId), method: "GET", body: nil)
-        let (respData, response) = try await session.data(for: req)
-        try throwIfNeeded(response, data: respData)
+        let respData = try await executeWithFallback(
+            paths: [APIEndpoints.AI.sessionSummary(sessionId), APIEndpoints.AI.legacySessionSummary(sessionId)],
+            method: "GET",
+            body: nil
+        )
         guard !respData.isEmpty else { throw AIFitnessAPIError.emptyResponse }
         return try decoder.decode(FitnessCoachSessionSummaryDTO.self, from: respData)
     }
 
     // MARK: - Helpers
+
+    private func executeWithFallback(paths: [String], method: String, body: Data?) async throws -> Data {
+        var lastNotFoundPath: String?
+        for path in paths {
+            let request = try makeRequest(path: path, method: method, body: body)
+            let (data, response) = try await session.data(for: request)
+            if let http = response as? HTTPURLResponse, http.statusCode == 404 {
+                lastNotFoundPath = path
+                continue
+            }
+            try throwIfNeeded(response, data: data)
+            return data
+        }
+        throw AIFitnessAPIError.serverError(404, "No matching Fitness endpoint found. Last path: \(lastNotFoundPath ?? "unknown")")
+    }
 
     private func throwIfNeeded(_ response: URLResponse, data: Data) throws {
         guard let http = response as? HTTPURLResponse else { return }

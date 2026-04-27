@@ -171,7 +171,7 @@ struct CheckoutView: View {
                 purchaseViewModel.addPurchase(order)
                 cartViewModel.clearCart()
                 isLoading = false
-                navigationCoordinator.navigate(to: .myPurchases)
+                navigationCoordinator.navigate(to: .home)
             }
         }
     }

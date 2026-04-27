@@ -134,12 +134,14 @@ struct CartItemRow: View {
     var body: some View {
         HStack(spacing: DeviceSize.spacing(base: 16)) {
             // Product Image
-            Image(item.img)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 80, height: 80)
-                .cornerRadius(12)
-                .clipped()
+            APIReadyImageView(
+                imagePath: item.img,
+                placeholderSystemName: "photo",
+                height: 80
+            )
+            .frame(width: 80, height: 80)
+            .cornerRadius(12)
+            .clipped()
             
             // Product Info
             VStack(alignment: .leading, spacing: DeviceSize.spacing(base: 8)) {
@@ -159,7 +161,7 @@ struct CartItemRow: View {
             VStack(spacing: DeviceSize.spacing(base: 8)) {
                 HStack(spacing: DeviceSize.spacing(base: 12)) {
                     Button(action: {
-                        cartViewModel.decreaseQuantity(item.id)
+                        cartViewModel.decreaseQuantity(item.lineId)
                     }) {
                         Image(systemName: "minus.circle.fill")
                             .font(.system(size: DeviceSize.fontSize(base: 20)))
@@ -172,9 +174,7 @@ struct CartItemRow: View {
                         .frame(minWidth: 30)
                     
                     Button(action: {
-                        var updatedItem = item
-                        updatedItem.quantity = item.quantity + 1
-                        cartViewModel.addToCart(updatedItem)
+                        cartViewModel.incrementQuantity(item.lineId)
                     }) {
                         Image(systemName: "plus.circle.fill")
                             .font(.system(size: DeviceSize.fontSize(base: 20)))
@@ -189,7 +189,7 @@ struct CartItemRow: View {
             
             // Remove Button
             Button(action: {
-                cartViewModel.removeFromCart(item.id)
+                cartViewModel.removeFromCart(item.lineId)
             }) {
                 Image(systemName: "trash.fill")
                     .font(.system(size: DeviceSize.fontSize(base: 18)))

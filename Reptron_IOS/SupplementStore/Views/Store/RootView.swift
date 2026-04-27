@@ -90,13 +90,13 @@ struct RootView: View {
         case .coach(let id):
             LayoutView {
                 ProtectedRoute {
-                    CoachDetailsView(coach: Coach.sample) // TODO: Load actual coach by id
+                    CoachDetailsView(coach: Coach.placeholder(id: id))
                 }
             }
         case .coachesProfiles(let id):
             LayoutView {
                 ProtectedRoute {
-                    CoachesProfilesView(coach: Coach.sample) // TODO: Load actual coach by id
+                    CoachesProfilesView(coach: Coach.placeholder(id: id))
                 }
             }
         case .equipments:
@@ -108,7 +108,9 @@ struct RootView: View {
         case .equipmentDetails(let id):
             LayoutView {
                 ProtectedRoute {
-                    EquipmentsDetailsView(equipment: Equipment.sample) // TODO: Load actual equipment by id
+                    EquipmentsDetailsView(
+                        equipment: CatalogCache.shared.equipment(id: id) ?? Equipment.placeholder(id: id)
+                    )
                 }
             }
         case .store:
@@ -120,7 +122,7 @@ struct RootView: View {
         case .productDetails(let id):
             LayoutView {
                 ProtectedRoute {
-                    ProductDetailsView(product: Product.sample) // TODO: Load actual product by id
+                    ProductDetailsView(product: CatalogCache.shared.product(id: id) ?? Product.placeholder(id: id))
                 }
             }
         case .cart:

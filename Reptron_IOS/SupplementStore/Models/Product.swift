@@ -63,19 +63,23 @@ struct Product: Identifiable, Codable {
         additionalInfo: nil,
         reviews: []
     )
-    
-    // Find product by ID
-    static func find(by id: Int) -> Product? {
-        return Product(
+
+    static func placeholder(id: Int) -> Product {
+        Product(
             id: id,
             img: nil,
-            name: "Product \(id)",
+            name: "Product",
             price: 0,
             oldPrice: nil,
             description: "Product details will load from backend.",
             additionalInfo: nil,
             reviews: []
         )
+    }
+    
+    // Find product by ID
+    static func find(by id: Int) -> Product? {
+        return placeholder(id: id)
     }
 }
 
@@ -131,5 +135,31 @@ extension StoreProduct {
         self.name = product.name
         self.price = product.price
         self.oldPrice = product.oldPrice
+    }
+}
+
+@MainActor
+final class CatalogCache {
+    static let shared = CatalogCache()
+
+    private var productsById: [Int: Product] = [:]
+    private var equipmentsById: [Int: Equipment] = [:]
+
+    private init() {}
+
+    func store(products: [Product]) {
+        productsById = Dictionary(uniqueKeysWithValues: products.map { ($0.id, $0) })
+    }
+
+    func store(equipments: [Equipment]) {
+        equipmentsById = Dictionary(uniqueKeysWithValues: equipments.map { ($0.id, $0) })
+    }
+
+    func product(id: Int) -> Product? {
+        productsById[id]
+    }
+
+    func equipment(id: Int) -> Equipment? {
+        equipmentsById[id]
     }
 }

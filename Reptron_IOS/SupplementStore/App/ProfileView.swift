@@ -209,33 +209,50 @@ struct ProfileView: View {
             } else {
                 ForEach(purchaseViewModel.purchasesReversed.prefix(5)) { order in
                     VStack(alignment: .leading, spacing: DeviceSize.spacing(base: 8)) {
+                        HStack {
+                            Text("Order #\(order.id)")
+                                .font(.system(size: DeviceSize.fontSize(base: 13), weight: .semibold))
+                                .foregroundColor(AppTheme.textPrimary)
+                            Spacer()
+                            Text("\(order.items.reduce(0) { $0 + $1.quantity }) items")
+                                .font(.system(size: DeviceSize.fontSize(base: 12), weight: .semibold))
+                                .foregroundColor(AppTheme.textSecondary)
+                        }
+
                         ForEach(order.items.prefix(3)) { item in
                             HStack(spacing: DeviceSize.spacing(base: 8)) {
-                                Text(item.name)
+                                Text("\(item.name) x\(item.quantity)")
                                     .font(.system(size: DeviceSize.fontSize(base: 14), weight: .semibold))
                                     .foregroundColor(AppTheme.textPrimary)
                                     .lineLimit(1)
                                 Spacer()
-                                Text("$\(item.price, specifier: "%.2f")")
+                                Text("$\((item.price * Double(item.quantity)), specifier: "%.2f")")
                                     .font(.system(size: DeviceSize.fontSize(base: 14), weight: .bold))
                                     .foregroundColor(AppTheme.cyan)
-                                Text(orderStatus(for: order))
-                                    .font(.system(size: DeviceSize.fontSize(base: 11), weight: .bold))
-                                    .padding(.horizontal, 8)
-                                    .padding(.vertical, 5)
-                                    .background(statusColor(for: order).opacity(0.2), in: Capsule())
-                                    .foregroundColor(statusColor(for: order))
                             }
                         }
 
                         HStack {
-                            Text("Order #\(order.id)")
-                                .font(.system(size: DeviceSize.fontSize(base: 12), weight: .medium))
+                            Text("Total")
+                                .font(.system(size: DeviceSize.fontSize(base: 13), weight: .semibold))
                                 .foregroundColor(AppTheme.textSecondary)
                             Spacer()
+                            Text("$\(order.total, specifier: "%.2f")")
+                                .font(.system(size: DeviceSize.fontSize(base: 15), weight: .bold))
+                                .foregroundColor(AppTheme.cyan)
+                            Text(orderStatus(for: order))
+                                .font(.system(size: DeviceSize.fontSize(base: 11), weight: .bold))
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 5)
+                                .background(statusColor(for: order).opacity(0.2), in: Capsule())
+                                .foregroundColor(statusColor(for: order))
+                        }
+
+                        HStack {
                             Text(order.date)
                                 .font(.system(size: DeviceSize.fontSize(base: 11), weight: .regular))
                                 .foregroundColor(AppTheme.textSecondary.opacity(0.85))
+                            Spacer()
                         }
                     }
                     .padding(DeviceSize.padding(base: 12))
@@ -370,8 +387,8 @@ struct ProfileView: View {
         }
     }
 
-    private func paymentMethod(for order: PurchaseOrder) -> String {
-        order.id % 3 == 0 ? "Apple Pay" : "Card"
+    private func paymentMethod(for _: PurchaseOrder) -> String {
+        "Card"
     }
 }
 

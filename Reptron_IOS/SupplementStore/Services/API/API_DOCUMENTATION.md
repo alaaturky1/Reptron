@@ -28,7 +28,7 @@ Custom error types for better error handling.
 #### Sign In
 **React:**
 ```javascript
-axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin', {
+axios.post('http://power-fuelgym00.runasp.net/api/Auth/login', {
     email: "user@example.com",
     password: "Password123"
 })
@@ -47,7 +47,7 @@ let response = try await authService.signIn(
 #### Sign Up
 **React:**
 ```javascript
-axios.post('https://ecommerce.routemisr.com/api/v1/auth/signup', {
+axios.post('http://power-fuelgym00.runasp.net/api/Auth/register', {
     name: "John Doe",
     email: "user@example.com",
     password: "Password123",
@@ -165,7 +165,7 @@ struct AuthResponse: Codable {
 
 ### Base URL
 ```
-https://ecommerce.routemisr.com/api/v1
+http://power-fuelgym00.runasp.net
 ```
 
 ### Timeout Settings

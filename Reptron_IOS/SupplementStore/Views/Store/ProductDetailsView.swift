@@ -37,8 +37,15 @@ struct ProductDetailsView: View {
     let product: Product
     @EnvironmentObject var cartViewModel: CartViewModel
     @EnvironmentObject var navigationCoordinator: NavigationCoordinator
+    @State private var resolvedProduct: Product
     @State private var quantity: Int = 1
     @State private var selectedTab: ProductTab = .description
+    @State private var isLoadingDetails = false
+
+    init(product: Product) {
+        self.product = product
+        _resolvedProduct = State(initialValue: product)
+    }
     
     enum ProductTab {
         case description, additional, reviews
@@ -49,7 +56,7 @@ struct ProductDetailsView: View {
             VStack(spacing: 0) {
                 // Product Image
                 APIReadyImageView(
-                    imagePath: product.image,
+                    imagePath: resolvedProduct.image,
                     placeholderSystemName: "photo",
                     height: 300
                 )
@@ -59,12 +66,12 @@ struct ProductDetailsView: View {
                 VStack(spacing: DeviceSize.spacing(base: 24)) {
                     // Product Name and Price
                     VStack(alignment: .leading, spacing: DeviceSize.spacing(base: 12)) {
-                        Text(product.name)
+                        Text(resolvedProduct.name)
                             .font(.system(size: DeviceSize.fontSize(base: 28), weight: .bold))
                             .foregroundColor(.white)
                         
                         HStack(spacing: DeviceSize.spacing(base: 16)) {
-                            Text("$\(String(format: "%.2f", product.price))")
+                            Text("$\(String(format: "%.2f", resolvedProduct.price))")
                                 .font(.system(size: DeviceSize.fontSize(base: 32), weight: .heavy))
                                 .foregroundStyle(
                                     LinearGradient(
@@ -74,11 +81,18 @@ struct ProductDetailsView: View {
                                     )
                                 )
                             
-                            if let oldPrice = product.oldPrice {
+                            if let oldPrice = resolvedProduct.oldPrice {
                                 Text("$\(String(format: "%.2f", oldPrice))")
                                     .font(.system(size: DeviceSize.fontSize(base: 20)))
                                     .foregroundColor(.red)
                                     .strikethrough()
+                            }
+                        }
+
+                        HStack(spacing: DeviceSize.spacing(base: 10)) {
+                            ProductMetaChip(title: "Category", value: resolvedProduct.category.capitalized)
+                            if resolvedProduct.onSale {
+                                ProductMetaChip(title: "Status", value: "On Sale")
                             }
                         }
                     }
@@ -136,13 +150,13 @@ struct ProductDetailsView: View {
                     Group {
                         switch selectedTab {
                         case .description:
-                            Text(product.description)
+                            Text(resolvedProduct.description)
                                 .font(.system(size: DeviceSize.fontSize(base: 16)))
                                 .foregroundColor(Color(red: 203/255, green: 213/255, blue: 225/255))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             
                         case .additional:
-                            if let additionalInfo = product.additionalInfo {
+                            if let additionalInfo = resolvedProduct.additionalInfo {
                                 Text(additionalInfo)
                                     .font(.system(size: DeviceSize.fontSize(base: 16)))
                                     .foregroundColor(Color(red: 203/255, green: 213/255, blue: 225/255))
@@ -154,7 +168,7 @@ struct ProductDetailsView: View {
                             }
                             
                         case .reviews:
-                            if let reviews = product.reviews, !reviews.isEmpty {
+                            if let reviews = resolvedProduct.reviews, !reviews.isEmpty {
                                 VStack(alignment: .leading, spacing: DeviceSize.spacing(base: 16)) {
                                     ForEach(reviews) { review in
                                         ReviewRow(review: review)
@@ -172,7 +186,7 @@ struct ProductDetailsView: View {
                     
                     // Add to Cart Button
                     Button(action: {
-                        cartViewModel.addProductToCart(product, quantity: quantity)
+                        cartViewModel.addProductToCart(resolvedProduct, quantity: quantity)
                         navigationCoordinator.navigate(to: .cart)
                     }) {
                         HStack {
@@ -193,6 +207,12 @@ struct ProductDetailsView: View {
                         .cornerRadius(12)
                     }
                     .padding(.top, DeviceSize.padding(base: 24))
+
+                    if isLoadingDetails {
+                        ProgressView("Loading details...")
+                            .tint(.cyan)
+                            .foregroundColor(.white)
+                    }
                 }
                 .padding(DeviceSize.padding(base: 24))
             }
@@ -208,6 +228,105 @@ struct ProductDetailsView: View {
             )
         )
         .ignoresSafeArea(edges: .top)
+        .task(id: product.id) {
+            await loadDetails()
+        }
+    }
+
+    @MainActor
+    private func loadDetails() async {
+        isLoadingDetails = true
+        defer { isLoadingDetails = false }
+        guard let url = APIEndpoints.url(path: APIEndpoints.Products.byId(product.id)) else { return }
+
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else { return }
+            guard let raw = Self.extractObjectPayload(from: data) else { return }
+            resolvedProduct = Self.mapProduct(from: raw, fallback: resolvedProduct)
+        } catch {
+            // Keep existing content if fetching details fails.
+        }
+    }
+
+    private static func extractObjectPayload(from data: Data) -> [String: Any]? {
+        guard let json = try? JSONSerialization.jsonObject(with: data) else { return nil }
+        if let obj = json as? [String: Any] {
+            if let nested = obj["data"] as? [String: Any] { return nested }
+            if let nested = obj["item"] as? [String: Any] { return nested }
+            return obj
+        }
+        return nil
+    }
+
+    private static func mapProduct(from raw: [String: Any], fallback: Product) -> Product {
+        let id = int(from: raw["id"]) ?? int(from: raw["productId"]) ?? fallback.id
+        let name = raw["name"] as? String ?? raw["title"] as? String ?? fallback.name
+        let description = raw["description"] as? String
+            ?? raw["shortDescription"] as? String
+            ?? fallback.description
+        let price = double(from: raw["price"]) ?? double(from: raw["unitPrice"]) ?? fallback.price
+        let oldPrice = double(from: raw["oldPrice"]) ?? double(from: raw["originalPrice"]) ?? fallback.oldPrice
+        let image = raw["img"] as? String ?? raw["image"] as? String ?? raw["imageUrl"] as? String ?? fallback.img
+        let additionalInfo = raw["additionalInfo"] as? String ?? fallback.additionalInfo
+
+        return Product(
+            id: id,
+            img: image,
+            name: name,
+            price: price,
+            oldPrice: oldPrice,
+            description: description,
+            additionalInfo: additionalInfo,
+            reviews: fallback.reviews,
+            rating: fallback.rating
+        )
+    }
+
+    private static func int(from value: Any?) -> Int? {
+        switch value {
+        case let v as Int:
+            return v
+        case let v as Double:
+            return Int(v)
+        case let v as String:
+            return Int(v)
+        default:
+            return nil
+        }
+    }
+
+    private static func double(from value: Any?) -> Double? {
+        switch value {
+        case let v as Double:
+            return v
+        case let v as Int:
+            return Double(v)
+        case let v as String:
+            return Double(v)
+        default:
+            return nil
+        }
+    }
+}
+
+private struct ProductMetaChip: View {
+    let title: String
+    let value: String
+
+    var body: some View {
+        HStack(spacing: 6) {
+            Text("\(title):")
+                .font(.system(size: DeviceSize.fontSize(base: 12), weight: .medium))
+                .foregroundColor(Color(red: 148 / 255, green: 163 / 255, blue: 184 / 255))
+            Text(value)
+                .font(.system(size: DeviceSize.fontSize(base: 12), weight: .semibold))
+                .foregroundColor(.white)
+        }
+        .padding(.horizontal, DeviceSize.padding(base: 10))
+        .padding(.vertical, DeviceSize.padding(base: 6))
+        .background(Color(red: 15 / 255, green: 23 / 255, blue: 42 / 255).opacity(0.6))
+        .cornerRadius(999)
     }
 }
 

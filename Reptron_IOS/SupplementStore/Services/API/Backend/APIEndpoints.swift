@@ -13,7 +13,8 @@ enum APIEndpoints {
 
     /// Fitness coach (same host as the rest of the app). See `/api/FitnessCoach/*` in Swagger.
     enum AI {
-        private static let prefix = ""
+        private static let prefix = "/api/FitnessCoach"
+        private static let legacyPrefix = ""
         /// JSON with `count`, `unreadCount`, `unread`, `badge`, or `total` — adjust if Swagger differs.
         static let badgeCountPath = "/api/badge-count"
 
@@ -22,6 +23,12 @@ enum APIEndpoints {
         static let endSession = "\(prefix)/end-session"
         static func sessionSummary(_ sessionId: String) -> String {
             "\(prefix)/session-summary/\(sessionId)"
+        }
+        static let legacyStartSession = "\(legacyPrefix)/start-session"
+        static let legacyAnalyzeFrame = "\(legacyPrefix)/analyze-frame"
+        static let legacyEndSession = "\(legacyPrefix)/end-session"
+        static func legacySessionSummary(_ sessionId: String) -> String {
+            "\(legacyPrefix)/session-summary/\(sessionId)"
         }
 
         static var badgeCountURL: URL? {

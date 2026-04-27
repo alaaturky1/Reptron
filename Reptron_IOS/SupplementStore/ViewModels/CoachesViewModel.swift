@@ -23,9 +23,12 @@ class CoachesViewModel: ObservableObject {
         
         Task {
             do {
-                let url = APIEndpoints.url(path: APIEndpoints.Coaches.all)!
-                let (data, _) = try await URLSession.shared.data(from: url)
-                let rawItems = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] ?? []
+                guard let url = APIEndpoints.url(path: APIEndpoints.Coaches.all) else {
+                    throw URLError(.badURL)
+                }
+                let (data, response) = try await URLSession.shared.data(from: url)
+                try Self.validateHTTP(response: response)
+                let rawItems = try Self.extractArrayPayload(from: data)
                 let mapped = rawItems.compactMap { Self.mapCoach(from: $0) }
                 
                 await MainActor.run {
@@ -40,6 +43,27 @@ class CoachesViewModel: ObservableObject {
                 }
             }
         }
+    }
+
+    private static func validateHTTP(response: URLResponse) throws {
+        guard let http = response as? HTTPURLResponse else { return }
+        guard (200...299).contains(http.statusCode) else {
+            throw URLError(.badServerResponse)
+        }
+    }
+
+    private static func extractArrayPayload(from data: Data) throws -> [[String: Any]] {
+        let json = try JSONSerialization.jsonObject(with: data)
+        if let arr = json as? [[String: Any]] {
+            return arr
+        }
+        if
+            let dict = json as? [String: Any],
+            let arr = (dict["data"] as? [[String: Any]]) ?? (dict["items"] as? [[String: Any]])
+        {
+            return arr
+        }
+        return []
     }
 
     private static func mapCoach(from raw: [String: Any]) -> Coach? {

@@ -6,7 +6,7 @@ final class NetworkManager {
     private let session: URLSession
     private let decoder: JSONDecoder
     private let encoder: JSONEncoder
-    private let tokenKey = "backendAuthToken"
+    private let tokenKey = "userToken"
 
     private init() {
         let config = URLSessionConfiguration.default
@@ -74,7 +74,7 @@ final class NetworkManager {
             }
 
             if T.self == EmptyResponse.self {
-                return EmptyResponse() as! T
+                return try decoder.decode(T.self, from: Data("{}".utf8))
             }
 
             guard !data.isEmpty else {

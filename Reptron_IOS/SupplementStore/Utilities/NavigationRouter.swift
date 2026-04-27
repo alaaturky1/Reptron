@@ -89,16 +89,16 @@ struct NavigationRouter: View {
                     CoachesView()
                 }
             }
-        case .coach(_):
+        case .coach(let id):
             LayoutView {
                 ProtectedRoute {
-                    CoachDetailsView(coach: Coach.sample) // TODO: Load actual coach by id
+                    CoachDetailsView(coach: Coach.placeholder(id: id))
                 }
             }
-        case .coachesProfiles(_):
+        case .coachesProfiles(let id):
             LayoutView {
                 ProtectedRoute {
-                    CoachesProfilesView(coach: Coach.sample) // TODO: Load actual coach by id
+                    CoachesProfilesView(coach: Coach.placeholder(id: id))
                 }
             }
         case .equipments:
@@ -107,10 +107,10 @@ struct NavigationRouter: View {
                     StoreView(initialSection: .equipment)
                 }
             }
-        case .equipmentDetails(_):
+        case .equipmentDetails(let id):
             LayoutView {
                 ProtectedRoute {
-                    EquipmentsDetailsView(equipment: Equipment.sample) // TODO: Load actual equipment by id
+                    EquipmentsDetailsView(equipment: Equipment.placeholder(id: id))
                 }
             }
         case .store:
@@ -119,10 +119,14 @@ struct NavigationRouter: View {
                     StoreView()
                 }
             }
-        case .productDetails(_):
+        case .productDetails(let id):
             LayoutView {
                 ProtectedRoute {
-                    ProductDetailsView(product: Product.sample) // TODO: Load actual product by id
+                    if let product = Product.find(by: id) {
+                        ProductDetailsView(product: product)
+                    } else {
+                        NotFoundView()
+                    }
                 }
             }
         case .cart:

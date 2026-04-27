@@ -32,12 +32,14 @@ struct CoachesProfilesView: View {
             VStack(spacing: DeviceSize.spacing(base: 24)) {
                 // Coach Header
                 VStack(spacing: DeviceSize.spacing(base: 16)) {
-                    Image(coach.image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 150, height: 150)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.cyan, lineWidth: 4))
+                    APIReadyImageView(
+                        imagePath: coach.image,
+                        placeholderSystemName: "person.fill",
+                        height: 150
+                    )
+                    .frame(width: 150, height: 150)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.cyan, lineWidth: 4))
                     
                     Text(coach.name)
                         .font(.system(size: DeviceSize.fontSize(base: 28), weight: .bold))

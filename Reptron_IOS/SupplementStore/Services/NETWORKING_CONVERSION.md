@@ -15,7 +15,7 @@ This document describes how all axios API calls from the React app have been con
 ### 1. Login (Login.jsx)
 ```javascript
 let response = await axios.post(
-    'https://ecommerce.routemisr.com/api/v1/auth/signin',
+    'http://power-fuelgym00.runasp.net/api/Auth/login',
     dataForm
 );
 
@@ -28,7 +28,7 @@ if (response.data.message === 'success') {
 ### 2. Register (Register.jsx)
 ```javascript
 let response = await axios.post(
-    'https://ecommerce.routemisr.com/api/v1/auth/signup',
+    'http://power-fuelgym00.runasp.net/api/Auth/register',
     dataForm
 );
 
@@ -183,7 +183,7 @@ do {
 ## API Base URL
 
 ```
-https://ecommerce.routemisr.com/api/v1
+http://power-fuelgym00.runasp.net
 ```
 
 ## Request/Response Models

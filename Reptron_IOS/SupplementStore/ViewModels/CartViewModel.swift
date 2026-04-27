@@ -16,7 +16,9 @@ import SwiftUI
 // Cart item structure matching React cart items
 // In React, cart items have: { id, name, price, quantity, img, ...productProperties }
 struct CartItemModel: Identifiable, Codable, Equatable {
-    let id: Int
+    let lineId: UUID
+    let productId: Int
+    var serverCartItemId: Int?
     let name: String
     let price: Double
     var quantity: Int // Mutable to allow quantity updates
@@ -26,9 +28,13 @@ struct CartItemModel: Identifiable, Codable, Equatable {
     let oldPrice: Double?
     let onSale: Bool?
 
+    var id: UUID { lineId }
+
     // Initialize from Product
     init(from product: Product, quantity: Int = 1) {
-        self.id = product.id
+        self.lineId = UUID()
+        self.productId = product.id
+        self.serverCartItemId = nil
         self.name = product.name
         self.price = product.price
         self.quantity = quantity
@@ -41,7 +47,9 @@ struct CartItemModel: Identifiable, Codable, Equatable {
 
     // Initialize from Equipment
     init(from equipment: Equipment, quantity: Int = 1) {
-        self.id = equipment.id
+        self.lineId = UUID()
+        self.productId = equipment.id
+        self.serverCartItemId = nil
         self.name = equipment.name
         self.price = equipment.price
         self.quantity = quantity
@@ -53,8 +61,22 @@ struct CartItemModel: Identifiable, Codable, Equatable {
     }
 
     // Direct initializer
-    init(id: Int, name: String, price: Double, quantity: Int, img: String, category: String? = nil, description: String? = nil, oldPrice: Double? = nil, onSale: Bool? = nil) {
-        self.id = id
+    init(
+        lineId: UUID = UUID(),
+        productId: Int,
+        serverCartItemId: Int? = nil,
+        name: String,
+        price: Double,
+        quantity: Int,
+        img: String,
+        category: String? = nil,
+        description: String? = nil,
+        oldPrice: Double? = nil,
+        onSale: Bool? = nil
+    ) {
+        self.lineId = lineId
+        self.productId = productId
+        self.serverCartItemId = serverCartItemId
         self.name = name
         self.price = price
         self.quantity = quantity
@@ -82,6 +104,7 @@ class CartViewModel: ObservableObject {
 
     init() {
         lastCartUserId = AuthSessionStorage.bridgedActiveUserId
+        Task { await refreshCartFromBackendIfAuthenticated() }
         NotificationCenter.default.publisher(for: .authSessionDidSignOut)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
@@ -97,21 +120,17 @@ class CartViewModel: ObservableObject {
                 if uid != self.lastCartUserId {
                     self.lastCartUserId = uid
                     self.clearCart()
+                    Task { await self.refreshCartFromBackendIfAuthenticated() }
                 }
             }
             .store(in: &cancellables)
     }
 
     func addToCart(_ product: CartItemModel) {
-        if let index = cart.firstIndex(where: { $0.id == product.id }) {
-            var updatedItem = cart[index]
-            updatedItem.quantity += product.quantity
-            cart[index] = updatedItem
-        } else {
-            cart.append(product)
-        }
+        cart.append(product)
         Task {
-            _ = try? await addCartItemOnBackend(productId: product.id, quantity: product.quantity)
+            _ = try? await addCartItemOnBackend(productId: product.productId, quantity: product.quantity)
+            await refreshCartFromBackendIfAuthenticated()
         }
     }
 
@@ -125,25 +144,47 @@ class CartViewModel: ObservableObject {
         addToCart(cartItem)
     }
 
-    func removeFromCart(_ id: Int) {
-        cart.removeAll { $0.id == id }
+    func incrementQuantity(_ lineId: UUID) {
+        guard let index = cart.firstIndex(where: { $0.lineId == lineId }) else { return }
+        var updated = cart[index]
+        updated.quantity += 1
+        cart[index] = updated
+        let serverId = updated.serverCartItemId
         Task {
-            _ = try? await deleteCartItemOnBackend(itemId: id)
+            _ = try? await updateCartItemOnBackend(itemId: serverId ?? updated.productId, quantity: updated.quantity)
+            await refreshCartFromBackendIfAuthenticated()
         }
     }
 
-    func decreaseQuantity(_ id: Int) {
-        cart = cart.compactMap { item -> CartItemModel? in
-            if item.id == id {
-                var updated = item
-                updated.quantity = item.quantity - 1
-                return updated.quantity > 0 ? updated : nil
+    func removeFromCart(_ lineId: UUID) {
+        guard let item = cart.first(where: { $0.lineId == lineId }) else { return }
+        cart.removeAll { $0.lineId == lineId }
+        Task {
+            if let serverId = item.serverCartItemId {
+                _ = try? await deleteCartItemOnBackend(itemId: serverId)
+            } else {
+                _ = try? await deleteCartItemOnBackend(itemId: item.productId)
             }
-            return item
+            await refreshCartFromBackendIfAuthenticated()
         }
-        if let updated = cart.first(where: { $0.id == id }) {
+    }
+
+    func decreaseQuantity(_ lineId: UUID) {
+        guard let index = cart.firstIndex(where: { $0.lineId == lineId }) else { return }
+        var updated = cart[index]
+        updated.quantity -= 1
+        let serverId = updated.serverCartItemId
+        if updated.quantity > 0 {
+            cart[index] = updated
             Task {
-                _ = try? await updateCartItemOnBackend(itemId: id, quantity: updated.quantity)
+                _ = try? await updateCartItemOnBackend(itemId: serverId ?? updated.productId, quantity: updated.quantity)
+                await refreshCartFromBackendIfAuthenticated()
+            }
+        } else {
+            cart.remove(at: index)
+            Task {
+                _ = try? await deleteCartItemOnBackend(itemId: serverId ?? updated.productId)
+                await refreshCartFromBackendIfAuthenticated()
             }
         }
     }
@@ -157,19 +198,246 @@ class CartViewModel: ObservableObject {
             "productId": productId,
             "quantity": quantity
         ]
-        return try await apiService.post(endpoint: "/api/Cart/items", body: body, requiresAuth: true)
+        return try await apiService.post(
+            endpoint: "/api/Cart/items",
+            body: body,
+            requiresAuth: true,
+            treatEmptyResponseAsEmptyJSONObject: true
+        )
     }
 
     private func updateCartItemOnBackend(itemId: Int, quantity: Int) async throws -> EmptyCartAPIResponse {
         let body: [String: Any] = [
             "quantity": quantity
         ]
-        return try await apiService.put(endpoint: "/api/Cart/items/\(itemId)", body: body, requiresAuth: true)
+        return try await apiService.request(
+            endpoint: "/api/Cart/items/\(itemId)",
+            method: .PUT,
+            body: body,
+            requiresAuth: true,
+            treatEmptyResponseAsEmptyJSONObject: true
+        )
     }
 
     private func deleteCartItemOnBackend(itemId: Int) async throws -> EmptyCartAPIResponse {
-        return try await apiService.delete(endpoint: "/api/Cart/items/\(itemId)", requiresAuth: true)
+        return try await apiService.request(
+            endpoint: "/api/Cart/items/\(itemId)",
+            method: .DELETE,
+            requiresAuth: true,
+            treatEmptyResponseAsEmptyJSONObject: true
+        )
+    }
+
+    @MainActor
+    private func applyBackendCart(_ items: [CartItemModel]) {
+        cart = items
+    }
+
+    private func refreshCartFromBackendIfAuthenticated() async {
+        guard AuthSessionStorage.bridgedActiveUserId != nil else { return }
+        guard let token = UserDefaults.standard.string(forKey: "userToken"), !token.isEmpty else { return }
+        guard let response: CartJSONValue = try? await apiService.get(endpoint: "/api/Cart", requiresAuth: true) else { return }
+        let mapped = Self.mapCartItems(from: response)
+        let enriched = await MainActor.run { Self.enrichCartItemImagesFromCatalog(mapped) }
+        await applyBackendCart(enriched)
+    }
+
+    /// Fills missing `img` after a backend refresh using locally cached catalog (same IDs as store / equipment lists).
+    @MainActor
+    private static func enrichCartItemImagesFromCatalog(_ items: [CartItemModel]) -> [CartItemModel] {
+        items.map { item in
+            let trimmed = item.img.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !trimmed.isEmpty { return item }
+            if let p = CatalogCache.shared.product(id: item.productId) {
+                let img = p.image.trimmingCharacters(in: .whitespacesAndNewlines)
+                if !img.isEmpty {
+                    return CartItemModel(
+                        lineId: item.lineId,
+                        productId: item.productId,
+                        serverCartItemId: item.serverCartItemId,
+                        name: item.name,
+                        price: item.price,
+                        quantity: item.quantity,
+                        img: p.image,
+                        category: item.category,
+                        description: item.description,
+                        oldPrice: item.oldPrice,
+                        onSale: item.onSale
+                    )
+                }
+            }
+            if let e = CatalogCache.shared.equipment(id: item.productId) {
+                let img = e.image.trimmingCharacters(in: .whitespacesAndNewlines)
+                if !img.isEmpty {
+                    return CartItemModel(
+                        lineId: item.lineId,
+                        productId: item.productId,
+                        serverCartItemId: item.serverCartItemId,
+                        name: item.name,
+                        price: item.price,
+                        quantity: item.quantity,
+                        img: e.image,
+                        category: item.category,
+                        description: item.description,
+                        oldPrice: item.oldPrice,
+                        onSale: item.onSale
+                    )
+                }
+            }
+            return item
+        }
+    }
+
+    private static func mapCartItems(from response: CartJSONValue) -> [CartItemModel] {
+        let itemObjects = extractItemObjects(from: response)
+        return itemObjects.compactMap { raw in
+            let serverId = raw.int(forAnyOf: ["cartItemId", "itemId", "id"])
+            let productObject = raw.object(forAnyOf: ["product", "equipment"])
+            let productId = raw.int(forAnyOf: ["productId"]) ?? productObject?.int(forAnyOf: ["id"])
+            let resolvedId = productId ?? serverId ?? 0
+            guard resolvedId != 0 else { return nil }
+
+            let name = raw.string(forAnyOf: ["name", "title"])
+                ?? productObject?.string(forAnyOf: ["name", "title"])
+                ?? "Item"
+            let price = raw.double(forAnyOf: ["price", "unitPrice"])
+                ?? productObject?.double(forAnyOf: ["price", "unitPrice"])
+                ?? 0
+            let quantity = max(1, raw.int(forAnyOf: ["quantity", "qty"]) ?? 1)
+            let image = raw.string(forAnyOf: ["img", "image", "imageUrl", "imagePath", "photoUrl", "thumbnailUrl", "picture"])
+                ?? productObject?.string(forAnyOf: ["img", "image", "imageUrl", "imagePath", "photoUrl", "thumbnailUrl", "picture"])
+                ?? ""
+            let category = raw.string(forAnyOf: ["category", "specialty"])
+                ?? productObject?.string(forAnyOf: ["category", "specialty"])
+            let description = raw.string(forAnyOf: ["description", "shortDescription"])
+                ?? productObject?.string(forAnyOf: ["description", "shortDescription"])
+            let oldPrice = raw.double(forAnyOf: ["oldPrice", "originalPrice", "salePrice"])
+                ?? productObject?.double(forAnyOf: ["oldPrice", "originalPrice", "salePrice"])
+            let onSale = oldPrice != nil && (oldPrice ?? 0) > price
+
+            return CartItemModel(
+                productId: resolvedId,
+                serverCartItemId: serverId,
+                name: name,
+                price: price,
+                quantity: quantity,
+                img: image,
+                category: category,
+                description: description,
+                oldPrice: oldPrice,
+                onSale: onSale
+            )
+        }
+    }
+
+    private static func extractItemObjects(from value: CartJSONValue) -> [[String: CartJSONValue]] {
+        if case let .array(arr) = value {
+            return arr.compactMap { if case let .object(obj) = $0 { obj } else { nil } }
+        }
+        guard case let .object(root) = value else { return [] }
+        if let directItems = root.objectArray(forAnyOf: ["items", "cartItems"]) {
+            return directItems
+        }
+        if
+            let dataValue = root.value(forAnyOf: ["data", "result"]),
+            case let .array(arr) = dataValue
+        {
+            return arr.compactMap { if case let .object(obj) = $0 { obj } else { nil } }
+        }
+        if
+            let dataObj = root.object(forAnyOf: ["data", "result"]),
+            let nestedItems = dataObj.objectArray(forAnyOf: ["items", "cartItems"])
+        {
+            return nestedItems
+        }
+        return []
     }
 }
 
 private struct EmptyCartAPIResponse: Decodable {}
+
+private enum CartJSONValue: Decodable {
+    case string(String)
+    case int(Int)
+    case double(Double)
+    case bool(Bool)
+    case object([String: CartJSONValue])
+    case array([CartJSONValue])
+    case null
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+
+        if container.decodeNil() {
+            self = .null
+        } else if let value = try? container.decode(Bool.self) {
+            self = .bool(value)
+        } else if let value = try? container.decode(Int.self) {
+            self = .int(value)
+        } else if let value = try? container.decode(Double.self) {
+            self = .double(value)
+        } else if let value = try? container.decode(String.self) {
+            self = .string(value)
+        } else if let value = try? container.decode([String: CartJSONValue].self) {
+            self = .object(value)
+        } else if let value = try? container.decode([CartJSONValue].self) {
+            self = .array(value)
+        } else {
+            throw DecodingError.typeMismatch(
+                CartJSONValue.self,
+                DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Unsupported JSON value")
+            )
+        }
+    }
+}
+
+private extension Dictionary where Key == String, Value == CartJSONValue {
+    func value(forAnyOf keys: [String]) -> CartJSONValue? {
+        for key in keys {
+            if let v = self[key] { return v }
+        }
+        return nil
+    }
+
+    func string(forAnyOf keys: [String]) -> String? {
+        guard let value = value(forAnyOf: keys) else { return nil }
+        if case let .string(s) = value { return s }
+        return nil
+    }
+
+    func int(forAnyOf keys: [String]) -> Int? {
+        guard let value = value(forAnyOf: keys) else { return nil }
+        switch value {
+        case let .int(i): return i
+        case let .double(d): return Int(d)
+        case let .string(s): return Int(s)
+        default: return nil
+        }
+    }
+
+    func double(forAnyOf keys: [String]) -> Double? {
+        guard let value = value(forAnyOf: keys) else { return nil }
+        switch value {
+        case let .double(d): return d
+        case let .int(i): return Double(i)
+        case let .string(s): return Double(s)
+        default: return nil
+        }
+    }
+
+    func object(forAnyOf keys: [String]) -> [String: CartJSONValue]? {
+        guard let value = value(forAnyOf: keys) else { return nil }
+        if case let .object(obj) = value { return obj }
+        return nil
+    }
+
+    func objectArray(forAnyOf keys: [String]) -> [[String: CartJSONValue]]? {
+        guard let value = value(forAnyOf: keys) else { return nil }
+        guard case let .array(arr) = value else { return nil }
+        let objects = arr.compactMap { item -> [String: CartJSONValue]? in
+            if case let .object(obj) = item { return obj }
+            return nil
+        }
+        return objects.isEmpty ? nil : objects
+    }
+}

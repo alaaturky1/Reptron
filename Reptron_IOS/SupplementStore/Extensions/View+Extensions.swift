@@ -119,8 +119,19 @@ struct APIReadyImageView: View {
     let placeholderSystemName: String
     let height: CGFloat
 
+    /// Absolute `http(s)` URLs, or paths relative to `APIEndpoints.baseURL` (matches store list / detail payloads).
+    private func resolvedImageURL(from path: String?) -> URL? {
+        guard let trimmed = path?.trimmingCharacters(in: .whitespacesAndNewlines), !trimmed.isEmpty else {
+            return nil
+        }
+        if trimmed.hasPrefix("http://") || trimmed.hasPrefix("https://") {
+            return URL(string: trimmed)
+        }
+        return APIEndpoints.url(path: trimmed)
+    }
+
     var body: some View {
-        if let imagePath, let url = URL(string: imagePath), imagePath.hasPrefix("http") {
+        if let url = resolvedImageURL(from: imagePath) {
             AsyncImage(url: url) { phase in
                 switch phase {
                 case .empty:

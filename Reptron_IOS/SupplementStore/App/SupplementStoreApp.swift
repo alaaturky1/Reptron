@@ -43,6 +43,7 @@ struct MainAppView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var navigationCoordinator: NavigationCoordinator
     @State private var selectedTab: AppTab = .home
+    @State private var didSetInitialLoggedInTab = false
 
     var body: some View {
         NavigationStack(path: $navigationCoordinator.path) {
@@ -74,10 +75,17 @@ struct MainAppView: View {
     private var rootContentView: some View {
         if userViewModel.isLoggedIn {
             loggedInShell
-                .onAppear { selectedTab = .home }
+                .onAppear {
+                    guard !didSetInitialLoggedInTab else { return }
+                    selectedTab = .home
+                    didSetInitialLoggedInTab = true
+                }
         } else {
             LayoutView(showsBottomBar: false) {
                 HomeView()
+            }
+            .onAppear {
+                didSetInitialLoggedInTab = false
             }
         }
     }
@@ -152,26 +160,26 @@ struct MainAppView: View {
             }
             .onAppear { selectedTab = .home }
 
-        case .coach(_):
+        case .coach(let id):
             LayoutView(selectedTab: $selectedTab) {
                 ProtectedRoute {
-                    CoachDetailsView(coach: Coach.sample) // TODO: Load actual coach by id
+                    CoachDetailsView(coach: Coach.placeholder(id: id))
                 }
             }
             .onAppear { selectedTab = .coaches }
 
-        case .coachesProfiles(_):
+        case .coachesProfiles(let id):
             LayoutView(selectedTab: $selectedTab) {
                 ProtectedRoute {
-                    CoachesProfilesView(coach: Coach.sample) // TODO: Load actual coach by id
+                    CoachesProfilesView(coach: Coach.placeholder(id: id))
                 }
             }
             .onAppear { selectedTab = .coaches }
 
-        case .equipmentDetails(_):
+        case .equipmentDetails(let id):
             LayoutView(selectedTab: $selectedTab) {
                 ProtectedRoute {
-                    EquipmentsDetailsView(equipment: Equipment.sample) // TODO: Load actual equipment by id
+                    EquipmentsDetailsView(equipment: Equipment.placeholder(id: id))
                 }
             }
             .onAppear { selectedTab = .store }
@@ -194,7 +202,6 @@ struct MainAppView: View {
                     CheckoutView()
                 }
             }
-            .onAppear { selectedTab = .cart }
 
         case .myPurchases:
             LayoutView(selectedTab: $selectedTab) {
@@ -202,7 +209,6 @@ struct MainAppView: View {
                     MyPurchasesView()
                 }
             }
-            .onAppear { selectedTab = .cart }
 
         case .notFound:
             LayoutView(selectedTab: $selectedTab) {

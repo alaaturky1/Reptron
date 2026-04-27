@@ -279,7 +279,7 @@ ios-app/
 - **Environment Objects**: Injected at app level, accessible throughout
 
 ### 5. API Integration
-- **Base URL**: `https://ecommerce.routemisr.com/api/v1`
+- **Base URL**: `http://power-fuelgym00.runasp.net`
 - **Endpoints**:
   - `POST /auth/signin` - Login
   - `POST /auth/signup` - Registration
