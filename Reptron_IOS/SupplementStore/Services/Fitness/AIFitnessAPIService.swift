@@ -24,7 +24,7 @@ enum AIFitnessAPIError: LocalizedError {
 /// Typed facade over the FitnessCoach backend (`APIEndpoints.AI`).
 final class AIFitnessAPIService {
     static let shared = AIFitnessAPIService()
-    private static let apiKey: String? = nil
+    private static let apiKey: String? = "test-key"
 
     private let session: URLSession
     private let decoder: JSONDecoder

@@ -1,6 +1,6 @@
 import Foundation
 
-/// API base matches Swagger: `http://power-fuelgym00.runasp.net/swagger`
+/// API base - production server
 enum APIEndpoints {
     static let baseURL = "http://power-fuelgym00.runasp.net"
 
@@ -15,8 +15,6 @@ enum APIEndpoints {
     enum AI {
         private static let prefix = "/api/FitnessCoach"
         private static let legacyPrefix = ""
-        /// JSON with `count`, `unreadCount`, `unread`, `badge`, or `total` — adjust if Swagger differs.
-        static let badgeCountPath = "/api/badge-count"
 
         static let startSession = "\(prefix)/start-session"
         static let analyzeFrame = "\(prefix)/analyze-frame"
@@ -31,9 +29,6 @@ enum APIEndpoints {
             "\(legacyPrefix)/session-summary/\(sessionId)"
         }
 
-        static var badgeCountURL: URL? {
-            APIEndpoints.url(path: badgeCountPath)
-        }
     }
 
     enum Auth {

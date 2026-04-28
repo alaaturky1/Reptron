@@ -101,7 +101,7 @@ final class AIBadgeViewModel: ObservableObject {
     @Published private(set) var badgeCount = 0
 
     func refresh() async {
-        guard let url = APIEndpoints.AI.badgeCountURL else { return }
+        guard let url = URL(string: "/api/badge-count", relativeTo: URL(string: APIEndpoints.baseURL)) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Accept")
