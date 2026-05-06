@@ -1,6 +1,5 @@
 # Supplement Store iOS App
 
-A native iOS application built with SwiftUI, converted from the React + Vite web application.
 
 ## Project Structure
 
