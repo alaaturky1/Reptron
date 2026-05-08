@@ -1,8 +1,6 @@
 # SwiftUI iOS App - Complete Structure
 
 ## Overview
-This document outlines the complete structure of the SwiftUI iOS app converted from the React + Vite web application.
-
 ## Architecture Mapping
 
 ### React → SwiftUI Conversion
