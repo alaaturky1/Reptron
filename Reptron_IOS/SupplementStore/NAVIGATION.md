@@ -1,6 +1,6 @@
 # Navigation Structure
 
-This document describes the navigation structure that matches the React Router setup from the original React app.
+
 
 ## Navigation Architecture
 
