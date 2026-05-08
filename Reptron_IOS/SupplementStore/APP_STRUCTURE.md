@@ -1,6 +1,6 @@
 # Complete App Structure
 
-This document describes the fully assembled SwiftUI app structure matching the React website.
+
 
 ## App Entry Point
 
