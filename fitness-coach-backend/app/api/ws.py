@@ -6,7 +6,7 @@ from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 
 from app.core.auth import verify_ws_api_key
 from app.core.models import AnalyzeFrameResponse, FrameInput
-from app.storage.hybrid_storage import get_hybrid_sessions
+from app.storage.inmemory import sessions
 
 router = APIRouter()
 
@@ -20,8 +20,7 @@ async def ws_session(websocket: WebSocket, session_id: str) -> None:
         return
 
     await websocket.accept()
-    hybrid_sessions = get_hybrid_sessions()
-    session = hybrid_sessions.get(session_id)
+    session = sessions.get(session_id)
     if session is None:
         await websocket.send_text(json.dumps({"error": "session_not_found"}))
         await websocket.close(code=1008)
@@ -38,7 +37,6 @@ async def ws_session(websocket: WebSocket, session_id: str) -> None:
                 continue
 
             resp: AnalyzeFrameResponse = session.engine.analyze(frame)
-            hybrid_sessions.update_session(session)
             await websocket.send_text(resp.model_dump_json())
     except WebSocketDisconnect:
         return

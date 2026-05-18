@@ -3,30 +3,31 @@ from __future__ import annotations
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
-from slowapi import Limiter
-from slowapi.errors import RateLimitExceeded
+from fastapi.responses import RedirectResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.api.rest import router as rest_router
 from app.api.ws import router as ws_router
 from app.core.logging import configure_logging
-from app.core.rate_limiter import limiter, rate_limit_exceeded_handler
 
 
 def create_app() -> FastAPI:
     configure_logging()
 
     app = FastAPI(title="Real-Time AI Fitness Coaching Backend", version="0.1.0")
-    app.state.limiter = limiter
     app.include_router(rest_router)
     app.include_router(ws_router)
+
+    # Serve the zero-build frontend from /ui
+    app.mount("/ui", StaticFiles(directory="frontend", html=True), name="ui")
+
+    @app.get("/", include_in_schema=False)
+    def root() -> RedirectResponse:
+        return RedirectResponse(url="/ui")
 
     @app.exception_handler(RequestValidationError)
     async def validation_exception_handler(request: Request, exc: RequestValidationError) -> JSONResponse:
         return JSONResponse(status_code=422, content={"error": "validation_error", "detail": exc.errors()})
-
-    @app.exception_handler(RateLimitExceeded)
-    async def rate_limit_exception_handler(request: Request, exc: RateLimitExceeded) -> JSONResponse:
-        return rate_limit_exceeded_handler(request, exc)
 
     @app.exception_handler(Exception)
     async def unhandled_exception_handler(request: Request, exc: Exception) -> JSONResponse:

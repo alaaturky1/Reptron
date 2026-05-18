@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-from collections import deque
 from dataclasses import dataclass, field
-from statistics import median
 
 from app.analysis.exercises.base import ExerciseAnalyzer, ExerciseFrameResult
 from app.analysis.pose import Pose, compute_common_angles, normalize_joints
@@ -24,8 +22,6 @@ class PushupState:
     current_rep_min_elbow: float | None = None
     current_rep_issues: set[str] = field(default_factory=set)
     rep_summaries: list[tuple[float, list[str]]] = field(default_factory=list)
-    elbow_window: deque[float] = field(default_factory=lambda: deque(maxlen=5))
-    bottom_reached: bool = False
 
 
 class PushupAnalyzer(ExerciseAnalyzer):
@@ -39,9 +35,6 @@ class PushupAnalyzer(ExerciseAnalyzer):
     """
 
     name = "pushup"
-    down_enter_threshold = 160.0
-    up_lockout_threshold = 165.0
-    minimum_bottom_threshold = 150.0
 
     def __init__(self) -> None:
         self.state = PushupState()
@@ -53,9 +46,7 @@ class PushupAnalyzer(ExerciseAnalyzer):
         if frame.angles:
             angles.update(frame.angles)
 
-        raw_elbow = _avg(angles.get("elbow_l"), angles.get("elbow_r"))
-        elbow = self._stable_elbow(raw_elbow)
-        phase_elbow = raw_elbow if raw_elbow is not None else elbow
+        elbow = _avg(angles.get("elbow_l"), angles.get("elbow_r"))
         issues: list[str] = []
 
         hip_sag = self._hip_sag(pose)
@@ -64,13 +55,11 @@ class PushupAnalyzer(ExerciseAnalyzer):
             self.state.current_rep_issues.add("hips_sagging")
 
         shallow = False
-        if phase_elbow is not None:
+        if elbow is not None:
             if self.state.current_rep_min_elbow is None:
-                self.state.current_rep_min_elbow = phase_elbow
+                self.state.current_rep_min_elbow = elbow
             else:
-                self.state.current_rep_min_elbow = min(self.state.current_rep_min_elbow, phase_elbow)
-            if phase_elbow <= self.minimum_bottom_threshold:
-                self.state.bottom_reached = True
+                self.state.current_rep_min_elbow = min(self.state.current_rep_min_elbow, elbow)
 
         if self.state.phase == "down" and self.state.current_rep_min_elbow is not None:
             if self.state.current_rep_min_elbow > 135:
@@ -83,13 +72,12 @@ class PushupAnalyzer(ExerciseAnalyzer):
         rep_issues: list[str] | None = None
 
         if self.state.phase == "up":
-            if phase_elbow is not None and phase_elbow <= self.down_enter_threshold:
+            if elbow is not None and elbow <= 160:
                 self.state.phase = "down"
-                self.state.current_rep_min_elbow = phase_elbow
+                self.state.current_rep_min_elbow = elbow
                 self.state.current_rep_issues = set(issues)
-                self.state.bottom_reached = phase_elbow <= self.minimum_bottom_threshold
         elif self.state.phase == "down":
-            if phase_elbow is not None and phase_elbow >= self.up_lockout_threshold and self.state.bottom_reached:
+            if elbow is not None and elbow >= 165:
                 self.state.phase = "up"
                 self.state.rep_count += 1
                 rep_inc = 1
@@ -100,13 +88,6 @@ class PushupAnalyzer(ExerciseAnalyzer):
                 self.state.rep_summaries.append((rep_score, rep_issues))
                 self.state.current_rep_min_elbow = None
                 self.state.current_rep_issues = set()
-                self.state.bottom_reached = False
-            elif phase_elbow is not None and phase_elbow >= self.up_lockout_threshold:
-                # Reset descent if athlete returned to top too early.
-                self.state.phase = "up"
-                self.state.current_rep_min_elbow = None
-                self.state.current_rep_issues = set()
-                self.state.bottom_reached = False
 
         score = 100.0
         if shallow:
@@ -117,10 +98,8 @@ class PushupAnalyzer(ExerciseAnalyzer):
 
         dbg = {
             "elbow_avg": elbow if elbow is not None else -1,
-            "elbow_raw": raw_elbow if raw_elbow is not None else -1,
             "phase": self.state.phase,
             "rep_count": self.state.rep_count,
-            "bottom_reached": int(self.state.bottom_reached),
         }
 
         return ExerciseFrameResult(
@@ -176,12 +155,6 @@ class PushupAnalyzer(ExerciseAnalyzer):
             if issue == "hips_sagging":
                 score -= 12.0
         return max(0.0, min(100.0, score))
-
-    def _stable_elbow(self, elbow: float | None) -> float | None:
-        if elbow is None:
-            return None
-        self.state.elbow_window.append(float(elbow))
-        return float(median(self.state.elbow_window))
 
     def summary(self) -> dict:
         return {

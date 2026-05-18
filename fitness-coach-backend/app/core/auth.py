@@ -25,8 +25,6 @@ def verify_ws_api_key(websocket: WebSocket) -> bool:
         return True
     if not settings.api_key:
         return False
-    # Browsers cannot set arbitrary headers for native WebSocket connections.
-    # Support both header and query param to keep browser-based testers compatible.
-    provided = websocket.headers.get("x-api-key") or websocket.query_params.get("x_api_key")
+    provided = websocket.headers.get("x-api-key")
     return provided == settings.api_key
 

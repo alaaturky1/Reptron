@@ -91,60 +91,6 @@ class CoachingEngine:
             self.exercise = ex
             self.analyzer = self._make_analyzer(ex)
 
-        # Handle image-only frames by extracting pose
-        if frame.joints is None and frame.image_b64 is not None:
-            try:
-                from app.analysis.pose_detector import detect_pose_from_image
-                pose_result = detect_pose_from_image(frame.image_b64)
-                
-                if pose_result.error and pose_result.confidence < 0.3:
-                    # Pose detection failed completely
-                    issues = ["pose_detection_failed"]
-                    self._accumulate_time(frame.timestamp, active=False)
-                    elapsed_ms = (perf_counter() - start) * 1000.0
-                    resp = AnalyzeFrameResponse(
-                        feedback=pick_feedback(self.language, issues),
-                        score=0.0,
-                        issues=issues,
-                        rep_count=len(self.rep_records),
-                        exercise=ex,
-                        paused=True,
-                        speak=self.feedback_gate.allow("pose_detection_failed", float(frame.timestamp), cooldown_s=5.0),
-                        priority="high",
-                        lang=self.language,
-                        debug={
-                            "pose_error": pose_result.error,
-                            "pose_confidence": pose_result.confidence,
-                            "elapsed_ms": elapsed_ms,
-                        },
-                    )
-                    return resp
-                
-                # Use detected joints
-                frame.joints = pose_result.joints
-                
-            except Exception as e:
-                # Pose detection failed, use fallback
-                issues = ["pose_detection_error"]
-                self._accumulate_time(frame.timestamp, active=False)
-                elapsed_ms = (perf_counter() - start) * 1000.0
-                resp = AnalyzeFrameResponse(
-                    feedback=pick_feedback(self.language, issues),
-                    score=0.0,
-                    issues=issues,
-                    rep_count=len(self.rep_records),
-                    exercise=ex,
-                    paused=True,
-                    speak=self.feedback_gate.allow("pose_detection_error", float(frame.timestamp), cooldown_s=5.0),
-                    priority="high",
-                    lang=self.language,
-                    debug={
-                        "pose_error": str(e),
-                        "elapsed_ms": elapsed_ms,
-                    },
-                )
-                return resp
-
         # Visibility/confidence checks
         joints_norm = normalize_joints(frame.joints)
         pose = Pose(joints_norm)
@@ -170,7 +116,6 @@ class CoachingEngine:
                     "low_confidence_joints": vis.low_confidence,
                     "avg_confidence": vis.avg_confidence,
                     "elapsed_ms": elapsed_ms,
-                    "pose_extracted": frame.joints is not None,
                 },
             )
             log.warning(

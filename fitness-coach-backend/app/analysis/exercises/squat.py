@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-from collections import deque
 from dataclasses import dataclass, field
-from statistics import median
 
 from app.analysis.exercises.base import ExerciseAnalyzer, ExerciseFrameResult
 from app.analysis.pose import Pose, compute_common_angles, normalize_joints
@@ -24,8 +22,6 @@ class SquatState:
     current_rep_min_knee: float | None = None
     current_rep_issues: set[str] = field(default_factory=set)
     rep_summaries: list[tuple[float, list[str]]] = field(default_factory=list)  # (score, issues)
-    knee_window: deque[float] = field(default_factory=lambda: deque(maxlen=5))
-    bottom_reached: bool = False
 
 
 class SquatAnalyzer(ExerciseAnalyzer):
@@ -41,9 +37,6 @@ class SquatAnalyzer(ExerciseAnalyzer):
     """
 
     name = "squat"
-    down_enter_threshold = 150.0
-    up_lockout_threshold = 165.0
-    minimum_bottom_threshold = 135.0
 
     def __init__(self) -> None:
         self.state = SquatState()
@@ -55,10 +48,8 @@ class SquatAnalyzer(ExerciseAnalyzer):
         if frame.angles:
             angles.update(frame.angles)
 
-        raw_knee = _avg(angles.get("knee_l"), angles.get("knee_r"))
+        knee = _avg(angles.get("knee_l"), angles.get("knee_r"))
         torso = _avg(angles.get("torso_l_vs_vertical"), angles.get("torso_r_vs_vertical"))
-        knee = self._stable_knee(raw_knee)
-        phase_knee = raw_knee if raw_knee is not None else knee
 
         issues: list[str] = []
 
@@ -73,13 +64,11 @@ class SquatAnalyzer(ExerciseAnalyzer):
             self.state.current_rep_issues.add(valgus)
 
         shallow = False
-        if phase_knee is not None:
+        if knee is not None:
             if self.state.current_rep_min_knee is None:
-                self.state.current_rep_min_knee = phase_knee
+                self.state.current_rep_min_knee = knee
             else:
-                self.state.current_rep_min_knee = min(self.state.current_rep_min_knee, phase_knee)
-            if phase_knee <= self.minimum_bottom_threshold:
-                self.state.bottom_reached = True
+                self.state.current_rep_min_knee = min(self.state.current_rep_min_knee, knee)
 
         # Depth is evaluated against the minimum knee angle reached during the descent.
         # Only warn while "down" if depth is still shallow so far.
@@ -96,14 +85,13 @@ class SquatAnalyzer(ExerciseAnalyzer):
 
         # "Down" when descent is clearly started (allows shallow reps; avoids counting fidgets)
         if self.state.phase == "up":
-            if phase_knee is not None and phase_knee <= self.down_enter_threshold:
+            if knee is not None and knee <= 150:
                 self.state.phase = "down"
-                self.state.current_rep_min_knee = phase_knee
+                self.state.current_rep_min_knee = knee
                 self.state.current_rep_issues = set(issues)
-                self.state.bottom_reached = phase_knee <= self.minimum_bottom_threshold
         elif self.state.phase == "down":
             # Consider rep completed when returning close to standing
-            if phase_knee is not None and phase_knee >= self.up_lockout_threshold and self.state.bottom_reached:
+            if knee is not None and knee >= 165:
                 self.state.phase = "up"
                 self.state.rep_count += 1
                 rep_inc = 1
@@ -114,13 +102,6 @@ class SquatAnalyzer(ExerciseAnalyzer):
                 self.state.rep_summaries.append((rep_score, rep_issues))
                 self.state.current_rep_min_knee = None
                 self.state.current_rep_issues = set()
-                self.state.bottom_reached = False
-            elif phase_knee is not None and phase_knee >= self.up_lockout_threshold:
-                # Reset descent if user returned to top without meaningful depth.
-                self.state.phase = "up"
-                self.state.current_rep_min_knee = None
-                self.state.current_rep_issues = set()
-                self.state.bottom_reached = False
 
         # Frame score is primarily a smooth proxy, not the rep score.
         score = 100.0
@@ -134,11 +115,9 @@ class SquatAnalyzer(ExerciseAnalyzer):
 
         dbg = {
             "knee_avg": knee if knee is not None else -1,
-            "knee_raw": raw_knee if raw_knee is not None else -1,
             "torso_vs_vertical_avg": torso if torso is not None else -1,
             "phase": self.state.phase,
             "rep_count": self.state.rep_count,
-            "bottom_reached": int(self.state.bottom_reached),
         }
 
         return ExerciseFrameResult(
@@ -211,12 +190,6 @@ class SquatAnalyzer(ExerciseAnalyzer):
                 return "knee_valgus_right"
 
         return None
-
-    def _stable_knee(self, knee: float | None) -> float | None:
-        if knee is None:
-            return None
-        self.state.knee_window.append(float(knee))
-        return float(median(self.state.knee_window))
 
     def summary(self) -> dict:
         return {

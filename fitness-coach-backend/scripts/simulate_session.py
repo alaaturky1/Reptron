@@ -6,8 +6,6 @@ import time
 import httpx
 import websockets
 
-FRAME_INTERVAL_S = 0.04166666667
-
 
 async def main() -> None:
     base = "http://localhost:8000"
@@ -56,7 +54,7 @@ async def main() -> None:
         print("\n--- PERFECT SQUAT SESSION ---")
         for i, k in enumerate(squat_perfect):
             frame = {"exercise": "squat", "angles": {"knee_l": float(k), "knee_r": float(k), "torso_l_vs_vertical": 20.0}, "timestamp": t, "frame_id": i}
-            t += FRAME_INTERVAL_S
+            t += 0.05
             t0 = time.perf_counter()
             await ws.send(json.dumps(frame))
             resp = json.loads(await ws.recv())
@@ -72,7 +70,7 @@ async def main() -> None:
         for j, k in enumerate(squat_bad):
             i = base_i + j
             frame = {"exercise": "squat", "angles": {"knee_l": float(k), "knee_r": float(k), "torso_l_vs_vertical": 65.0}, "timestamp": t, "frame_id": i}
-            t += FRAME_INTERVAL_S
+            t += 0.05
             t0 = time.perf_counter()
             await ws.send(json.dumps(frame))
             resp = json.loads(await ws.recv())
@@ -89,7 +87,7 @@ async def main() -> None:
             i = base_i + j
             torso = 20.0 if j < len(squat_perfect) or j >= len(squat_perfect) + len(squat_bad) else 65.0
             frame = {"exercise": "squat", "angles": {"knee_l": float(k), "knee_r": float(k), "torso_l_vs_vertical": torso}, "timestamp": t, "frame_id": i}
-            t += FRAME_INTERVAL_S
+            t += 0.05
             t0 = time.perf_counter()
             await ws.send(json.dumps(frame))
             resp = json.loads(await ws.recv())
@@ -106,7 +104,7 @@ async def main() -> None:
             i = base_i + j
             kj = jitter(float(k), sigma=3.5)
             frame = {"exercise": "squat", "angles": {"knee_l": kj, "knee_r": kj, "torso_l_vs_vertical": 22.0}, "timestamp": t, "frame_id": i}
-            t += FRAME_INTERVAL_S
+            t += 0.05
             t0 = time.perf_counter()
             await ws.send(json.dumps(frame))
             resp = json.loads(await ws.recv())
@@ -128,7 +126,7 @@ async def main() -> None:
                 "timestamp": t,
                 "frame_id": i,
             }
-            t += FRAME_INTERVAL_S
+            t += 0.05
             t0 = time.perf_counter()
             await ws.send(json.dumps(frame))
             resp = json.loads(await ws.recv())
@@ -143,7 +141,7 @@ async def main() -> None:
         for j, k in enumerate(spike_series):
             i = base_i + j
             frame = {"exercise": "squat", "angles": {"knee_l": float(k), "knee_r": float(k), "torso_l_vs_vertical": 20.0}, "timestamp": t, "frame_id": i}
-            t += FRAME_INTERVAL_S
+            t += 0.05
             t0 = time.perf_counter()
             await ws.send(json.dumps(frame))
             resp = json.loads(await ws.recv())

@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
@@ -12,4 +12,10 @@ COPY app /app/app
 
 EXPOSE 8000
 
+# Required for auth by default:
+#   FITCOACH_API_KEY
+# Optional:
+#   FITCOACH_REQUIRE_API_KEY=false
+#   FITCOACH_LOG_LEVEL=INFO
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+

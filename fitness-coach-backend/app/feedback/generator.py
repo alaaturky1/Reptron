@@ -45,67 +45,17 @@ DEFAULT_POSITIVE_ESCAPED = {
     "ar": "\\u062a\\u0645\\u0627\\u0645. \\u062e\\u0644\\u064a\\u0643 \\u0645\\u062a\\u062d\\u0643\\u0651\\u0645.",
 }
 
-COMBINED_ISSUE_TEXT_ESCAPED: dict[tuple[str, str], dict[str, str]] = {
-    ("shallow_depth", "excessive_forward_lean"): {
-        "en": "Go deeper with your hips while keeping your chest up.",
-        "ar": "\\u0627\\u0646\\u0632\\u0644 \\u0639\\u0645\\u0642 \\u0623\\u0643\\u062a\\u0631 \\u0645\\u0639 \\u0631\\u0641\\u0639 \\u0627\\u0644\\u0635\\u062f\\u0631.",
-    },
-    ("shallow_depth", "hips_sagging"): {
-        "en": "Reach full depth and keep your core tight.",
-        "ar": "\\u0648\\u0635\\u0644 \\u0644\\u0639\\u0645\\u0642 \\u0643\\u0627\\u0645\\u0644 \\u0648\\u0634\\u062f \\u0628\\u0637\\u0646\\u0643.",
-    },
-}
-
-ISSUE_ALIASES: dict[str, str] = {
-    "knee_valgus_left": "knee_valgus",
-    "knee_valgus_right": "knee_valgus",
-}
-
-ALIAS_TEXT_ESCAPED: dict[str, dict[str, str]] = {
-    "knee_valgus": {
-        "en": "Keep your knees tracking over your toes.",
-        "ar": "\\u062e\\u0644\\u0651\\u064a \\u0631\\u0643\\u0628\\u062a\\u0643 \\u0641\\u0648\\u0642 \\u0635\\u0648\\u0627\\u0628\\u0639 \\u0631\\u062c\\u0644\\u0643.",
-    }
-}
-
 
 def _unescape(s: str) -> str:
     # NOTE: s is ASCII; decode unicode escapes to real Unicode.
     return s.encode("utf-8").decode("unicode_escape")
 
 
-def _msg(lang: str, table: dict[str, str]) -> str:
-    return _unescape(table.get(lang, table["en"]))
-
-
-def _normalize_issues(issues: list[str]) -> list[str]:
-    normalized: list[str] = []
-    seen: set[str] = set()
-    for issue in issues:
-        key = ISSUE_ALIASES.get(issue, issue)
-        if key in seen:
-            continue
-        seen.add(key)
-        normalized.append(key)
-    return normalized
-
-
 def pick_feedback(language: Language, issues: list[str]) -> str:
     lang = language.value
-    normalized = _normalize_issues(issues)
-
-    if len(normalized) >= 2:
-        combo_key = tuple(normalized[:2])
-        combo = COMBINED_ISSUE_TEXT_ESCAPED.get(combo_key)
-        if combo:
-            return _msg(lang, combo)
-
-    for issue in normalized:
-        alias_msg = ALIAS_TEXT_ESCAPED.get(issue)
-        if alias_msg:
-            return _msg(lang, alias_msg)
+    for issue in issues:
         txt = ISSUE_TO_TEXT_ESCAPED.get(issue)
         if txt:
-            return _msg(lang, txt)
-    return _msg(lang, DEFAULT_POSITIVE_ESCAPED)
+            return _unescape(txt.get(lang, txt["en"]))
+    return _unescape(DEFAULT_POSITIVE_ESCAPED.get(lang, DEFAULT_POSITIVE_ESCAPED["en"]))
 
