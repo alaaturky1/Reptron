@@ -88,7 +88,9 @@ private struct AIFitnessCoachHomeView: View {
     @EnvironmentObject var workoutHistory: WorkoutHistoryStore
     @ObservedObject private var hub = WorkoutAnalysisHub.shared
     private let exercises = ["squat", "pushup", "plank"]
-
+    private let languages = ["en", "ar"]
+    private let levels = ["beginner", "intermediate", "professional"]
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
@@ -111,7 +113,11 @@ private struct AIFitnessCoachHomeView: View {
                 }
                 .buttonStyle(.bordered)
                 .tint(AppTheme.cyan.opacity(0.9))
-
+                
+                languagePickerSection
+ 
+                levelPickerSection
+                
                 exercisePickerSection
 
                 lastWorkoutSection
@@ -124,7 +130,53 @@ private struct AIFitnessCoachHomeView: View {
             await workoutHistory.mergeFromServer()
         }
     }
-
+    
+    private var languagePickerSection: some View {
+          VStack(alignment: .leading, spacing: 10) {
+              Text("Choose language")
+                  .font(.headline)
+                  .foregroundStyle(.white)
+              HStack(spacing: 10) {
+                  ForEach(languages, id: \.self) { lang in
+                      let active = hub.selectedLanguage == lang
+                      Button {
+                          hub.selectedLanguage = lang
+                      } label: {
+                          Text(lang.uppercased())
+                              .font(.subheadline.weight(.semibold))
+                              .frame(maxWidth: .infinity)
+                              .padding(.vertical, 10)
+                      }
+                      .buttonStyle(.borderedProminent)
+                      .tint(active ? AppTheme.cyan : Color.white.opacity(0.2))
+                  }
+              }
+          }
+      }
+   
+      private var levelPickerSection: some View {
+          VStack(alignment: .leading, spacing: 10) {
+              Text("Choose level")
+                  .font(.headline)
+                  .foregroundStyle(.white)
+              HStack(spacing: 8) {
+                  ForEach(levels, id: \.self) { lvl in
+                      let active = hub.selectedLevel == lvl
+                      Button {
+                          hub.selectedLevel = lvl
+                      } label: {
+                          Text(lvl.capitalized)
+                              .font(.caption.weight(.semibold))
+                              .frame(maxWidth: .infinity)
+                              .padding(.vertical, 8)
+                      }
+                      .buttonStyle(.borderedProminent)
+                      .tint(active ? AppTheme.cyan : Color.white.opacity(0.2))
+                  }
+              }
+          }
+      }
+   
     private var exercisePickerSection: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Choose exercise")

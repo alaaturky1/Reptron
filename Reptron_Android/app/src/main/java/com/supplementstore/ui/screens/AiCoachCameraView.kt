@@ -14,10 +14,23 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -36,11 +49,8 @@ fun AiCoachCameraScreen(
     viewModel: AiCoachViewModel,
     exerciseName: String
 ) {
-    var selectedExercise by remember { mutableStateOf(exerciseName.lowercase()) }
-
     val context = LocalContext.current
 
-    // حالة للتحقق من صلاحية الكاميرا
     var hasCameraPermission by remember {
         mutableStateOf(
             ContextCompat.checkSelfPermission(
@@ -50,7 +60,6 @@ fun AiCoachCameraScreen(
         )
     }
 
-    // Launcher لطلب الصلاحية
     val permissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission(),
         onResult = { isGranted ->
@@ -58,18 +67,15 @@ fun AiCoachCameraScreen(
         }
     )
 
-    // نطلب الصلاحية أول ما الشاشة تفتح لو مش معانا
     LaunchedEffect(Unit) {
         if (!hasCameraPermission) {
             permissionLauncher.launch(Manifest.permission.CAMERA)
         }
     }
 
-    // لو معانا الصلاحية، نفتح الكاميرا
     if (hasCameraPermission) {
-        CameraPreviewContent(viewModel, selectedExercise) { selectedExercise = it }
+        CameraPreviewContent(viewModel, exerciseName)
     } else {
-        // لو مفيش صلاحية نعرض رسالة لليوزر
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -93,8 +99,7 @@ fun AiCoachCameraScreen(
 @Composable
 fun CameraPreviewContent(
     viewModel: AiCoachViewModel,
-    exerciseName: String,
-    onExerciseChange: (String) -> Unit
+    exerciseName: String
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val context = LocalContext.current
@@ -160,14 +165,6 @@ fun CameraPreviewContent(
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                listOf("squat", "pushup", "plank").forEach { ex ->
-                    Button(onClick = { onExerciseChange(ex) }) {
-                        Text(ex.uppercase())
-                    }
-                }
-            }
-            Spacer(modifier = Modifier.height(10.dp))
             Text(
                 text = "Exercise: ${exerciseName.uppercase()}",
                 color = Color.Cyan,
@@ -176,18 +173,23 @@ fun CameraPreviewContent(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "Reps: ${uiState?.normalizedReps ?: 0}",
+                text = "Reps: ${uiState?.reps_count ?: 0}",
                 color = Color.White,
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = uiState?.normalizedFeedback ?: "Positioning...",
-                color = if (uiState?.normalizedStatus == "ok") Color.Green else Color.Yellow,
+                text = uiState?.feedback ?: "Positioning...",
+                color = if (uiState?.status == "success") Color.Green else Color.Yellow,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.SemiBold
             )
+        }
+    }
+    DisposableEffect(Unit) {
+        onDispose {
+            viewModel.endSession()
         }
     }
 }

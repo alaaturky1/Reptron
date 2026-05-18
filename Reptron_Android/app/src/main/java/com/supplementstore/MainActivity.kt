@@ -53,7 +53,7 @@ fun MainApp() {
     val aiCoachViewModel: AiCoachViewModel = viewModel(
         factory = object : ViewModelProvider.Factory {
             override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
-                return AiCoachViewModel(APIClient.fitnessApi) as T
+                return AiCoachViewModel(APIClient.api) as T
             }
         }
     )
@@ -220,9 +220,41 @@ fun MainApp() {
         composable(AppRoute.AiCoach.route) {
             LayoutView(
                 content = {
+                    AiCoachDashboardScreen(
+                        viewModel = aiCoachViewModel,
+                        onStartWorkoutClick = {
+                            aiCoachViewModel.startSession(
+                                language = aiCoachViewModel.selectedLanguage.value.lowercase(),
+                                level = aiCoachViewModel.selectedLevel.value.lowercase()
+                            )
+                            navController.navigate("camera_screen_route")
+                        },
+                        onHistoryClick = { navController.navigate("history_screen_route") }
+                    )
+                },
+                userViewModel = userViewModel,
+                cartViewModel = cartViewModel,
+                onNavigate = { navigate(it) })
+        }
+
+        composable("camera_screen_route") {
+            LayoutView(
+                content = {
                     AiCoachCameraScreen(
                         viewModel = aiCoachViewModel,
-                        exerciseName = "squat"
+                        exerciseName = aiCoachViewModel.selectedExercise.value.lowercase()
+                    )
+                },
+                userViewModel = userViewModel,
+                cartViewModel = cartViewModel,
+                onNavigate = { navigate(it) })
+        }
+
+        composable("history_screen_route") {
+            LayoutView(
+                content = {
+                    AiCoachHistoryScreen(
+                        onBackClick = { navController.popBackStack() }
                     )
                 },
                 userViewModel = userViewModel,
@@ -272,6 +304,20 @@ fun MainApp() {
                     content = {
                         CoachDetailsView(
                             coach = coach, onNavigate = { navigate(it) })
+                    },
+                    userViewModel = userViewModel,
+                    cartViewModel = cartViewModel,
+                    onNavigate = { navigate(it) })
+            }
+        }
+
+        composable(AppRoute.CoachesProfiles.ROUTE) { backStackEntry ->
+            val id = backStackEntry.arguments?.getString("id")?.toIntOrNull() ?: -1
+            val coach = coachesViewModel.coaches.value.find { it.id == id }
+            if (coach != null) {
+                LayoutView(
+                    content = {
+                        CoachesProfilesView(coach = coach)
                     },
                     userViewModel = userViewModel,
                     cartViewModel = cartViewModel,

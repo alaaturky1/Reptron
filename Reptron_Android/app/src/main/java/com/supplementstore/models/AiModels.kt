@@ -1,47 +1,36 @@
 package com.supplementstore.models
 
-import com.google.gson.annotations.SerializedName
+data class ExerciseResponse(
+    val status: String,
+    val exercise: String,
+    val angle: Double,
+    val reps_count: Int,
+    val hold_timer: Int?,
+    val feedback: String
+)
 
 data class StartSessionRequest(
-    val language: String = "en",
-    val level: String = "beginner"
+    val language: String,
+    val level: String
+)
+
+data class FrameData(
+    val exercise: String,
+    val angles: Map<String, Float>,
+    val timestamp: Long,
+    val frameId: Int,
+    val imageB64: String
+)
+
+data class AnalyzeFrameRequest(
+    val sessionId: String,
+    val frame: FrameData
+)
+
+data class EndSessionRequest(
+    val sessionId: String
 )
 
 data class StartSessionResponse(
-    @SerializedName("session_id") val sessionIdSnake: String? = null,
-    @SerializedName("sessionId") val sessionIdCamel: String? = null,
-    val id: String? = null,
-    @SerializedName("ws_url") val wsUrl: String? = null
-) {
-    val resolvedSessionId: String?
-        get() = sessionIdSnake ?: sessionIdCamel ?: id
-}
-
-data class AnalyzeFrameRequest(
-    @SerializedName("session_id") val sessionId: String,
-    val frame: AnalyzeFramePayload
+    val sessionId: String
 )
-
-data class AnalyzeFramePayload(
-    val exercise: String,
-    val timestamp: Double,
-    @SerializedName("image_b64") val imageB64: String
-)
-
-data class ExerciseResponse(
-    @SerializedName("rep_count") val repCount: Int? = null,
-    @SerializedName("repCount") val repCountCamel: Int? = null,
-    val reps: Int? = null,
-    val feedback: String? = null,
-    val issues: List<String>? = null,
-    val paused: Boolean? = null
-) {
-    val normalizedReps: Int
-        get() = repCount ?: repCountCamel ?: reps ?: 0
-
-    val normalizedFeedback: String
-        get() = feedback?.takeIf { it.isNotBlank() } ?: "Analyzing..."
-
-    val normalizedStatus: String
-        get() = if (paused == true) "paused" else "ok"
-}
