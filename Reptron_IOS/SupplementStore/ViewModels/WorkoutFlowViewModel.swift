@@ -23,7 +23,10 @@ final class WorkoutFlowViewModel: ObservableObject {
         sessionStartError = nil
         hub.setActiveCoachSessionId(nil)
         do {
-            let sid = try await api.startCoachSession()
+            let sid = try await api.startCoachSession(
+                language: hub.selectedLanguage,
+                level: normalizedLevel(hub.selectedLevel)
+            )
             hub.setActiveCoachSessionId(sid)
         } catch {
             sessionStartError = error.localizedDescription
@@ -37,7 +40,7 @@ final class WorkoutFlowViewModel: ObservableObject {
         guard let sid = hub.activeCoachSessionId else { return }
         let reps = hub.repCount
         let mistakes = hub.detectedErrors
-        let score = max(0, min(100, 100 - mistakes.count * 10))
+        let score = currentScore(mistakes: mistakes)
         try? await api.endCoachSession(sessionId: sid, reps: reps, score: score, mistakes: mistakes)
         hub.setActiveCoachSessionId(nil)
     }
@@ -49,23 +52,34 @@ final class WorkoutFlowViewModel: ObservableObject {
         liveSessionFinished = true
         defer { isFinishing = false }
 
-        let reps = hub.repCount
-        let mistakes = hub.detectedErrors
-        let score = max(0, min(100, 100 - mistakes.count * 10))
+        var reps = hub.repCount
+        var mistakes = hub.detectedErrors
+        var score = currentScore(mistakes: mistakes)
+        var durationSeconds: Double = 0
         let serverSid = hub.activeCoachSessionId
         let exercise = hub.selectedExercise
 
-        let feedbackText: String
+        let fallbackFeedback = hub.lastFeedback ?? defaultFeedback(exercise: exercise, reps: reps, score: score, durationSeconds: durationSeconds)
+        var feedbackText = fallbackFeedback
         if let sid = serverSid {
             do {
-                let fb = try await api.endCoachSession(sessionId: sid, reps: reps, score: score, mistakes: mistakes)
-                let t = fb?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-                feedbackText = t.isEmpty ? defaultFeedback(reps: reps, score: score) : t
+                if let summary = try await api.endCoachSession(sessionId: sid, reps: reps, score: score, mistakes: mistakes) {
+                    if let serverReps = summary.reps { reps = serverReps }
+                    if let serverScore = summary.resolvedScore { score = serverScore }
+                    let serverMistakes = summary.resolvedMistakes
+                    if !serverMistakes.isEmpty { mistakes = serverMistakes }
+                    durationSeconds = summary.resolvedDurationSeconds
+                    let fallback = hub.lastFeedback ?? defaultFeedback(
+                        exercise: exercise,
+                        reps: reps,
+                        score: score,
+                        durationSeconds: durationSeconds
+                    )
+                    feedbackText = summary.resolvedFeedback(fallback: fallback)
+                }
             } catch {
-                feedbackText = defaultFeedback(reps: reps, score: score)
+                feedbackText = fallbackFeedback
             }
-        } else {
-            feedbackText = defaultFeedback(reps: reps, score: score)
         }
 
         let record = WorkoutSessionRecord(
@@ -76,7 +90,8 @@ final class WorkoutFlowViewModel: ObservableObject {
             reps: reps,
             score: score,
             mistakes: mistakes,
-            feedback: feedbackText
+            feedback: feedbackText,
+            durationSeconds: durationSeconds
         )
 
         history.add(record)
@@ -86,7 +101,20 @@ final class WorkoutFlowViewModel: ObservableObject {
         return summary
     }
 
-    private func defaultFeedback(reps: Int, score: Int) -> String {
-        "Session complete: \(reps) reps, score \(score). Focus on steady tempo and full range of motion."
+    private func currentScore(mistakes: [String]) -> Int {
+        if hub.score > 0 { return hub.score }
+        return max(0, min(100, 100 - mistakes.count * 10))
+    }
+
+    private func normalizedLevel(_ level: String) -> String {
+        level == "professional" ? "advanced" : level
+    }
+
+    private func defaultFeedback(exercise: String, reps: Int, score: Int, durationSeconds: Double) -> String {
+        if exercise == "plank" {
+            let seconds = Int(durationSeconds.rounded())
+            return "Session complete: \(seconds)s hold, score \(score). Keep your core braced and your body in one line."
+        }
+        return "Session complete: \(reps) reps, score \(score). Focus on steady tempo and full range of motion."
     }
 }

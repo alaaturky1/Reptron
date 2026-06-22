@@ -12,6 +12,7 @@ final class WorkoutAnalysisSampleBufferSink: NSObject, AVCaptureVideoDataOutputS
     private let stateLock = NSLock()
     private var lastEmit = CFAbsoluteTimeGetCurrent()
     private var inFlight = false
+    private var frameCounter = 0
     private let throttleSeconds: CFAbsoluteTime = 1.15
 
     private override init() {
@@ -33,6 +34,8 @@ final class WorkoutAnalysisSampleBufferSink: NSObject, AVCaptureVideoDataOutputS
         }
         inFlight = true
         lastEmit = CFAbsoluteTimeGetCurrent()
+        frameCounter += 1
+        let frameId = frameCounter
         stateLock.unlock()
 
         let b64 = jpeg.base64EncodedString()
@@ -53,7 +56,8 @@ final class WorkoutAnalysisSampleBufferSink: NSObject, AVCaptureVideoDataOutputS
                 let res = try await AIFitnessAPIService.shared.analyzeFrame(
                     sessionId: sessionId,
                     frameBase64: b64,
-                    exercise: exercise
+                    exercise: exercise,
+                    frameId: frameId
                 )
                 await MainActor.run {
                     WorkoutAnalysisHub.shared.applyAnalyzeResponse(res)

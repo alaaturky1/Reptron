@@ -33,7 +33,7 @@ struct WorkoutHistoryListView: View {
                                 .font(.subheadline.weight(.semibold))
                                 .foregroundStyle(.white)
                             HStack {
-                                Text("\(session.reps) reps")
+                                Text(primaryMetric(session))
                                     .foregroundStyle(.white)
                                 Spacer()
                                 Text("Score \(session.score)")
@@ -54,6 +54,23 @@ struct WorkoutHistoryListView: View {
         .refreshable {
             await workoutHistory.mergeFromServer()
         }
+    }
+
+    private func primaryMetric(_ session: WorkoutSessionRecord) -> String {
+        if session.exercise == "plank" {
+            return "\(formatDuration(session.durationSeconds)) hold"
+        }
+        return "\(session.reps) reps"
+    }
+
+    private func formatDuration(_ seconds: Double) -> String {
+        let rounded = max(0, Int(seconds.rounded()))
+        let minutes = rounded / 60
+        let secs = rounded % 60
+        if minutes > 0 {
+            return "\(minutes)m \(secs)s"
+        }
+        return "\(secs)s"
     }
 }
 

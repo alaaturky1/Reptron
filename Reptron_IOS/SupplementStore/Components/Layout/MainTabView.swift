@@ -91,7 +91,7 @@ struct AICameraView: View {
                 .frame(maxWidth: .infinity, maxHeight: previewHeight)
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 
-                Text("Live preview · AI model integration placeholder")
+                Text("Live coach")
                     .foregroundColor(.gray)
                     .font(.footnote)
                     .multilineTextAlignment(.center)

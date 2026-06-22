@@ -89,7 +89,7 @@ private struct AIFitnessCoachHomeView: View {
     @ObservedObject private var hub = WorkoutAnalysisHub.shared
     private let exercises = ["squat", "pushup", "plank"]
     private let languages = ["en", "ar"]
-    private let levels = ["beginner", "intermediate", "professional"]
+    private let levels = ["beginner", "intermediate", "advanced"]
     
     var body: some View {
         ScrollView {
@@ -234,7 +234,7 @@ private struct AIFitnessCoachHomeView: View {
             if let last = workoutHistory.lastSession {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
-                        Label("\(last.reps) reps", systemImage: "repeat")
+                        Label(primaryHistoryMetric(last), systemImage: last.exercise == "plank" ? "timer" : "repeat")
                         Spacer()
                         Label("Score \(last.score)", systemImage: "star.fill")
                     }
@@ -260,6 +260,23 @@ private struct AIFitnessCoachHomeView: View {
                     .background(AppTheme.cardOverlay.opacity(0.55), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
             }
         }
+    }
+
+    private func primaryHistoryMetric(_ session: WorkoutSessionRecord) -> String {
+        if session.exercise == "plank" {
+            return "\(formatDuration(session.durationSeconds)) hold"
+        }
+        return "\(session.reps) reps"
+    }
+
+    private func formatDuration(_ seconds: Double) -> String {
+        let rounded = max(0, Int(seconds.rounded()))
+        let minutes = rounded / 60
+        let secs = rounded % 60
+        if minutes > 0 {
+            return "\(minutes)m \(secs)s"
+        }
+        return "\(secs)s"
     }
 }
 
@@ -309,32 +326,45 @@ struct WorkoutActiveSessionView: View {
     private var topHUD: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 10) {
-                repChip
-                stateChip
+                primaryMetricChip
+                scoreChip
                 exerciseChip
                 Spacer(minLength: 0)
             }
-            if !hub.detectedErrors.isEmpty {
+            HStack(spacing: 10) {
+                stateChip
+                priorityChip
+                Spacer(minLength: 0)
+            }
+            if let err = flow.sessionStartError {
+                messageBanner(title: "Session", message: err, color: .orange)
+            } else if !hub.detectedErrors.isEmpty {
                 errorBanner
             } else if let err = hub.lastAnalyzeError {
-                Text(err)
-                    .font(.caption2)
-                    .foregroundStyle(.orange.opacity(0.95))
-                    .padding(8)
-                    .background(.black.opacity(0.45), in: RoundedRectangle(cornerRadius: 10))
+                messageBanner(title: "Connection", message: err, color: .orange)
+            } else if let feedback = hub.lastFeedback {
+                messageBanner(title: "Coach", message: feedback, color: hub.formLooksGood ? .green : .cyan)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    private var repChip: some View {
+    private var primaryMetricChip: some View {
         HStack(spacing: 6) {
-            Text("Reps")
+            Text(hub.selectedExercise == "plank" ? "Hold" : "Reps")
                 .font(.caption2.weight(.semibold))
                 .foregroundStyle(.white.opacity(0.85))
-            Text("\(hub.repCount)")
-                .font(.caption.bold())
-                .foregroundStyle(.white)
+            if hub.selectedExercise == "plank" {
+                TimelineView(.periodic(from: .now, by: 1)) { timeline in
+                    Text(hub.isPaused ? "Paused" : liveDuration(at: timeline.date))
+                        .font(.caption.bold())
+                        .foregroundStyle(.white)
+                }
+            } else {
+                Text("\(hub.repCount)")
+                    .font(.caption.bold())
+                    .foregroundStyle(.white)
+            }
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 6)
@@ -342,12 +372,41 @@ struct WorkoutActiveSessionView: View {
         .overlay(Capsule().stroke(hub.formLooksGood ? Color.green.opacity(0.55) : Color.orange.opacity(0.65), lineWidth: 1))
     }
 
+    private var scoreChip: some View {
+        HStack(spacing: 6) {
+            Text("Score")
+                .font(.caption2.weight(.semibold))
+                .foregroundStyle(.white.opacity(0.85))
+            Text("\(hub.score)")
+                .font(.caption.bold())
+                .foregroundStyle(.white)
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 6)
+        .background(.black.opacity(0.5), in: Capsule())
+    }
+
     private var stateChip: some View {
         HStack(spacing: 6) {
             Text("State")
                 .font(.caption2.weight(.semibold))
                 .foregroundStyle(.white.opacity(0.85))
-            Text(hub.movementState)
+            Text(hub.isPaused ? "paused" : hub.movementState)
+                .font(.caption.bold())
+                .foregroundStyle(.white)
+                .lineLimit(1)
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 6)
+        .background(.black.opacity(0.5), in: Capsule())
+    }
+
+    private var priorityChip: some View {
+        HStack(spacing: 6) {
+            Text(hub.shouldSpeak ? "Voice" : "Cue")
+                .font(.caption2.weight(.semibold))
+                .foregroundStyle(.white.opacity(0.85))
+            Text(hub.feedbackPriority.capitalized)
                 .font(.caption.bold())
                 .foregroundStyle(.white)
                 .lineLimit(1)
@@ -377,11 +436,55 @@ struct WorkoutActiveSessionView: View {
             Text("Form cues")
                 .font(.caption2.weight(.bold))
                 .foregroundStyle(.orange)
-            ForEach(hub.detectedErrors, id: \.self) { e in
-                Text("• \(e)")
-                    .font(.caption2)
+            if let feedback = hub.lastFeedback {
+                Text(feedback)
+                    .font(.caption2.weight(.semibold))
                     .foregroundStyle(.white)
+                    .fixedSize(horizontal: false, vertical: true)
             }
+            ForEach(hub.detectedErrors, id: \.self) { e in
+                Text("• \(humanizedIssue(e))")
+                    .font(.caption2)
+                    .foregroundStyle(.white.opacity(0.82))
+            }
+        }
+        .padding(10)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(.black.opacity(0.55), in: RoundedRectangle(cornerRadius: 12))
+    }
+
+    private func liveDuration(at now: Date) -> String {
+        guard let started = hub.sessionStartedAt else { return "0s" }
+        return formatDuration(now.timeIntervalSince(started))
+    }
+
+    private func formatDuration(_ seconds: Double) -> String {
+        let rounded = max(0, Int(seconds.rounded()))
+        let minutes = rounded / 60
+        let secs = rounded % 60
+        if minutes > 0 {
+            return "\(minutes)m \(secs)s"
+        }
+        return "\(secs)s"
+    }
+
+    private func humanizedIssue(_ issue: String) -> String {
+        issue
+            .replacingOccurrences(of: "_", with: " ")
+            .split(separator: " ")
+            .map { $0.capitalized }
+            .joined(separator: " ")
+    }
+
+    private func messageBanner(title: String, message: String, color: Color) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(title)
+                .font(.caption2.weight(.bold))
+                .foregroundStyle(color)
+            Text(message)
+                .font(.caption2)
+                .foregroundStyle(.white)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .padding(10)
         .frame(maxWidth: .infinity, alignment: .leading)

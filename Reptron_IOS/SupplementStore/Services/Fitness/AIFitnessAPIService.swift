@@ -24,7 +24,17 @@ enum AIFitnessAPIError: LocalizedError {
 /// Typed facade over the FitnessCoach backend (`APIEndpoints.AI`).
 final class AIFitnessAPIService {
     static let shared = AIFitnessAPIService()
-    private static let apiKey: String? = "test-key"
+    private static var apiKey: String? {
+        if let stored = UserDefaults.standard.string(forKey: "fitnessCoachAPIKey"),
+           !stored.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return stored
+        }
+        if let bundled = Bundle.main.object(forInfoDictionaryKey: "FITCOACH_API_KEY") as? String,
+           !bundled.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return bundled
+        }
+        return "test-key"
+    }
 
     private let session: URLSession
     private let decoder: JSONDecoder
@@ -83,13 +93,23 @@ final class AIFitnessAPIService {
         return sid
     }
 
-    func analyzeFrame(sessionId: String, frameBase64: String, exercise: String = "squat") async throws -> WorkoutAnalyzeResponse {
+    func analyzeFrame(
+        sessionId: String,
+        frameBase64: String,
+        exercise: String = "squat",
+        frameId: Int? = nil,
+        joints: [FitnessCoachJointPayload]? = nil,
+        angles: [String: Double]? = nil
+    ) async throws -> WorkoutAnalyzeResponse {
         let payload = FitnessCoachAnalyzeFrameRequest(
             session_id: sessionId,
             frame: FitnessCoachFramePayload(
                 exercise: exercise,
                 timestamp: Date().timeIntervalSince1970,
-                image_b64: frameBase64
+                frame_id: frameId,
+                image_b64: frameBase64,
+                joints: joints,
+                angles: angles
             )
         )
         let data = try encoder.encode(payload)
@@ -106,8 +126,8 @@ final class AIFitnessAPIService {
         }
     }
 
-    /// Ends the coach session on the server. Returns optional coaching text when the API includes it.
-    func endCoachSession(sessionId: String, reps: Int, score: Int, mistakes: [String]) async throws -> String? {
+    /// Ends the coach session on the server and returns the backend summary when available.
+    func endCoachSession(sessionId: String, reps: Int, score: Int, mistakes: [String]) async throws -> FitnessCoachSessionSummaryDTO? {
         let payload = FitnessCoachEndSessionRequest(session_id: sessionId)
         let data = try encoder.encode(payload)
         let respData = try await executeWithFallback(
@@ -116,8 +136,24 @@ final class AIFitnessAPIService {
             body: data
         )
         guard !respData.isEmpty else { return nil }
+        if let parsed = try? decoder.decode(FitnessCoachSessionSummaryDTO.self, from: respData) {
+            return parsed
+        }
         if let parsed = try? decoder.decode(FitnessCoachEndSessionResponse.self, from: respData) {
-            return parsed.resolvedFeedback
+            return FitnessCoachSessionSummaryDTO(
+                session_id: sessionId,
+                exercise: nil,
+                reps: nil,
+                avg_rep_score: nil,
+                best_rep_score: nil,
+                worst_rep_score: nil,
+                most_frequent_mistake: nil,
+                active_time_s: nil,
+                idle_time_s: nil,
+                rep_summaries: nil,
+                issues_tally: nil,
+                feedback: parsed.resolvedFeedback
+            )
         }
         return nil
     }

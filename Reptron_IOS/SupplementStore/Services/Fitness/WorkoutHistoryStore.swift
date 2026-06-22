@@ -70,15 +70,10 @@ final class WorkoutHistoryStore: ObservableObject {
                 let dto = try await api.fetchSessionSummary(sessionId: sid)
                 if let ex = dto.exercise, !ex.isEmpty { record.exercise = ex }
                 if let r = dto.reps { record.reps = r }
-                if let s = dto.avg_rep_score { record.score = Int(s.rounded()) }
-                if let tally = dto.issues_tally {
-                    let topMistakes = tally
-                        .filter { $0.key != "visibility_low" && $0.key != "unknown_exercise" }
-                        .sorted { $0.value > $1.value }
-                        .prefix(3)
-                        .map(\.key)
-                    if !topMistakes.isEmpty { record.mistakes = topMistakes }
-                }
+                if let s = dto.resolvedScore { record.score = s }
+                record.durationSeconds = dto.resolvedDurationSeconds
+                let topMistakes = dto.resolvedMistakes
+                if !topMistakes.isEmpty { record.mistakes = topMistakes }
                 if let fb = dto.feedback, !fb.isEmpty { record.feedback = fb }
                 map[record.id] = record
             } catch {

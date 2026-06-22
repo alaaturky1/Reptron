@@ -17,7 +17,11 @@ struct WorkoutResultView: View {
                     .foregroundStyle(.white)
 
                 VStack(alignment: .leading, spacing: 12) {
-                    statRow(title: "Total reps", value: "\(summary.totalReps)", icon: "repeat")
+                    statRow(
+                        title: summary.exercise == "plank" ? "Hold time" : "Total reps",
+                        value: summary.exercise == "plank" ? formatDuration(summary.durationSeconds) : "\(summary.totalReps)",
+                        icon: summary.exercise == "plank" ? "timer" : "repeat"
+                    )
                     statRow(title: "Score", value: "\(summary.score)", icon: "star.fill")
                 }
                 .padding(16)
@@ -77,6 +81,16 @@ struct WorkoutResultView: View {
                 .font(.title3.bold())
                 .foregroundStyle(.cyan)
         }
+    }
+
+    private func formatDuration(_ seconds: Double) -> String {
+        let rounded = max(0, Int(seconds.rounded()))
+        let minutes = rounded / 60
+        let secs = rounded % 60
+        if minutes > 0 {
+            return "\(minutes)m \(secs)s"
+        }
+        return "\(secs)s"
     }
 }
 
